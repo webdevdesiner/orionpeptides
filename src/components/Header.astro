@@ -1,19 +1,55 @@
 ---
 // src/components/Header.astro
+const currentPath = Astro.url.pathname;
+
+// Função para verificar se o link está ativo
+function isActive(href: string): boolean {
+    if (href === '/') {
+        return currentPath === '/';
+    }
+    return currentPath.startsWith(href);
+}
+
+// Função para obter a classe do link baseado no estado ativo
+function getLinkClass(href: string): string {
+    const baseClass = "text-sm font-medium transition-all duration-300 relative group";
+    if (isActive(href)) {
+        return `${baseClass} text-[#94723A]`;
+    }
+    return `${baseClass} text-gray-300 hover:text-white`;
+}
+
+// Função para obter a classe da linha de destaque
+function getUnderlineClass(href: string): string {
+    const baseClass = "absolute bottom-0 left-0 h-0.5 transition-all duration-300";
+    if (isActive(href)) {
+        return `${baseClass} w-full bg-[#94723A]`;
+    }
+    return `${baseClass} w-0 bg-blue-400 group-hover:w-full`;
+}
 ---
-<header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+<header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10 transition-all duration-300">
     <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="/" class="block">
-            <img src="/logo.png" alt="Orion Peptides" class="h-10 w-auto hover:opacity-80 transition-opacity">
+        <a href="/" class="block group">
+            <img src="/logo.png" alt="Orion Peptides" class="h-10 w-auto transition-all duration-300 group-hover:opacity-80 group-hover:scale-105">
         </a>
 
         <nav class="hidden md:flex gap-8">
-            <a href="/" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">HOME</a>
-            <a href="/calculadora" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">CALCULADORA</a>
-            <a href="/ciencia" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">CIÊNCIA & LAUDOS</a>
+            <a href="/" class={getLinkClass('/')}>
+                HOME
+                <span class={getUnderlineClass('/')}></span>
+            </a>
+            <a href="/calculadora" class={getLinkClass('/calculadora')}>
+                CALCULADORA
+                <span class={getUnderlineClass('/calculadora')}></span>
+            </a>
+            <a href="/ciencia" class={getLinkClass('/ciencia')}>
+                CIÊNCIA & LAUDOS
+                <span class={getUnderlineClass('/ciencia')}></span>
+            </a>
         </nav>
 
-        <a href="#" class="hidden md:block px-5 py-2 bg-white text-black text-sm font-bold rounded hover:bg-gray-200 transition-colors">
+        <a href="#" class="hidden md:block px-5 py-2 bg-white text-black text-sm font-bold rounded transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-lg">
             CONTATO
         </a>
     </div>
