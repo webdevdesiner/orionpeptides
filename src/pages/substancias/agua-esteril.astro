@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Accordion from '../../components/Accordion.astro';
+---
+
+<Layout title="Água Estéril | Guia Técnico | Orion Peptides">
+    <Header />
+    
+    <main class="container mx-auto px-4 py-12 md:py-16">
+        <!-- Topo - Resumo do Produto -->
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <!-- Coluna 1: Imagem do Frasco -->
+                <div class="flex items-center justify-center">
+                    <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl p-12 flex items-center justify-center">
+                        <div class="relative">
+                            <!-- Placeholder do Frasco -->
+                            <div class="w-48 h-64 mx-auto bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg border-2 border-white/20 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                </svg>
+                            </div>
+                            <!-- Rótulo -->
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-black/80 border border-white/20 rounded px-4 py-2">
+                                <p class="text-white font-bold text-sm">Água Estéril</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Informações -->
+                <div class="space-y-6">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+                            Água Estéril
+                        </h1>
+                        <p class="text-xl text-gray-400 font-medium mb-6">10 ml</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+                            <p class="text-sm text-gray-400 mb-1">Tipo</p>
+                            <p class="text-white font-semibold">Água Bacteriostática</p>
+                        </div>
+
+                        <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+                            <p class="text-sm text-gray-400 mb-1">Pureza Certificada</p>
+                            <p class="text-green-400 font-bold text-2xl">100% Estéril</p>
+                        </div>
+
+                        <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+                            <p class="text-sm text-gray-400 mb-1">Aplicação</p>
+                            <p class="text-white">Reconstituição de peptídeos para pesquisa</p>
+                        </div>
+                    </div>
+
+                    <a
+                        href="#"
+                        class="block w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all duration-300 text-center shadow-lg hover:shadow-xl active:scale-[0.98]"
+                    >
+                        Encontrar Fornecedor
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Área Técnica - Accordions -->
+        <section class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+                Informações Técnicas
+            </h2>
+
+            <div class="space-y-4">
+                <!-- Accordion 1: O que é Água Estéril? -->
+                <Accordion title="O que é Água Estéril?">
+                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
+                        <p class="text-yellow-500 font-bold">[[ TODO: INSERIR CONTEÚDO TÉCNICO AQUI ]]</p>
+                    </div>
+                </Accordion>
+
+                <!-- Accordion 2: Mecanismo de Ação -->
+                <Accordion title="Mecanismo de Ação (Ciência)">
+                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
+                        <p class="text-yellow-500 font-bold">[[ TODO: INSERIR CONTEÚDO TÉCNICO AQUI ]]</p>
+                    </div>
+                </Accordion>
+
+                <!-- Accordion 3: Protocolo de Reconstituição -->
+                <Accordion title="Protocolo de Reconstituição">
+                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
+                        <p class="text-yellow-500 font-bold">[[ TODO: INSERIR CONTEÚDO TÉCNICO AQUI ]]</p>
+
+                        <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mt-4">
+                            <p class="text-sm text-blue-300 mb-3">
+                                <strong>💡 Dica:</strong> Use nossa calculadora de reconstituição para determinar as concentrações precisas para seus protocolos de pesquisa.
+                            </p>
+                            <a
+                                href="/calculadora"
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/50 text-blue-300 rounded-lg transition-colors text-sm font-semibold"
+                            >
+                                Acessar Calculadora
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </Accordion>
+
+                <!-- Accordion 4: Laudo Técnico -->
+                <Accordion title="Laudo Técnico (HPLC)">
+                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
+                        <p class="text-yellow-500 font-bold">[[ TODO: INSERIR CONTEÚDO TÉCNICO AQUI ]]</p>
+
+                        <a
+                            href="#"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all duration-300 mt-4"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Baixar Laudo Original (PDF)
+                        </a>
+                    </div>
+                </Accordion>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2026 <span class="text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+</Layout>
+

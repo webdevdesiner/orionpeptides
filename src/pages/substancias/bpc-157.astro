@@ -1,0 +1,281 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Accordion from '../../components/Accordion.astro';
+---
+
+<Layout title="BPC-157 | Guia Técnico | Orion Peptides">
+    <Header />
+    
+    <main class="container mx-auto px-4 py-12 md:py-16">
+        <!-- Topo - Resumo do Produto -->
+        <section class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <!-- Coluna 1: Imagem do Frasco -->
+                <div class="flex items-center justify-center">
+                    <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl p-12 flex items-center justify-center">
+                        <div class="relative">
+                            <!-- Placeholder do Frasco -->
+                            <div class="w-48 h-64 mx-auto bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg border-2 border-white/20 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                </svg>
+                            </div>
+                            <!-- Rótulo -->
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-black/80 border border-white/20 rounded px-4 py-2">
+                                <p class="text-white font-bold text-sm">BPC-157</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna 2: Informações -->
+                <div class="space-y-6">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+                            BPC-157
+                        </h1>
+                        <p class="text-xl text-gray-400 font-medium mb-6">Compound 157</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+                            <p class="text-sm text-gray-400 mb-1">Tipo</p>
+                            <p class="text-white font-semibold">Pentadecapeptídeo Sintético</p>
+                        </div>
+
+                        <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+                            <p class="text-sm text-gray-400 mb-1">Pureza Certificada</p>
+                            <p class="text-green-400 font-bold text-2xl">>99% (HPLC)</p>
+                        </div>
+
+                        <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+                            <p class="text-sm text-gray-400 mb-1">Aplicação</p>
+                            <p class="text-white">Pesquisa em regeneração tecidual e propriedades protetoras</p>
+                        </div>
+                    </div>
+
+                    <a
+                        href="#"
+                        class="block w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all duration-300 text-center shadow-lg hover:shadow-xl active:scale-[0.98]"
+                    >
+                        Encontrar Fornecedor
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Área Técnica - Accordions -->
+        <section class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+                Informações Técnicas
+            </h2>
+
+            <div class="space-y-4">
+                <!-- Accordion 1: O que é BPC-157? -->
+                <Accordion title="O que é BPC-157?">
+                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
+                        <p>
+                            O <strong class="text-white">BPC-157 (Body Protection Compound-157)</strong> é um pentadecapeptídeo sintético composto por 15 aminoácidos, derivado de uma proteína gástrica natural. Este composto tem sido extensivamente estudado em modelos de pesquisa por suas propriedades regenerativas e protetoras.
+                        </p>
+                        <p>
+                            Desenvolvido para pesquisa científica, o BPC-157 demonstra potencial em estudos relacionados à cicatrização de tecidos, proteção gástrica e regeneração de diversos tipos de células. Sua estrutura molecular única permite interações específicas com sistemas biológicos, tornando-o um composto de interesse significativo para pesquisadores.
+                        </p>
+                        <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mt-4">
+                            <p class="text-sm text-blue-300">
+                                <strong>Nota:</strong> Este composto é destinado exclusivamente para fins de pesquisa científica e não deve ser utilizado para consumo humano ou veterinário sem aprovação regulatória adequada.
+                            </p>
+                        </div>
+                    </div>
+                </Accordion>
+
+                <!-- Accordion 2: Mecanismo de Ação -->
+                <Accordion title="Mecanismo de Ação (Ciência)">
+                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
+                        <p>
+                            O mecanismo de ação do BPC-157 envolve múltiplos sistemas biológicos, demonstrando uma atividade pleiotrópica em modelos de pesquisa:
+                        </p>
+                        
+                        <ul class="space-y-3 list-none">
+                            <li class="flex items-start gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <div>
+                                    <strong class="text-white">Angiogênese:</strong> Estudos sugerem que o BPC-157 pode promover a formação de novos vasos sanguíneos, facilitando o fornecimento de nutrientes e oxigênio para áreas danificadas.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <div>
+                                    <strong class="text-white">Síntese de Colágeno:</strong> Evidências indicam aumento na produção de colágeno tipo I, essencial para a integridade estrutural dos tecidos.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <div>
+                                    <strong class="text-white">Modulação de Citocinas:</strong> Interação com fatores de crescimento e citocinas envolvidas em processos inflamatórios e regenerativos.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <div>
+                                    <strong class="text-white">Proteção Gástrica:</strong> Atividade protetora em modelos de lesão gástrica, possivelmente através da modulação de fatores de proteção da mucosa.
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="bg-gray-800/50 rounded-lg p-4 mt-4">
+                            <p class="text-sm text-gray-400">
+                                <strong class="text-white">Referência:</strong> Os mecanismos descritos são baseados em estudos pré-clínicos e modelos de pesquisa. Mais investigações são necessárias para compreensão completa dos processos envolvidos.
+                            </p>
+                        </div>
+                    </div>
+                </Accordion>
+
+                <!-- Accordion 3: Protocolo de Reconstituição -->
+                <Accordion title="Protocolo de Reconstituição">
+                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
+                        <p>
+                            A reconstituição adequada do BPC-157 é essencial para garantir a estabilidade e eficácia do composto em pesquisas. Siga o protocolo abaixo:
+                        </p>
+
+                        <div class="bg-gray-800/50 border border-white/10 rounded-lg p-6 space-y-4">
+                            <h4 class="text-white font-semibold text-lg mb-4">Passo a Passo:</h4>
+                            
+                            <div class="space-y-3">
+                                <div class="flex gap-3">
+                                    <span class="flex-shrink-0 w-8 h-8 bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center font-bold text-sm">1</span>
+                                    <p class="text-gray-300">Remova o frasco da refrigeração e deixe atingir temperatura ambiente (aproximadamente 20-25°C).</p>
+                                </div>
+                                
+                                <div class="flex gap-3">
+                                    <span class="flex-shrink-0 w-8 h-8 bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                                    <p class="text-gray-300">Prepare água bacteriostática estéril (0.9% benzyl alcohol) na quantidade apropriada para sua pesquisa.</p>
+                                </div>
+                                
+                                <div class="flex gap-3">
+                                    <span class="flex-shrink-0 w-8 h-8 bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                                    <p class="text-gray-300">Adicione lentamente a água bacteriostática ao frasco, direcionando o fluxo pela parede interna para evitar agitação excessiva do pó.</p>
+                                </div>
+                                
+                                <div class="flex gap-3">
+                                    <span class="flex-shrink-0 w-8 h-8 bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center font-bold text-sm">4</span>
+                                    <p class="text-gray-300">Gire suavemente o frasco até que o pó esteja completamente dissolvido. <strong class="text-white">NÃO agite vigorosamente.</strong></p>
+                                </div>
+                                
+                                <div class="flex gap-3">
+                                    <span class="flex-shrink-0 w-8 h-8 bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center font-bold text-sm">5</span>
+                                    <p class="text-gray-300">Armazene a solução reconstituída em refrigeração (2-8°C) e utilize dentro do prazo recomendado para sua pesquisa.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mt-4">
+                            <p class="text-sm text-blue-300 mb-3">
+                                <strong>💡 Dica:</strong> Use nossa calculadora de reconstituição para determinar as concentrações precisas para seus protocolos de pesquisa.
+                            </p>
+                            <a
+                                href="/calculadora"
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/50 text-blue-300 rounded-lg transition-colors text-sm font-semibold"
+                            >
+                                Acessar Calculadora
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </Accordion>
+
+                <!-- Accordion 4: Laudo Técnico -->
+                <Accordion title="Laudo Técnico (HPLC)">
+                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
+                        <p>
+                            Todos os lotes de BPC-157 da Orion Peptides são submetidos a rigorosos testes de <strong class="text-white">Cromatografia Líquida de Alta Performance (HPLC)</strong> para garantir pureza superior a 99%.
+                        </p>
+
+                        <div class="bg-gradient-to-br from-green-500/20 to-blue-500/20 border border-green-500/30 rounded-lg p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Pureza Certificada</p>
+                                    <p class="text-3xl font-bold text-green-400">99.8%</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Lote</p>
+                                    <p class="text-lg font-semibold text-white">#OR-2026-015</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Data do Teste</p>
+                                    <p class="text-lg font-semibold text-white">15/01/2026</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Método</p>
+                                    <p class="text-lg font-semibold text-white">HPLC-UV</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>
+                            O laudo técnico completo contém:
+                        </p>
+                        <ul class="space-y-2 list-none">
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Análise de pureza por HPLC com detecção UV</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Identificação de impurezas e contaminantes</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Verificação de estrutura molecular</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Certificação de conformidade com padrões de pesquisa</span>
+                            </li>
+                        </ul>
+
+                        <a
+                            href="#"
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all duration-300 mt-4"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Baixar Laudo Original (PDF)
+                        </a>
+                    </div>
+                </Accordion>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2026 <span class="text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+</Layout>
+
