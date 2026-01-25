@@ -192,12 +192,17 @@ const laudos = [
                 <img 
                     src="/image/backgroundimage.png" 
                     alt="" 
-                    class="w-full h-full object-cover opacity-20"
+                    class="w-full h-full object-cover opacity-40"
                 />
+                <!-- Gradiente: mais claro nas extremidades, mais escuro no meio -->
+                <div 
+                    class="absolute inset-0"
+                    style="background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);"
+                ></div>
             </div>
             
             <!-- Overlay Escuro para Legibilidade do Texto (não cobre a imagem) -->
-            <div class="absolute inset-0 z-0 bg-black/40 pointer-events-none"></div>
+            <div class="absolute inset-0 z-0 pointer-events-none"></div>
             
             <!-- Conteúdo (Texto) -->
             <div class="container mx-auto px-4 relative z-10">
