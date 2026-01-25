@@ -10,7 +10,12 @@ const produtos = [
 		link: '/substancias/tirzepatide',
 		destaque: 'Ouro do momento',
 		cor: 'from-yellow-500/20 to-amber-500/20',
+		corGradiente: 'from-yellow-900/20 to-black',
 		borderCor: 'border-yellow-500/30',
+		borderHover: 'group-hover:border-yellow-500/50',
+		shadow: 'shadow-[0_0_15px_-3px_rgba(234,179,8,0.1)]',
+		shadowHover: 'group-hover:shadow-[0_0_20px_-5px_rgba(234,179,8,0.4)]',
+		textShadow: 'drop-shadow-[0_0_4px_rgba(250,204,21,0.5)]',
 		imagem: '/produtos/tirzepatide-vial.png'
 	},
 	{
@@ -19,7 +24,12 @@ const produtos = [
 		link: '/substancias/bpc-157',
 		destaque: 'Recuperação',
 		cor: 'from-blue-500/20 to-cyan-500/20',
+		corGradiente: 'from-blue-900/20 to-black',
 		borderCor: 'border-blue-500/30',
+		borderHover: 'group-hover:border-blue-500/50',
+		shadow: 'shadow-[0_0_15px_-3px_rgba(59,130,246,0.1)]',
+		shadowHover: 'group-hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)]',
+		textShadow: 'drop-shadow-[0_0_4px_rgba(96,165,250,0.5)]',
 		imagem: '/produtos/bpc157-vial.png'
 	},
 	{
@@ -28,7 +38,12 @@ const produtos = [
 		link: '/substancias/retatrutide',
 		destaque: 'Inovação',
 		cor: 'from-purple-500/20 to-pink-500/20',
+		corGradiente: 'from-purple-900/20 to-black',
 		borderCor: 'border-purple-500/30',
+		borderHover: 'group-hover:border-purple-500/50',
+		shadow: 'shadow-[0_0_15px_-3px_rgba(168,85,247,0.1)]',
+		shadowHover: 'group-hover:shadow-[0_0_20px_-5px_rgba(168,85,247,0.4)]',
+		textShadow: 'drop-shadow-[0_0_4px_rgba(192,132,252,0.5)]',
 		imagem: '/produtos/retatrutide-vial.png'
 	}
 ];
@@ -66,89 +81,90 @@ function getProductUrl(nome: string): string {
                 <source src="/video/plexus.mp4" type="video/mp4" />
             </video>
             
-            <!-- Overlay Escuro -->
-            <div class="absolute inset-0 bg-black/70"></div>
-            
-            <!-- Conteúdo Centralizado -->
+            <!-- Conteúdo Centralizado com Card Glass Clean -->
             <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight font-['Inter']">
-                    Redefinindo o <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">Potencial Humano</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-                    Peptídeos de precisão: Tirzepatide, Retatrutide e Protocolos de Longevidade.
-                </p>
-                
-                <!-- Botões CTA -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a
-                        href="/calculadora"
-                        class="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-[0.98] text-lg"
-                    >
-                        Calcular Protocolo
-                    </a>
-                    <a
-                        href="/ciencia"
-                        class="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-lg"
-                    >
-                        Ver Catálogo Completo
-                    </a>
+                <div class="backdrop-blur-sm bg-black/40 rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight font-['Inter']">
+                        Redefinindo o <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#a77c33] via-[#e4a231] to-[#e4a52f]">Potencial Humano</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-white max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow-lg">
+                        Peptídeos de precisão: Tirzepatide, Retatrutide e Protocolos de Longevidade.
+                    </p>
+                    
+                    <!-- Botões CTA -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <a
+                            href="/calculadora"
+                            class="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-[0.98] text-lg"
+                        >
+                            Calcular Protocolo
+                        </a>
+                        <a
+                            href="/ciencia"
+                            class="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-lg backdrop-blur-sm"
+                        >
+                            Ver Catálogo Completo
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Trust Bar (Barra de Confiança) -->
-        <section class="bg-black border-b border-white/10 py-8">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
+        <section class="relative bg-black border-b border-white/5 py-10 z-20 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/5 via-transparent to-blue-900/5 pointer-events-none"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
                     <!-- Pureza HPLC >99% -->
-                    <div class="flex items-center gap-3">
-                        <div class="bg-green-500/20 p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left group cursor-default">
+                        <div class="relative p-3 rounded-2xl bg-gradient-to-br from-green-900/20 to-black border border-green-500/20 group-hover:border-green-500/50 shadow-[0_0_15px_-3px_rgba(34,197,94,0.1)] group-hover:shadow-[0_0_20px_-5px_rgba(34,197,94,0.4)] transition-all duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400 drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <div>
-                            <p class="text-sm text-gray-400 uppercase tracking-wider">Pureza HPLC</p>
-                            <p class="text-lg font-bold text-white">>99%</p>
+                        <div class="flex flex-col justify-center">
+                            <p class="text-[10px] md:text-xs text-green-400/80 font-bold uppercase tracking-widest mb-1">Pureza HPLC</p>
+                            <p class="text-xl md:text-2xl font-bold text-white tracking-tight group-hover:text-green-100 transition-colors">>99%</p>
                         </div>
                     </div>
 
                     <!-- Tecnologia USA -->
-                    <div class="flex items-center gap-3">
-                        <div class="bg-blue-500/20 p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left group cursor-default">
+                        <div class="relative p-3 rounded-2xl bg-gradient-to-br from-blue-900/20 to-black border border-blue-500/20 group-hover:border-blue-500/50 shadow-[0_0_15px_-3px_rgba(59,130,246,0.1)] group-hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)] transition-all duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                             </svg>
                         </div>
-                        <div>
-                            <p class="text-sm text-gray-400 uppercase tracking-wider">Tecnologia</p>
-                            <p class="text-lg font-bold text-white">USA</p>
+                        <div class="flex flex-col justify-center">
+                            <p class="text-[10px] md:text-xs text-blue-400/80 font-bold uppercase tracking-widest mb-1">Tecnologia</p>
+                            <p class="text-xl md:text-2xl font-bold text-white tracking-tight group-hover:text-blue-100 transition-colors">USA</p>
                         </div>
                     </div>
 
                     <!-- Liofilização Estéril -->
-                    <div class="flex items-center gap-3">
-                        <div class="bg-purple-500/20 p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left group cursor-default">
+                        <div class="relative p-3 rounded-2xl bg-gradient-to-br from-purple-900/20 to-black border border-purple-500/20 group-hover:border-purple-500/50 shadow-[0_0_15px_-3px_rgba(168,85,247,0.1)] group-hover:shadow-[0_0_20px_-5px_rgba(168,85,247,0.4)] transition-all duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400 drop-shadow-[0_0_8px_rgba(192,132,252,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <div>
-                            <p class="text-sm text-gray-400 uppercase tracking-wider">Liofilização</p>
-                            <p class="text-lg font-bold text-white">Estéril</p>
+                        <div class="flex flex-col justify-center">
+                            <p class="text-[10px] md:text-xs text-purple-400/80 font-bold uppercase tracking-widest mb-1">Liofilização</p>
+                            <p class="text-xl md:text-2xl font-bold text-white tracking-tight group-hover:text-purple-100 transition-colors">Estéril</p>
                         </div>
                     </div>
 
                     <!-- Suporte Técnico -->
-                    <div class="flex items-center gap-3">
-                        <div class="bg-yellow-500/20 p-2 rounded-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left group cursor-default">
+                        <div class="relative p-3 rounded-2xl bg-gradient-to-br from-yellow-900/20 to-black border border-yellow-500/20 group-hover:border-yellow-500/50 shadow-[0_0_15px_-3px_rgba(234,179,8,0.1)] group-hover:shadow-[0_0_20px_-5px_rgba(234,179,8,0.4)] transition-all duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
                             </svg>
                         </div>
-                        <div>
-                            <p class="text-sm text-gray-400 uppercase tracking-wider">Suporte</p>
-                            <p class="text-lg font-bold text-white">Técnico</p>
+                        <div class="flex flex-col justify-center">
+                            <p class="text-[10px] md:text-xs text-yellow-400/80 font-bold uppercase tracking-widest mb-1">Suporte</p>
+                            <p class="text-xl md:text-2xl font-bold text-white tracking-tight group-hover:text-yellow-100 transition-colors">Técnico</p>
                         </div>
                     </div>
                 </div>
@@ -157,11 +173,11 @@ function getProductUrl(nome: string): string {
 
         <!-- Seção Pesquisa Avançada -->
         <section id="produtos" class="container mx-auto px-4 py-16 md:py-24 scroll-mt-20 animate-on-scroll">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+            <div class="text-center mb-12 group">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-gray-400 group-hover:from-blue-300 group-hover:via-blue-400 group-hover:to-blue-500 transition-all duration-500 drop-shadow-[0_0_20px_rgba(59,130,246,0.3)] group-hover:drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]">
                     Substâncias em Evidência
                 </h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto group-hover:text-gray-300 transition-colors duration-500">
                     Produtos de ponta para pesquisa avançada em longevidade e performance
                 </p>
             </div>
@@ -171,18 +187,25 @@ function getProductUrl(nome: string): string {
                 {produtos.map((produto, index) => (
                     <a
                         href={produto.link}
-                        class={`bg-gray-900 border ${produto.borderCor} rounded-xl p-6 pt-20 hover:border-opacity-60 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-2 group block relative overflow-visible animate-on-scroll`}
+                        class={`bg-gray-900 border ${produto.borderCor} rounded-xl p-6 pt-20 md:pt-24 hover:border-opacity-80 transition-all duration-500 hover:shadow-2xl ${index === 0 ? 'hover:shadow-yellow-500/20' : index === 1 ? 'hover:shadow-blue-500/20' : 'hover:shadow-purple-500/20'} hover:-translate-y-3 group block relative overflow-visible animate-on-scroll before:absolute before:inset-0 before:rounded-xl before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 ${index === 0 ? 'before:bg-gradient-to-b from-yellow-500/5 via-transparent to-transparent' : index === 1 ? 'before:bg-gradient-to-b from-blue-500/5 via-transparent to-transparent' : 'before:bg-gradient-to-b from-purple-500/5 via-transparent to-transparent'} before:pointer-events-none`}
                         style={`animation-delay: ${index * 0.1}s;`}
                     >
+                        <!-- Imagem do Produto (Glass) -->
+                        <img
+                            src="/image/glass.png"
+                            alt={produto.nome}
+                            class="absolute -top-8 md:-top-12 left-4 bottom-0 h-[280px] w-auto md:h-[320px] z-[5] object-contain"
+                        />
+
                         <!-- Badge de Destaque -->
-                        <div class={`absolute top-4 right-4 bg-gradient-to-r ${produto.cor} border ${produto.borderCor} px-3 py-1 rounded-full z-20`}>
-                            <span class="text-xs font-bold text-white uppercase tracking-wider">
+                        <div class={`absolute top-4 right-4 p-3 rounded-2xl bg-gradient-to-br ${produto.corGradiente} border ${produto.borderCor.replace('/30', '/20')} ${produto.borderHover} ${produto.shadow} ${produto.shadowHover} transition-all duration-500 z-30`}>
+                            <span class={`text-xs font-bold text-white uppercase tracking-widest ${produto.textShadow}`}>
                                 {produto.destaque}
                             </span>
                         </div>
 
                         <!-- Conteúdo do Card -->
-                        <div class="relative z-10">
+                        <div class="relative z-10 ml-28 md:ml-36 text-right">
                             <!-- Nome do Produto -->
                             <h3 class="text-3xl md:text-4xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors">
                                 {produto.nome}
@@ -193,7 +216,7 @@ function getProductUrl(nome: string): string {
                         </div>
 
                         <!-- Botão -->
-                        <div class="w-full py-3 px-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-blue-500/50 text-white font-semibold rounded-lg transition-all duration-300 text-center group/btn">
+                        <div class="relative z-20 w-full py-3 px-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-blue-500/50 text-white font-semibold rounded-lg transition-all duration-300 text-center group/btn mt-4">
                             <span class="flex items-center justify-center gap-2">
                                 Ver Detalhes
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
