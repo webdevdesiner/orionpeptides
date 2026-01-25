@@ -15,14 +15,28 @@ const { title, id = `accordion-${Math.random().toString(36).substr(2, 9)}` } = A
 		aria-controls={`${id}-content`}
 	>
 		<span class="text-white font-semibold text-lg">{title}</span>
-		<svg
-			class="accordion-icon h-5 w-5 text-gray-400 transition-transform duration-300 flex-shrink-0"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke="currentColor"
-		>
-			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-		</svg>
+		<div class="flex items-center gap-1 relative">
+			<!-- Ícone Seta para Cima (mostra quando aberto) -->
+			<svg
+				class="accordion-icon-up h-5 w-5 transition-opacity duration-300 flex-shrink-0 absolute"
+				style="color: #937039; opacity: 0;"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+			</svg>
+			<!-- Ícone Seta para Baixo (mostra quando fechado) -->
+			<svg
+				class="accordion-icon-down h-5 w-5 transition-opacity duration-300 flex-shrink-0"
+				style="color: #937039; opacity: 1;"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+			</svg>
+		</div>
 	</button>
 	
 	<div
@@ -44,20 +58,23 @@ const { title, id = `accordion-${Math.random().toString(36).substr(2, 9)}` } = A
 			button.addEventListener('click', () => {
 				const accordionId = button.getAttribute('data-accordion-id');
 				const content = document.querySelector(`[data-accordion-content="${accordionId}"]`);
-				const icon = button.querySelector('.accordion-icon');
+				const iconUp = button.querySelector('.accordion-icon-up');
+				const iconDown = button.querySelector('.accordion-icon-down');
 				const isExpanded = button.getAttribute('aria-expanded') === 'true';
 				
-				if (content && icon) {
+				if (content && iconUp && iconDown) {
 					if (isExpanded) {
-						// Fechar
+						// Fechar - mostra seta para baixo
 						content.style.maxHeight = '0';
-						icon.style.transform = 'rotate(0deg)';
+						iconUp.style.opacity = '0';
+						iconDown.style.opacity = '1';
 						button.setAttribute('aria-expanded', 'false');
 						button.classList.remove('bg-gray-800');
 					} else {
-						// Abrir
+						// Abrir - mostra seta para cima
 						content.style.maxHeight = content.scrollHeight + 'px';
-						icon.style.transform = 'rotate(180deg)';
+						iconUp.style.opacity = '1';
+						iconDown.style.opacity = '0';
 						button.setAttribute('aria-expanded', 'true');
 						button.classList.add('bg-gray-800');
 					}

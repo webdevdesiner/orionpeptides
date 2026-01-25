@@ -5,118 +5,133 @@ import Header from '../components/Header.astro';
 
 <Layout title="Calculadora de Reconstituição | Orion Peptides">
     <Header />
-    <main class="container mx-auto px-4 py-12">
-        <!-- Título com Gradiente -->
-        <div class="text-center mb-12">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-gray-400">
-                Calculadora de Reconstituição
-            </h1>
-            <p class="text-gray-400 text-lg">Ferramenta precisa para pesquisadores e protocolos científicos</p>
-        </div>
-
-        <!-- Card da Calculadora -->
-        <div class="bg-gray-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 max-w-3xl mx-auto shadow-2xl">
-            <form id="calculadoraForm" class="space-y-6">
-                <!-- Input: Tamanho do Frasco -->
-                <div>
-                    <label for="tamanhoFrasco" class="block text-sm font-medium text-gray-300 mb-2">
-                        Tamanho do Frasco (mg)
-                    </label>
-                    <input
-                        type="number"
-                        id="tamanhoFrasco"
-                        name="tamanhoFrasco"
-                        step="0.1"
-                        min="0"
-                        placeholder="Ex: 5"
-                        required
-                        class="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    />
-                </div>
-
-                <!-- Input: Quantidade de Água Bacteriostática -->
-                <div>
-                    <label for="quantidadeAgua" class="block text-sm font-medium text-gray-300 mb-2">
-                        Quantidade de Água Bacteriostática (ml)
-                    </label>
-                    <input
-                        type="number"
-                        id="quantidadeAgua"
-                        name="quantidadeAgua"
-                        step="0.1"
-                        min="0"
-                        placeholder="Ex: 2"
-                        required
-                        class="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    />
-                </div>
-
-                <!-- Input: Dose Desejada -->
-                <div>
-                    <label for="doseDesejada" class="block text-sm font-medium text-gray-300 mb-2">
-                        Dose Desejada (mcg)
-                    </label>
-                    <input
-                        type="number"
-                        id="doseDesejada"
-                        name="doseDesejada"
-                        step="0.1"
-                        min="0"
-                        placeholder="Ex: 250"
-                        required
-                        class="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    />
-                </div>
-
-                <!-- Botão Calcular -->
-                <button
-                    type="submit"
-                    class="w-full py-4 bg-white text-black font-bold text-lg rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-[0.98]"
-                >
-                    CALCULAR RECONSTITUIÇÃO
-                </button>
-            </form>
-
-            <!-- Área de Resultado (inicialmente oculta) -->
-            <div id="resultadoArea" class="hidden mt-8 pt-8 border-t border-white/10">
-                <div class="text-center space-y-4">
-                    <p class="text-gray-400 text-sm uppercase tracking-wider">Resultado</p>
-                    
-                    <!-- Resultado Principal: UI (Unidades) -->
-                    <div class="bg-gradient-to-r from-blue-500/20 to-blue-600/20 border border-blue-500/30 rounded-xl p-6">
-                        <p class="text-gray-300 text-sm mb-2">Unidades da Seringa de Insulina</p>
-                        <p id="resultadoUI" class="text-5xl md:text-6xl font-bold text-white mb-1">
-                            0
-                        </p>
-                        <p class="text-blue-400 text-sm font-medium">UI</p>
-                    </div>
-
-                    <!-- Informações Adicionais -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                        <div class="bg-black/30 border border-white/5 rounded-lg p-4">
-                            <p class="text-gray-400 text-xs mb-1">Concentração</p>
-                            <p id="resultadoConcentracao" class="text-white font-semibold text-lg">0 mcg/ml</p>
-                        </div>
-                        <div class="bg-black/30 border border-white/5 rounded-lg p-4">
-                            <p class="text-gray-400 text-xs mb-1">Volume da Dose</p>
-                            <p id="resultadoVolume" class="text-white font-semibold text-lg">0 ml</p>
-                        </div>
-                    </div>
-                </div>
+    <main class="min-h-[calc(100vh-10rem)] flex flex-col justify-center bg-black dark:bg-black py-4 md:py-6">
+        <div class="container mx-auto px-4">
+            <!-- Título com Efeito Neon -->
+            <div class="text-center mb-6 md:mb-8 group">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-gray-400 group-hover:from-blue-300 group-hover:via-blue-400 group-hover:to-blue-500 transition-all duration-500 drop-shadow-[0_0_20px_rgba(59,130,246,0.3)] group-hover:drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]">
+                    Calculadora de Reconstituição
+                </h1>
+                <p class="text-gray-400 dark:text-gray-400 text-sm md:text-base group-hover:text-gray-300 transition-colors duration-500">
+                    Ferramenta precisa para pesquisadores e protocolos científicos
+                </p>
             </div>
 
-            <!-- Call to Action: Água Bacteriostática -->
-            <div class="mt-8 pt-8 border-t border-white/10 text-center">
-                <a
-                    href="#"
-                    class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
-                >
-                    <span>Precisa de Água Bacteriostática?</span>
-                    <span class="font-semibold underline">Compre aqui</span>
-                </a>
+            <!-- Card da Calculadora com Efeitos Neon -->
+            <div class="bg-gray-900/50 dark:bg-gray-900/50 backdrop-blur-md border border-white/10 dark:border-white/10 rounded-2xl p-5 md:p-8 lg:p-10 max-w-3xl mx-auto shadow-2xl shadow-blue-500/10 dark:shadow-blue-500/10 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] dark:hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-500">
+                <form id="calculadoraForm" class="space-y-4 md:space-y-5">
+                    <!-- Input: Tamanho do Frasco -->
+                    <div>
+                        <label for="tamanhoFrasco" class="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
+                            Tamanho do Frasco (mg)
+                        </label>
+                        <input
+                            type="number"
+                            id="tamanhoFrasco"
+                            name="tamanhoFrasco"
+                            step="0.1"
+                            min="0"
+                            placeholder="Ex: 5"
+                            required
+                            class="w-full px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300"
+                        />
+                    </div>
+
+                    <!-- Input: Quantidade de Água Bacteriostática -->
+                    <div>
+                        <label for="quantidadeAgua" class="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
+                            Quantidade de Água Bacteriostática (ml)
+                        </label>
+                        <input
+                            type="number"
+                            id="quantidadeAgua"
+                            name="quantidadeAgua"
+                            step="0.1"
+                            min="0"
+                            placeholder="Ex: 2"
+                            required
+                            class="w-full px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300"
+                        />
+                    </div>
+
+                    <!-- Input: Dose Desejada -->
+                    <div>
+                        <label for="doseDesejada" class="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
+                            Dose Desejada (mcg)
+                        </label>
+                        <input
+                            type="number"
+                            id="doseDesejada"
+                            name="doseDesejada"
+                            step="0.1"
+                            min="0"
+                            placeholder="Ex: 250"
+                            required
+                            class="w-full px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300"
+                        />
+                    </div>
+
+                    <!-- Botão Calcular com Efeito Neon -->
+                    <button
+                        type="submit"
+                        class="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-600 dark:to-blue-500 text-white font-bold text-lg rounded-lg hover:from-blue-500 hover:to-blue-400 dark:hover:from-blue-500 dark:hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/30 dark:shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-blue-500/50 active:scale-[0.98] border border-blue-400/30 dark:border-blue-400/30 hover:border-blue-400/50 dark:hover:border-blue-400/50"
+                    >
+                        CALCULAR RECONSTITUIÇÃO
+                    </button>
+                </form>
+
+                <!-- Área de Resultado (inicialmente oculta) -->
+                <div id="resultadoArea" class="hidden mt-6 md:mt-8 pt-6 md:pt-8 border-t border-white/10 dark:border-white/10">
+                    <div class="text-center space-y-4">
+                        <p class="text-gray-400 dark:text-gray-400 text-sm uppercase tracking-wider">Resultado</p>
+                        
+                        <!-- Resultado Principal: UI (Unidades) com Efeito Neon -->
+                        <div class="bg-gradient-to-r from-blue-500/20 to-blue-600/20 dark:from-blue-500/20 dark:to-blue-600/20 border border-blue-500/30 dark:border-blue-500/30 rounded-xl p-6 shadow-[0_0_20px_rgba(59,130,246,0.2)] dark:shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                            <p class="text-gray-300 dark:text-gray-300 text-sm mb-2">Unidades da Seringa de Insulina</p>
+                            <p id="resultadoUI" class="text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white mb-1 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)] dark:drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                                0
+                            </p>
+                            <p class="text-blue-400 dark:text-blue-400 text-sm font-medium">UI</p>
+                        </div>
+
+                        <!-- Informações Adicionais com Efeitos Neon -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                            <div class="bg-black/30 dark:bg-black/30 border border-white/5 dark:border-white/5 rounded-lg p-4 hover:border-blue-500/30 dark:hover:border-blue-500/30 hover:shadow-[0_0_10px_rgba(59,130,246,0.2)] dark:hover:shadow-[0_0_10px_rgba(59,130,246,0.2)] transition-all duration-300">
+                                <p class="text-gray-400 dark:text-gray-400 text-xs mb-1">Concentração</p>
+                                <p id="resultadoConcentracao" class="text-white dark:text-white font-semibold text-lg">0 mcg/ml</p>
+                            </div>
+                            <div class="bg-black/30 dark:bg-black/30 border border-white/5 dark:border-white/5 rounded-lg p-4 hover:border-blue-500/30 dark:hover:border-blue-500/30 hover:shadow-[0_0_10px_rgba(59,130,246,0.2)] dark:hover:shadow-[0_0_10px_rgba(59,130,246,0.2)] transition-all duration-300">
+                                <p class="text-gray-400 dark:text-gray-400 text-xs mb-1">Volume da Dose</p>
+                                <p id="resultadoVolume" class="text-white dark:text-white font-semibold text-lg">0 ml</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action: Água Bacteriostática -->
+                <div class="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-white/10 dark:border-white/10 text-center">
+                    <a
+                        href="/substancias/agua-esteril"
+                        class="inline-flex items-center gap-2 text-gray-400 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors text-sm hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] dark:hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+                    >
+                        <span>Precisa de Água Bacteriostática?</span>
+                        <span class="font-semibold underline">Compre aqui</span>
+                    </a>
+                </div>
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-black dark:bg-black border-t border-white/10 dark:border-white/10 py-4 md:py-6">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400 dark:text-gray-400 text-sm">
+                    © 2026 <span class="text-white dark:text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
 </Layout>
 
 <script>
@@ -160,19 +175,22 @@ import Header from '../components/Header.astro';
         // Mostrar área de resultado
         resultadoArea.classList.remove('hidden');
         
-        // Scroll suave para o resultado
-        resultadoArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        // Scroll suave para o resultado (removido para não precisar rolar)
+        // resultadoArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 </script>
 
-    <!-- Footer -->
-    <footer class="bg-black border-t border-white/10 py-8">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <p class="text-gray-400 text-sm">
-                    © 2026 <span class="text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
-                </p>
-            </div>
-        </div>
-    </footer>
-</Layout>
+<style>
+    /* Suporte a tema do sistema */
+    @media (prefers-color-scheme: light) {
+        :root {
+            color-scheme: light dark;
+        }
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        :root {
+            color-scheme: dark;
+        }
+    }
+</style>
