@@ -20,7 +20,17 @@ function getProductUrl(nome: string): string {
 	return urlMap[nome] || '#';
 }
 
-// Lista Real de Produtos - Laudos de Controle de Qualidade
+// Função para determinar cor de glow baseado na categoria (usado quando não especificado)
+function getDefaultGlowColor(categoria: string): string {
+	const glowMap: { [key: string]: string } = {
+		'Peptídeo': 'shadow-blue-500/50',
+		'Blend': 'shadow-purple-500/50',
+		'Suprimento': 'shadow-gray-500/50'
+	};
+	return glowMap[categoria] || 'shadow-gray-500/50';
+}
+
+// Lista Real de Produtos - Acervo Científico
 const laudos = [
 	// Tirzepatide - Gold Standard
 	{
@@ -32,7 +42,9 @@ const laudos = [
 		descricao: 'Agonista dual GIP/GLP-1 de última geração para pesquisa metabólica',
 		categoria: 'Peptídeo',
 		destaque: 'Gold Standard',
-		highPurity: true
+		highPurity: true,
+		imagem: '/image/catalogo/tirzepatide.png',
+		corGlow: 'shadow-amber-500/50'
 	},
 	{
 		nome: 'Tirzepatide',
@@ -43,7 +55,9 @@ const laudos = [
 		descricao: 'Agonista dual GIP/GLP-1 de última geração para pesquisa metabólica',
 		categoria: 'Peptídeo',
 		destaque: 'Gold Standard',
-		highPurity: true
+		highPurity: true,
+		imagem: '/image/catalogo/tirzepatide.png',
+		corGlow: 'shadow-amber-500/50'
 	},
 	{
 		nome: 'Tirzepatide',
@@ -54,7 +68,9 @@ const laudos = [
 		descricao: 'Agonista dual GIP/GLP-1 de última geração para pesquisa metabólica',
 		categoria: 'Peptídeo',
 		destaque: 'Gold Standard',
-		highPurity: true
+		highPurity: true,
+		imagem: '/image/catalogo/tirzepatide.png',
+		corGlow: 'shadow-amber-500/50'
 	},
 	// Retatrutide - Lançamento
 	{
@@ -66,7 +82,9 @@ const laudos = [
 		descricao: 'Triplo agonista (GLP-1/GIP/Glucagon) para estudos avançados',
 		categoria: 'Peptídeo',
 		destaque: 'Lançamento',
-		highPurity: true
+		highPurity: true,
+		imagem: '/image/catalogo/retatrutide.png',
+		corGlow: 'shadow-amber-500/50'
 	},
 	{
 		nome: 'Retatrutide',
@@ -77,7 +95,9 @@ const laudos = [
 		descricao: 'Triplo agonista (GLP-1/GIP/Glucagon) para estudos avançados',
 		categoria: 'Peptídeo',
 		destaque: 'Lançamento',
-		highPurity: true
+		highPurity: true,
+		imagem: '/image/catalogo/retatrutide.png',
+		corGlow: 'shadow-amber-500/50'
 	},
 	// BPC-157
 	{
@@ -89,7 +109,9 @@ const laudos = [
 		descricao: 'Pentadecapeptídeo gástrico estável com propriedades regenerativas',
 		categoria: 'Peptídeo',
 		destaque: null,
-		highPurity: false
+		highPurity: false,
+		imagem: '/image/catalogo/bpc-157.png',
+		corGlow: 'shadow-emerald-500/50'
 	},
 	// TB-500
 	{
@@ -101,7 +123,9 @@ const laudos = [
 		descricao: 'Fragmento sintético da timosina beta-4 para recuperação tecidual',
 		categoria: 'Peptídeo',
 		destaque: null,
-		highPurity: false
+		highPurity: false,
+		imagem: '/image/catalogo/tb-500.png',
+		corGlow: 'shadow-emerald-500/50'
 	},
 	// Blend
 	{
@@ -113,7 +137,9 @@ const laudos = [
 		descricao: 'Blend sinérgico para pesquisa em crescimento e recuperação',
 		categoria: 'Blend',
 		destaque: null,
-		highPurity: false
+		highPurity: false,
+		imagem: '/image/catalogo/cjc-tb-500.png',
+		corGlow: 'shadow-red-500/50'
 	},
 	// NAD+
 	{
@@ -125,7 +151,9 @@ const laudos = [
 		descricao: 'Nicotinamida adenina dinucleotídeo para pesquisa em longevidade',
 		categoria: 'Suprimento',
 		destaque: null,
-		highPurity: false
+		highPurity: false,
+		imagem: '/image/catalogo/nad-plus.png',
+		corGlow: 'shadow-cyan-500/50'
 	},
 	// MOTS-C
 	{
@@ -137,7 +165,9 @@ const laudos = [
 		descricao: 'Peptídeo mitocondrial para pesquisa metabólica e longevidade',
 		categoria: 'Peptídeo',
 		destaque: null,
-		highPurity: false
+		highPurity: false,
+		imagem: '/image/catalogo/mots-c.png',
+		corGlow: 'shadow-cyan-500/50'
 	},
 	// GHK-Cu
 	{
@@ -149,7 +179,9 @@ const laudos = [
 		descricao: 'Complexo cobre-peptídeo para pesquisa em regeneração cutânea',
 		categoria: 'Peptídeo',
 		destaque: null,
-		highPurity: false
+		highPurity: false,
+		imagem: '/image/catalogo/ghk-cu.png',
+		corGlow: 'shadow-emerald-500/50'
 	},
 	// Tesamorelin
 	{
@@ -161,7 +193,9 @@ const laudos = [
 		descricao: 'Análogo do GHRH para pesquisa em hormônio de crescimento',
 		categoria: 'Peptídeo',
 		destaque: null,
-		highPurity: false
+		highPurity: false,
+		imagem: '/image/catalogo/tesamorelin.png',
+		corGlow: 'shadow-red-500/50'
 	},
 	// Água Estéril
 	{
@@ -173,45 +207,41 @@ const laudos = [
 		descricao: 'Água bacteriostática estéril para reconstituição de peptídeos',
 		categoria: 'Suprimento',
 		destaque: 'Essencial',
-		highPurity: false
+		highPurity: false,
+		imagem: '/image/catalogo/agua-esteril.png',
+		corGlow: 'shadow-blue-500/50'
 	}
 ];
 
 const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootrópicos', 'Ganho Muscular'];
 ---
 
-<Layout title="Catálogo | Orion Peptides">
+<Layout title="Acervo de Moléculas | Orion Peptides">
     <Header />
     
     <main class="bg-black">
         <!-- Hero Section -->
-        <section class="relative border-b border-white/10 bg-gradient-to-b from-black to-gray-900 py-16 md:py-20 overflow-hidden">
+        <section class="relative border-b border-white/10 bg-gradient-to-b from-black to-gray-900 py-16 md:py-20 overflow-x-hidden">
             <!-- Background Image/Media -->
-            
-            <!-- Imagem de Fundo -->
             <div class="absolute inset-0 z-0">
                 <img 
                     src="/image/backgroundimageCatalogo.png" 
                     alt="" 
-                    class="w-full h-full object-cover opacity-40"
+                    class="w-full h-full object-cover opacity-90"
                 />
-                <!-- Gradiente: mais claro nas extremidades, mais escuro no meio -->
                 <div 
                     class="absolute inset-0"
-                    style="background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);"
+                    style="background: linear-gradient(to left, rgba(11, 0, 31, 0.603) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%);"
                 ></div>
             </div>
             
-            <!-- Overlay Escuro para Legibilidade do Texto (não cobre a imagem) -->
-            <div class="absolute inset-0 z-0 pointer-events-none"></div>
-            
             <div class="container mx-auto px-4 relative z-10">
                 <div class="text-center max-w-4xl mx-auto">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-gray-400">
-                        Catálogo
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-gray-400 leading-tight pb-2" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        Acervo de Moléculas
                     </h1>
                     <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                        Explore nossa linha completa de peptídeos de alta pureza para pesquisa.
+                        Index de compostos de alta pureza para pesquisa.
                     </p>
                 </div>
             </div>
@@ -253,21 +283,12 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
 
         <!-- Grid de Laudos -->
         <section class="container mx-auto px-4 py-12 md:py-16">
-            <div class="mb-12 text-center group">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-gray-400 group-hover:from-blue-300 group-hover:via-blue-400 group-hover:to-blue-500 transition-all duration-500 drop-shadow-[0_0_20px_rgba(59,130,246,0.3)] group-hover:drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]">Laudos de Controle de Qualidade</h2>
-                <p class="text-gray-400 text-lg group-hover:text-gray-300 transition-colors duration-500">Documentação completa de cada lote produzido</p>
-            </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {laudos.map((laudo, index) => {
-                    // Determinar cor da badge de categoria
-                    const categoriaColors: { [key: string]: string } = {
-                        'Peptídeo': 'bg-blue-500/20 border-blue-500/30 text-blue-300',
-                        'Blend': 'bg-purple-500/20 border-purple-500/30 text-purple-300',
-                        'Suprimento': 'bg-gray-500/20 border-gray-500/30 text-gray-300'
-                    };
-                    const categoriaColor = categoriaColors[laudo.categoria] || categoriaColors['Peptídeo'];
-
+                    // Usar imagem e corGlow do laudo, ou valores padrão
+                    const imagem = laudo.imagem || '/image/catalogo/default.png';
+                    const corGlow = laudo.corGlow || getDefaultGlowColor(laudo.categoria);
+                    
                     // Determinar cor do destaque com os mesmos efeitos da página inicial
                     const destaqueStyles: { [key: string]: { corGradiente: string; borderCor: string; borderHover: string; shadow: string; shadowHover: string; textShadow: string } } = {
                         'Gold Standard': {
@@ -297,14 +318,39 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                     };
                     const destaqueStyle = laudo.destaque ? destaqueStyles[laudo.destaque] : null;
 
-                    // Determinar cor do hover baseado na categoria
-                    const hoverShadowColor = laudo.categoria === 'Peptídeo' ? 'hover:shadow-blue-500/20' : 
-                                           laudo.categoria === 'Blend' ? 'hover:shadow-purple-500/20' : 
-                                           'hover:shadow-gray-500/20';
+                    // Determinar cor do hover baseado na cor do glow
+                    const getGlowColor = (corGlow: string) => {
+                        if (corGlow.includes('amber')) return 'hover:shadow-amber-500/20';
+                        if (corGlow.includes('emerald')) return 'hover:shadow-emerald-500/20';
+                        if (corGlow.includes('red')) return 'hover:shadow-red-500/20';
+                        if (corGlow.includes('cyan')) return 'hover:shadow-cyan-500/20';
+                        if (corGlow.includes('blue')) return 'hover:shadow-blue-500/20';
+                        return 'hover:shadow-gray-500/20';
+                    };
+
+                    const hoverShadowColor = getGlowColor(corGlow);
                     
-                    const hoverGradientColor = laudo.categoria === 'Peptídeo' ? 'before:bg-gradient-to-b from-blue-500/5 via-transparent to-transparent' : 
-                                              laudo.categoria === 'Blend' ? 'before:bg-gradient-to-b from-purple-500/5 via-transparent to-transparent' : 
-                                              'before:bg-gradient-to-b from-gray-500/5 via-transparent to-transparent';
+                    // Determinar gradiente baseado na cor
+                    const getGradientColor = (corGlow: string) => {
+                        if (corGlow.includes('amber')) return 'before:bg-gradient-to-b from-amber-500/5 via-transparent to-transparent';
+                        if (corGlow.includes('emerald')) return 'before:bg-gradient-to-b from-emerald-500/5 via-transparent to-transparent';
+                        if (corGlow.includes('red')) return 'before:bg-gradient-to-b from-red-500/5 via-transparent to-transparent';
+                        if (corGlow.includes('cyan')) return 'before:bg-gradient-to-b from-cyan-500/5 via-transparent to-transparent';
+                        if (corGlow.includes('blue')) return 'before:bg-gradient-to-b from-blue-500/5 via-transparent to-transparent';
+                        return 'before:bg-gradient-to-b from-gray-500/5 via-transparent to-transparent';
+                    };
+
+                    const hoverGradientColor = getGradientColor(corGlow);
+
+                    // Determinar drop-shadow baseado na cor (retorna style inline)
+                    const getDropShadow = (corGlow: string) => {
+                        if (corGlow.includes('amber')) return '0 0 15px rgba(245,158,11,0.5)';
+                        if (corGlow.includes('emerald')) return '0 0 15px rgba(16,185,129,0.5)';
+                        if (corGlow.includes('red')) return '0 0 15px rgba(239,68,68,0.5)';
+                        if (corGlow.includes('cyan')) return '0 0 15px rgba(6,182,212,0.5)';
+                        if (corGlow.includes('blue')) return '0 0 15px rgba(59,130,246,0.5)';
+                        return '0 0 15px rgba(107,114,128,0.5)';
+                    };
 
                     return (
                         <div 
@@ -325,42 +371,51 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                                 </div>
                             )}
 
-                            <!-- Ícone e Header -->
-                            <div class="flex items-start justify-between mb-4">
-                                <div class="bg-blue-500/20 p-3 rounded-lg group-hover:bg-blue-500/30 transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
+                            <!-- Ícone Bio-Futurista -->
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-white/5 rounded-full blur-xl animate-pulse"></div>
+                                    <div class="relative bg-white/5 rounded-full p-4 group-hover:bg-white/10 transition-colors">
+                                        <img 
+                                            src={imagem} 
+                                            alt={laudo.nome}
+                                            class="w-16 h-16 object-contain animate-float"
+                                            style={`filter: drop-shadow(${getDropShadow(corGlow)});`}
+                                        />
+                                    </div>
                                 </div>
-                                <span class="text-xs text-gray-500 font-mono bg-black/30 px-2 py-1 rounded">
+                            </div>
+
+                            <!-- Lote -->
+                            <div class="text-center mb-4">
+                                <span class="text-xs text-gray-500 font-mono bg-black/30 px-3 py-1 rounded">
                                     {laudo.lote}
                                 </span>
                             </div>
 
-                            <!-- Badge de Categoria -->
-                            <div class="mb-3">
-                                <span class={`inline-block px-2 py-1 rounded text-xs font-semibold border ${categoriaColor}`}>
-                                    {laudo.categoria}
-                                </span>
-                            </div>
-
                             <!-- Nome do Produto e Variação -->
-                            <h3 class="text-xl font-bold mb-1 text-white group-hover:text-blue-400 transition-colors">
-                                {laudo.nome}
-                            </h3>
-                            {laudo.variacao && (
-                                <p class="text-sm text-gray-500 mb-2 font-medium">
-                                    {laudo.variacao}
-                                </p>
-                            )}
+                            <div class="text-center mb-3">
+                                <h3 class="text-xl font-bold mb-1 text-white group-hover:text-blue-400 transition-colors">
+                                    {laudo.nome}
+                                </h3>
+                                {laudo.variacao && (
+                                    <p class="text-sm text-gray-500 font-medium">
+                                        {laudo.variacao}
+                                    </p>
+                                )}
+                            </div>
                             
                             <!-- Descrição -->
-                            <p class="text-sm text-gray-400 mb-4 line-clamp-2">
+                            <p class="text-sm text-gray-400 mb-4 line-clamp-2 text-center">
                                 {laudo.descricao}
                             </p>
 
                             <!-- Pureza em Destaque -->
-                            <div class="mb-4 p-4 bg-gradient-to-br from-green-500/20 to-blue-500/20 border border-green-500/30 rounded-lg relative">
+                            <div class="mb-4 p-4 bg-gradient-to-br from-green-500/10 to-blue-500/10 border border-green-500/20 rounded-lg relative text-center">
+                                <p class="text-xs text-gray-400 mb-1 uppercase tracking-wider">Pureza Certificada</p>
+                                <p class="text-4xl font-bold text-green-400">
+                                    {laudo.pureza}%
+                                </p>
                                 {laudo.highPurity && (
                                     <div class="absolute top-2 right-2 flex items-center gap-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
@@ -369,30 +424,26 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                                         <span class="text-xs text-yellow-400 font-bold">>99.8%</span>
                                     </div>
                                 )}
-                                <p class="text-xs text-gray-400 mb-1 uppercase tracking-wider">Pureza Certificada</p>
-                                <p class="text-4xl font-bold text-green-400">
-                                    {laudo.pureza}%
-                                </p>
                             </div>
 
                             <!-- Data do Teste -->
-                            <div class="flex items-center gap-2 mb-4 text-sm text-gray-400">
+                            <div class="flex items-center justify-center gap-2 mb-4 text-sm text-gray-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                <span>Teste realizado em {laudo.dataTeste}</span>
+                                <span>Teste: {laudo.dataTeste}</span>
                             </div>
 
-                            <!-- Botão Ver Laudo / Guia Técnico -->
+                            <!-- Link para Ficha Técnica -->
                             <a
                                 href={getProductUrl(laudo.nome)}
-                                class="block w-full py-3 px-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-blue-500/50 text-white font-semibold rounded-lg transition-all duration-300 text-center group/btn"
+                                class="block w-full py-2.5 px-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 text-white text-sm font-medium rounded-lg transition-all duration-300 text-center group/btn"
                             >
                                 <span class="flex items-center justify-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    Acessar Ficha Técnica
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                     </svg>
-                                    Ver Guia Técnico
                                 </span>
                             </a>
                         </div>
@@ -437,3 +488,18 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
     </footer>
 </Layout>
 
+<style>
+    /* Animação de flutuação para os ícones */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+</style>

@@ -47,6 +47,9 @@ import Header from '../components/Header.astro';
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
+                        <!-- Logo com efeito de brilho -->
+                        <img src="/logo.png" alt="Logo Orion" class="hero-logo mb-6" />
+                        
                         <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
                             Nossa Metodologia
                         </h2>
@@ -153,3 +156,32 @@ import Header from '../components/Header.astro';
         </div>
     </footer>
 </Layout>
+
+<style>
+    /* Logo com efeito de brilho animado */
+    .hero-logo {
+        max-width: clamp(120px, 15vw, 200px);
+        width: 100%;
+        height: auto;
+        margin: 0 auto clamp(1rem, 3vh, 2rem);
+        display: block;
+        filter: brightness(1.1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+        transition: transform 0.3s ease, filter 0.3s ease;
+        animation: logoGlow 3s ease-in-out infinite;
+        position: relative;
+    }
+
+    @keyframes logoGlow {
+        0%, 100% {
+            filter: brightness(1.1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+        }
+        50% {
+            filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.2));
+        }
+    }
+
+    .hero-logo:hover {
+        transform: scale(1.05);
+        filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.3));
+    }
+</style>
