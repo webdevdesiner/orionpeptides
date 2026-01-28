@@ -13,10 +13,13 @@ import Accordion from '../../components/Accordion.astro';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
                 <!-- Coluna 1: Imagem do Produto -->
                 <div class="space-y-6">
-                    <div class="flex items-center justify-center">
-                        <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl p-6 flex items-center justify-center">
+                    <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl overflow-hidden">
+                        <div class="px-4 py-2.5 border-b border-white/10 bg-black/20">
+                            <p class="text-xs text-gray-400 uppercase tracking-wider font-medium">Imagem do produto</p>
+                        </div>
+                        <div class="p-6 flex items-center justify-center">
                             <img 
-                                src="/image/catalogo/tb-500.png" 
+                                src="/image/glass.png" 
                                 alt="TB-500 - Thymosin Beta-4 Fragment" 
                                 class="w-full h-auto object-contain rounded-lg"
                             />
@@ -66,9 +69,14 @@ import Accordion from '../../components/Accordion.astro';
                 <!-- Coluna 2: Informações -->
                 <div class="space-y-6">
                     <div>
-                        <h1 class="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-200 to-emerald-400">
-                            TB-500
-                        </h1>
+                        <div class="flex items-center gap-4 mb-2">
+                            <div class="w-14 h-14 rounded-full bg-white/5 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(16,185,129,0.25)]">
+                                <img src="/image/catalogo/tb-500.png" alt="" class="w-10 h-10 object-contain" />
+                            </div>
+                            <h1 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-200 to-emerald-400">
+                                TB-500
+                            </h1>
+                        </div>
                         <p class="text-xl text-gray-400 font-medium mb-3">Thymosin Beta-4 Fragment (Sistêmico)</p>
                         <p class="text-gray-500 text-sm leading-relaxed mb-6">
                             O TB-500 é a versão sintética da proteína Timosina Beta-4. Diferente do BPC-157 (focado em cura local), o TB-500 atua de forma <strong class="text-emerald-400">sistêmica</strong> (no corpo todo). Ele regula a proteína actina, essencial para a estrutura celular, promovendo flexibilidade extrema, redução de inflamação nas articulações e recuperação muscular rápida.
