@@ -22,3 +22,19 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# design files
+*.psd
+*.ai
+*.sketch
+
+# temporary/copy files
+* - Copia.*
+* - Copy.*
+* copy.*
+*_copy.*
+*_backup.*
+
+# old unused images (to be removed)
+public/image/BCP157*.png
+public/image/BPC157*.jfif
