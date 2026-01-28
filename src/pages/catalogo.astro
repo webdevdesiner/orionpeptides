@@ -7,7 +7,6 @@ function getProductUrl(nome: string): string {
 	const urlMap: Record<string, string> = {
 		'Tirzepatide': '/substancias/tirzepatide',
 		'Retatrutide': '/substancias/retatrutide',
-		'Semaglutide': '/substancias/semaglutide',
 		'BPC-157': '/substancias/bpc-157',
 		'TB-500': '/substancias/tb-500',
 		'CJC-1295 + TB-500': '/substancias/blend-cjc-tb',
@@ -44,33 +43,7 @@ const laudos = [
 		destaque: 'Gold Standard',
 		highPurity: true,
 		imagem: '/image/catalogo/tirzepatide.png',
-		corGlow: 'shadow-amber-500/50'
-	},
-	{
-		nome: 'Tirzepatide',
-		variacao: '40mg',
-		lote: '#OR-2026-027',
-		pureza: 99.8,
-		dataTeste: '27/01/2026',
-		descricao: 'Agonista dual GIP/GLP-1 de última geração para pesquisa metabólica',
-		categoria: 'Peptídeo',
-		destaque: 'Gold Standard',
-		highPurity: true,
-		imagem: '/image/catalogo/tirzepatide.png',
-		corGlow: 'shadow-amber-500/50'
-	},
-	{
-		nome: 'Tirzepatide',
-		variacao: '60mg',
-		lote: '#OR-2026-026',
-		pureza: 99.8,
-		dataTeste: '26/01/2026',
-		descricao: 'Agonista dual GIP/GLP-1 de última geração para pesquisa metabólica',
-		categoria: 'Peptídeo',
-		destaque: 'Gold Standard',
-		highPurity: true,
-		imagem: '/image/catalogo/tirzepatide.png',
-		corGlow: 'shadow-amber-500/50'
+		glowColor: 'shadow-amber-500/50'
 	},
 	// Retatrutide - Lançamento
 	{
@@ -84,20 +57,7 @@ const laudos = [
 		destaque: 'Lançamento',
 		highPurity: true,
 		imagem: '/image/catalogo/retatrutide.png',
-		corGlow: 'shadow-amber-500/50'
-	},
-	{
-		nome: 'Retatrutide',
-		variacao: '20mg',
-		lote: '#OR-2026-024',
-		pureza: 99.9,
-		dataTeste: '24/01/2026',
-		descricao: 'Triplo agonista (GLP-1/GIP/Glucagon) para estudos avançados',
-		categoria: 'Peptídeo',
-		destaque: 'Lançamento',
-		highPurity: true,
-		imagem: '/image/catalogo/retatrutide.png',
-		corGlow: 'shadow-amber-500/50'
+		glowColor: 'shadow-amber-500/50'
 	},
 	// BPC-157
 	{
@@ -105,13 +65,13 @@ const laudos = [
 		variacao: '10mg',
 		lote: '#OR-2026-021',
 		pureza: 99.8,
-		dataTeste: '21/01/2026',
+		dataTeste: '20/01/2026',
 		descricao: 'Pentadecapeptídeo gástrico estável com propriedades regenerativas',
 		categoria: 'Peptídeo',
 		destaque: null,
 		highPurity: false,
 		imagem: '/image/catalogo/bpc-157.png',
-		corGlow: 'shadow-emerald-500/50'
+		glowColor: 'shadow-emerald-500/50'
 	},
 	// TB-500
 	{
@@ -125,9 +85,9 @@ const laudos = [
 		destaque: null,
 		highPurity: false,
 		imagem: '/image/catalogo/tb-500.png',
-		corGlow: 'shadow-emerald-500/50'
+		glowColor: 'shadow-emerald-500/50'
 	},
-	// Blend
+	// CJC-1295 + TB-500 (Blend)
 	{
 		nome: 'CJC-1295 + TB-500',
 		variacao: '5mg + 5mg',
@@ -139,7 +99,7 @@ const laudos = [
 		destaque: null,
 		highPurity: false,
 		imagem: '/image/catalogo/cjc-tb-500.png',
-		corGlow: 'shadow-red-500/50'
+		glowColor: 'shadow-red-500/50'
 	},
 	// NAD+
 	{
@@ -153,7 +113,7 @@ const laudos = [
 		destaque: null,
 		highPurity: false,
 		imagem: '/image/catalogo/nad-plus.png',
-		corGlow: 'shadow-cyan-500/50'
+		glowColor: 'shadow-cyan-500/50'
 	},
 	// MOTS-C
 	{
@@ -167,7 +127,7 @@ const laudos = [
 		destaque: null,
 		highPurity: false,
 		imagem: '/image/catalogo/mots-c.png',
-		corGlow: 'shadow-cyan-500/50'
+		glowColor: 'shadow-cyan-500/50'
 	},
 	// GHK-Cu
 	{
@@ -175,13 +135,13 @@ const laudos = [
 		variacao: '100mg',
 		lote: '#OR-2026-016',
 		pureza: 99.4,
-		dataTeste: '16/01/2026',
+		dataTeste: '15/01/2026',
 		descricao: 'Complexo cobre-peptídeo para pesquisa em regeneração cutânea',
 		categoria: 'Peptídeo',
 		destaque: null,
 		highPurity: false,
 		imagem: '/image/catalogo/ghk-cu.png',
-		corGlow: 'shadow-emerald-500/50'
+		glowColor: 'shadow-emerald-500/50'
 	},
 	// Tesamorelin
 	{
@@ -195,7 +155,7 @@ const laudos = [
 		destaque: null,
 		highPurity: false,
 		imagem: '/image/catalogo/tesamorelin.png',
-		corGlow: 'shadow-red-500/50'
+		glowColor: 'shadow-red-500/50'
 	},
 	// Água Estéril
 	{
@@ -203,13 +163,13 @@ const laudos = [
 		variacao: '10ml',
 		lote: '#OR-2026-014',
 		pureza: 100.0,
-		dataTeste: '14/01/2026',
+		dataTeste: '10/01/2026',
 		descricao: 'Água bacteriostática estéril para reconstituição de peptídeos',
 		categoria: 'Suprimento',
 		destaque: 'Essencial',
 		highPurity: false,
 		imagem: '/image/catalogo/agua-esteril.png',
-		corGlow: 'shadow-blue-500/50'
+		glowColor: 'shadow-blue-500/50'
 	}
 ];
 
@@ -285,9 +245,9 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
         <section class="container mx-auto px-4 py-12 md:py-16">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {laudos.map((laudo, index) => {
-                    // Usar imagem e corGlow do laudo, ou valores padrão
+                    // Usar imagem e glowColor do laudo, ou valores padrão
                     const imagem = laudo.imagem || '/image/catalogo/default.png';
-                    const corGlow = laudo.corGlow || getDefaultGlowColor(laudo.categoria);
+                    const glowColor = laudo.glowColor || getDefaultGlowColor(laudo.categoria);
                     
                     // Determinar cor do destaque com os mesmos efeitos da página inicial
                     const destaqueStyles: { [key: string]: { corGradiente: string; borderCor: string; borderHover: string; shadow: string; shadowHover: string; textShadow: string } } = {
@@ -319,36 +279,36 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                     const destaqueStyle = laudo.destaque ? destaqueStyles[laudo.destaque] : null;
 
                     // Determinar cor do hover baseado na cor do glow
-                    const getGlowColor = (corGlow: string) => {
-                        if (corGlow.includes('amber')) return 'hover:shadow-amber-500/20';
-                        if (corGlow.includes('emerald')) return 'hover:shadow-emerald-500/20';
-                        if (corGlow.includes('red')) return 'hover:shadow-red-500/20';
-                        if (corGlow.includes('cyan')) return 'hover:shadow-cyan-500/20';
-                        if (corGlow.includes('blue')) return 'hover:shadow-blue-500/20';
+                    const getGlowColor = (glowColor: string) => {
+                        if (glowColor.includes('amber')) return 'hover:shadow-amber-500/20';
+                        if (glowColor.includes('emerald')) return 'hover:shadow-emerald-500/20';
+                        if (glowColor.includes('red')) return 'hover:shadow-red-500/20';
+                        if (glowColor.includes('cyan')) return 'hover:shadow-cyan-500/20';
+                        if (glowColor.includes('blue')) return 'hover:shadow-blue-500/20';
                         return 'hover:shadow-gray-500/20';
                     };
 
-                    const hoverShadowColor = getGlowColor(corGlow);
+                    const hoverShadowColor = getGlowColor(glowColor);
                     
                     // Determinar gradiente baseado na cor
-                    const getGradientColor = (corGlow: string) => {
-                        if (corGlow.includes('amber')) return 'before:bg-gradient-to-b from-amber-500/5 via-transparent to-transparent';
-                        if (corGlow.includes('emerald')) return 'before:bg-gradient-to-b from-emerald-500/5 via-transparent to-transparent';
-                        if (corGlow.includes('red')) return 'before:bg-gradient-to-b from-red-500/5 via-transparent to-transparent';
-                        if (corGlow.includes('cyan')) return 'before:bg-gradient-to-b from-cyan-500/5 via-transparent to-transparent';
-                        if (corGlow.includes('blue')) return 'before:bg-gradient-to-b from-blue-500/5 via-transparent to-transparent';
+                    const getGradientColor = (glowColor: string) => {
+                        if (glowColor.includes('amber')) return 'before:bg-gradient-to-b from-amber-500/5 via-transparent to-transparent';
+                        if (glowColor.includes('emerald')) return 'before:bg-gradient-to-b from-emerald-500/5 via-transparent to-transparent';
+                        if (glowColor.includes('red')) return 'before:bg-gradient-to-b from-red-500/5 via-transparent to-transparent';
+                        if (glowColor.includes('cyan')) return 'before:bg-gradient-to-b from-cyan-500/5 via-transparent to-transparent';
+                        if (glowColor.includes('blue')) return 'before:bg-gradient-to-b from-blue-500/5 via-transparent to-transparent';
                         return 'before:bg-gradient-to-b from-gray-500/5 via-transparent to-transparent';
                     };
 
-                    const hoverGradientColor = getGradientColor(corGlow);
+                    const hoverGradientColor = getGradientColor(glowColor);
 
                     // Determinar drop-shadow baseado na cor (retorna style inline)
-                    const getDropShadow = (corGlow: string) => {
-                        if (corGlow.includes('amber')) return '0 0 15px rgba(245,158,11,0.5)';
-                        if (corGlow.includes('emerald')) return '0 0 15px rgba(16,185,129,0.5)';
-                        if (corGlow.includes('red')) return '0 0 15px rgba(239,68,68,0.5)';
-                        if (corGlow.includes('cyan')) return '0 0 15px rgba(6,182,212,0.5)';
-                        if (corGlow.includes('blue')) return '0 0 15px rgba(59,130,246,0.5)';
+                    const getDropShadow = (glowColor: string) => {
+                        if (glowColor.includes('amber')) return '0 0 15px rgba(245,158,11,0.5)';
+                        if (glowColor.includes('emerald')) return '0 0 15px rgba(16,185,129,0.5)';
+                        if (glowColor.includes('red')) return '0 0 15px rgba(239,68,68,0.5)';
+                        if (glowColor.includes('cyan')) return '0 0 15px rgba(6,182,212,0.5)';
+                        if (glowColor.includes('blue')) return '0 0 15px rgba(59,130,246,0.5)';
                         return '0 0 15px rgba(107,114,128,0.5)';
                     };
 
@@ -371,19 +331,14 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                                 </div>
                             )}
 
-                            <!-- Ícone Bio-Futurista -->
-                            <div class="flex items-center justify-center mb-6">
-                                <div class="relative">
-                                    <div class="absolute inset-0 bg-white/5 rounded-full blur-xl animate-pulse"></div>
-                                    <div class="relative bg-white/5 rounded-full p-4 group-hover:bg-white/10 transition-colors">
-                                        <img 
-                                            src={imagem} 
-                                            alt={laudo.nome}
-                                            class="w-16 h-16 object-contain animate-float"
-                                            style={`filter: drop-shadow(${getDropShadow(corGlow)});`}
-                                        />
-                                    </div>
-                                </div>
+                            <!-- Imagem Bio-Futurista -->
+                            <div class="relative w-20 h-20 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 mx-auto">
+                                <img 
+                                    src={imagem} 
+                                    alt={laudo.nome}
+                                    class="w-16 h-16 object-contain animate-float"
+                                    style={`filter: drop-shadow(${getDropShadow(glowColor)});`}
+                                />
                             </div>
 
                             <!-- Lote -->

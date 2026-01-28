@@ -11,19 +11,53 @@ import Accordion from '../../components/Accordion.astro';
         <!-- Topo - Resumo do Produto -->
         <section class="mb-16">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
-                <!-- Coluna 1: Imagem do Frasco -->
-                <div class="flex items-center justify-center">
-                    <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl p-12 flex items-center justify-center">
-                        <div class="relative">
-                            <!-- Placeholder do Frasco -->
-                            <div class="w-48 h-64 mx-auto bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg border-2 border-white/20 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                <!-- Coluna 1: Imagem do Produto -->
+                <div class="space-y-6">
+                    <div class="flex items-center justify-center">
+                        <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl p-6 flex items-center justify-center">
+                            <img 
+                                src="/image/catalogo/retatrutide.png" 
+                                alt="Retatrutide - Agonista Triplo GLP-1/GIP/Glucagon" 
+                                class="w-full h-auto object-contain rounded-lg"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Especificações Técnicas Rápidas -->
+                    <div class="flex flex-col gap-4">
+                        <!-- Card 1: Potência -->
+                        <div class="bg-gray-900/50 backdrop-blur-md border border-orange-500/20 rounded-xl p-4 hover:border-orange-500/40 transition-all duration-300">
+                            <div class="flex flex-col items-center text-center space-y-2">
+                                <!-- Ícone Frasco -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                                 </svg>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Potência</p>
+                                <p class="text-sm text-white font-semibold">10mg Liofilizado</p>
                             </div>
-                            <!-- Rótulo -->
-                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-black/80 border border-white/20 rounded px-4 py-2">
-                                <p class="text-white font-bold text-sm">Retatrutide</p>
+                        </div>
+
+                        <!-- Card 2: Diluente -->
+                        <div class="bg-gray-900/50 backdrop-blur-md border border-orange-500/20 rounded-xl p-4 hover:border-orange-500/40 transition-all duration-300">
+                            <div class="flex flex-col items-center text-center space-y-2">
+                                <!-- Ícone Gota -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.69c-3.5 0-6.31 2.81-6.31 6.31 0 3.5 6.31 10.31 6.31 10.31S18.31 12.5 18.31 9c0-3.5-2.81-6.31-6.31-6.31z"/>
+                                </svg>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Requer</p>
+                                <p class="text-sm text-white font-semibold">Água Bac. (Não incluso)</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Armazenamento -->
+                        <div class="bg-gray-900/50 backdrop-blur-md border border-orange-500/20 rounded-xl p-4 hover:border-orange-500/40 transition-all duration-300">
+                            <div class="flex flex-col items-center text-center space-y-2">
+                                <!-- Ícone Floco de Neve -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Temperatura</p>
+                                <p class="text-sm text-white font-semibold">2°C a 8°C (Geladeira)</p>
                             </div>
                         </div>
                     </div>
@@ -32,32 +66,145 @@ import Accordion from '../../components/Accordion.astro';
                 <!-- Coluna 2: Informações -->
                 <div class="space-y-6">
                     <div>
-                        <h1 class="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
-                            Retatrutide
-                        </h1>
-                        <p class="text-xl text-gray-400 font-medium mb-6">Disponível em: 10mg, 20mg</p>
+                        <div class="flex items-center gap-3 mb-2">
+                            <h1 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-200 to-orange-400">
+                                Retatrutide
+                            </h1>
+                            <span class="px-3 py-1 bg-gradient-to-r from-green-500/20 to-green-600/20 border border-green-500/30 rounded-full text-xs font-bold text-green-300 uppercase tracking-wider">
+                                Lançamento Exclusivo
+                            </span>
+                        </div>
+                        <p class="text-xl text-gray-400 font-medium mb-3">Agonista Triplo (GLP-1 / GIP / Glucagon)</p>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                            Considerado a "próxima geração" pós-Ozempic e Mounjaro, o Retatrutide é um agonista triplo que ativa receptores de GLP-1, GIP e <strong class="text-orange-400">Glucagon</strong>. O diferencial do Glucagon: não apenas suprime o apetite, mas <strong class="text-white">aumenta o gasto energético basal</strong> (queima calorias em repouso) e melhora a função hepática.
+                        </p>
+                        <div class="bg-orange-900/20 border border-orange-500/30 rounded-lg p-3 mb-4">
+                            <p class="text-sm text-orange-200">
+                                <strong class="text-orange-300">Apresentação Orion:</strong> Frasco de <strong>10mg</strong> liofilizado de pureza extrema (99.9%).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Seção Benefícios Pesquisados -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">
+                            Benefícios Pesquisados
+                        </h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                            <!-- Benefício 1: Controle Glicêmico -->
+                            <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+                                <!-- Ícone Glicose -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-orange-400 drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                                <h4 class="text-white font-bold text-sm md:text-base">Controle Glicêmico</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Regulação tripla de açúcar no sangue</p>
+                            </div>
+
+                            <!-- Benefício 2: Perda de Peso -->
+                            <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+                                <!-- Ícone Balança -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-orange-400 drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                </svg>
+                                <h4 class="text-white font-bold text-sm md:text-base">Perda de Peso</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Redução acelerada de massa corporal</p>
+                            </div>
+
+                            <!-- Benefício 3: Termogênese -->
+                            <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+                                <!-- Ícone Fogo/Termogênese -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-orange-400 drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+                                </svg>
+                                <h4 class="text-white font-bold text-sm md:text-base">Termogênese</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Aumento do gasto energético basal</p>
+                            </div>
+
+                            <!-- Benefício 4: Função Hepática -->
+                            <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+                                <!-- Ícone Fígado -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-orange-400 drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                                <h4 class="text-white font-bold text-sm md:text-base">Função Hepática</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Melhora da saúde do fígado</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="space-y-4">
-                        <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
-                            <p class="text-sm text-gray-400 mb-1">Tipo</p>
-                            <p class="text-white font-semibold">Triplo Agonista (GLP-1/GIP/Glucagon)</p>
+                        <!-- Protocolo de Pesquisa Sugerido -->
+                        <div class="mt-8 border-t border-white/10 pt-6">
+                            <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                </svg>
+                                Protocolo de Pesquisa Sugerido (Protocolo TRIUMPH-1 Adaptado)
+                            </h4>
+
+                            <div class="overflow-hidden rounded-xl border border-white/10 shadow-lg">
+                                <table class="w-full text-left text-sm">
+                                    <thead class="bg-orange-900/20 text-orange-200 uppercase text-xs font-bold tracking-wider">
+                                        <tr>
+                                            <th class="px-4 py-3">Fase</th>
+                                            <th class="px-4 py-3">Dose Semanal</th>
+                                            <th class="px-4 py-3 text-white bg-orange-600/20 border-l border-orange-500/30">
+                                                Volume na Seringa (Ref: 2ml água)
+                                            </th>
+                                            <th class="px-4 py-3">Frequência</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5 bg-gray-900/40">
+                                        <tr class="hover:bg-white/5 transition-colors">
+                                            <td class="px-4 py-3 font-medium text-white">Semanas 1-4</td>
+                                            <td class="px-4 py-3 text-gray-300">2.0 mg</td>
+                                            <td class="px-4 py-3 font-bold text-orange-400 border-l border-white/5">
+                                                40 unidades (0.40 ml)
+                                            </td>
+                                            <td class="px-4 py-3 text-gray-300">1x Semana</td>
+                                        </tr>
+                                        <tr class="hover:bg-white/5 transition-colors">
+                                            <td class="px-4 py-3 font-medium text-white">Semanas 5-8</td>
+                                            <td class="px-4 py-3 text-gray-300">4.0 mg</td>
+                                            <td class="px-4 py-3 font-bold text-orange-400 border-l border-white/5">
+                                                80 unidades (0.80 ml)
+                                            </td>
+                                            <td class="px-4 py-3 text-gray-300">1x Semana</td>
+                                        </tr>
+                                        <tr class="hover:bg-white/5 transition-colors">
+                                            <td class="px-4 py-3 font-medium text-white">Semana 9+</td>
+                                            <td class="px-4 py-3 text-gray-300">6.0 mg*</td>
+                                            <td class="px-4 py-3 font-bold text-orange-400 border-l border-white/5">
+                                                *Requer diluição concentrada
+                                            </td>
+                                            <td class="px-4 py-3 text-gray-300">1x Semana</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <div class="bg-orange-900/10 p-3 text-xs text-orange-300 flex items-start gap-2 border-t border-white/5">
+                                    <span class="text-orange-500 font-bold">💡</span>
+                                    <p><strong>Nota de Rendimento:</strong> Um frasco Orion (10mg) é perfeito para o ciclo inicial. Ele fornece exatamente <strong>5 semanas</strong> de tratamento na dose inicial de 2.0mg.</p>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
                             <p class="text-sm text-gray-400 mb-1">Pureza Certificada</p>
-                            <p class="text-green-400 font-bold text-2xl">>99% (HPLC)</p>
+                            <p class="text-orange-400 font-bold text-2xl">>99.9% (HPLC) - High Purity</p>
                         </div>
 
                         <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
                             <p class="text-sm text-gray-400 mb-1">Aplicação</p>
-                            <p class="text-white">Pesquisa em regulação metabólica avançada e estudos inovadores</p>
+                            <p class="text-white">Pesquisa em controle metabólico avançado e perda de peso</p>
                         </div>
                     </div>
 
                     <a
                         href="#"
-                        class="block w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all duration-300 text-center shadow-lg hover:shadow-xl active:scale-[0.98]"
+                        class="block w-full md:w-auto px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-lg hover:from-orange-400 hover:to-orange-500 transition-all duration-300 text-center shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/50 active:scale-[0.98] border border-orange-400/30 hover:border-orange-400/50"
                     >
                         Encontrar Fornecedor
                     </a>
@@ -67,59 +214,208 @@ import Accordion from '../../components/Accordion.astro';
 
         <!-- Área Técnica - Accordions -->
         <section class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600">
                 Informações Técnicas
             </h2>
 
             <div class="space-y-4">
                 <!-- Accordion 1: O que é Retatrutide? -->
                 <Accordion title="O que é Retatrutide?">
-                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
-                        <p class="text-yellow-500 font-bold text-lg">
-                            [[ AGUARDANDO CONTEÚDO TÉCNICO ]] - Escrever sobre Retatrutide, sua estrutura molecular única como triplo agonista, origem e aplicações em pesquisa científica.
+                    <div class="prose prose-invert max-w-none">
+                        <p class="text-gray-300 mb-4">
+                            O <strong class="text-white">Retatrutide</strong> ("Triple G") é considerado a "próxima geração" pós-Ozempic e Mounjaro. É um agonista triplo que ativa receptores de GLP-1, GIP e <strong class="text-orange-400">Glucagon</strong> simultaneamente.
                         </p>
+                        <p class="text-gray-300 mb-4">
+                            <strong class="text-white">O Diferencial do Glucagon:</strong> Diferente dos antecessores, ele não apenas suprime o apetite, mas <strong class="text-white">aumenta o gasto energético basal</strong> (queima calorias em repouso) e melhora a função hepática (gordura no fígado).
+                        </p>
+                        <div class="bg-orange-900/20 border border-orange-500/30 rounded-lg p-3 mb-4">
+                            <p class="text-sm text-orange-200">
+                                <strong class="text-orange-300">Apresentação Orion:</strong> Frasco de <strong>10mg</strong> liofilizado de pureza extrema (99.9%).
+                            </p>
+                        </div>
+                        <div class="bg-red-900/20 border border-red-500/30 p-4 rounded text-sm text-red-200">
+                            <strong>Nota de Pesquisa:</strong> Este composto é destinado exclusivamente para fins de pesquisa científica e não deve ser utilizado para consumo humano ou veterinário sem aprovação regulatória adequada.
+                        </div>
                     </div>
                 </Accordion>
 
                 <!-- Accordion 2: Mecanismo de Ação -->
                 <Accordion title="Mecanismo de Ação (Ciência)">
-                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
-                        <p class="text-yellow-500 font-bold text-lg">
-                            [[ AGUARDANDO CONTEÚDO TÉCNICO SOBRE O MECANISMO ]] - Escrever sobre GLP-1/GIP/Glucagon aqui. Explicar como funciona o triplo agonismo, interação com múltiplos receptores, efeitos metabólicos sinérgicos e diferenciais em relação a outros compostos.
-                        </p>
+                    <div class="prose prose-invert max-w-none">
+                        <p class="text-gray-300 mb-6">O mecanismo de ação demonstra uma atividade tripla sinérgica em modelos de pesquisa:</p>
+                        
+                        <ul class="space-y-4 list-none">
+                            <li class="flex gap-3">
+                                <span class="text-orange-500 font-bold">Ativação GLP-1:</span>
+                                <span class="text-gray-400">Estimula a secreção de insulina dependente de glicose, reduz a secreção de glucagon e retarda o esvaziamento gástrico, promovendo saciedade.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-orange-500 font-bold">Ativação GIP:</span>
+                                <span class="text-gray-400">Potencializa a ação da insulina, melhora a sensibilidade à insulina e promove efeitos metabólicos adicionais que complementam a ação do GLP-1.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-orange-500 font-bold">Ativação Glucagon:</span>
+                                <span class="text-gray-400">Aumenta o gasto energético basal através da termogênese, melhora a função hepática e promove a oxidação de ácidos graxos, diferenciando-se dos agonistas duplos.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="text-orange-500 font-bold">Sinergia Tripla:</span>
+                                <span class="text-gray-400">A ativação simultânea dos três receptores resulta em efeitos superiores, proporcionando controle glicêmico, perda de peso e melhora metabólica mais eficazes que agonistas duplos ou simples.</span>
+                            </li>
+                        </ul>
+
+                        <p class="text-xs text-gray-600 mt-6 italic">Referência: Os mecanismos descritos são baseados em estudos pré-clínicos e clínicos (Protocolo TRIUMPH-1).</p>
                     </div>
                 </Accordion>
 
                 <!-- Accordion 3: Protocolo de Reconstituição -->
                 <Accordion title="Protocolo de Reconstituição">
-                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
-                        <p class="text-yellow-500 font-bold text-lg">
-                            [[ AGUARDANDO CONTEÚDO TÉCNICO ]] - Escrever sobre protocolo de reconstituição específico para Retatrutide, incluindo volumes de água bacteriostática recomendados, estabilidade e armazenamento.
-                        </p>
+                    <div class="prose prose-invert max-w-none">
+                        <div class="mb-8">
+                            <h4 class="text-white font-bold mb-4">Guia de Mistura (Para Frasco 10mg)</h4>
+                            <p class="text-gray-300 mb-4">Devido à potência deste peptídeo, a precisão é fundamental:</p>
+                            <ol class="list-decimal list-inside space-y-3 text-gray-300">
+                                <li><strong class="text-white">Diluente:</strong> Utilize <strong>2ml</strong> (200 unidades) de Água Bacteriostática.</li>
+                                <li><strong class="text-white">Processo:</strong> Injete a água suavemente pela parede do frasco. Aguarde a dissolução completa <strong>sem agitar vigorosamente</strong>.</li>
+                                <li><strong class="text-white">Matemática da Dose:</strong>
+                                    <ul class="list-disc list-inside ml-4 mt-2 space-y-1">
+                                        <li>10mg em 2ml = <strong>5mg por ml</strong></li>
+                                        <li>Cada <strong>20 unidades</strong> na seringa de insulina = <strong>1mg</strong> de produto</li>
+                                    </ul>
+                                </li>
+                                <li>Armazene em refrigeração (2-8°C) após reconstituído.</li>
+                                <li>Use dentro do prazo de validade após reconstituição.</li>
+                            </ol>
+                        </div>
 
-                        <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mt-4">
-                            <p class="text-sm text-blue-300 mb-3">
-                                <strong>💡 Dica:</strong> Use nossa calculadora de reconstituição para determinar as concentrações precisas para seus protocolos de pesquisa.
+                        <div class="bg-orange-500/10 border border-orange-500/30 rounded-lg p-4 mt-4">
+                            <p class="text-sm text-orange-300 mb-3">
+                                <strong>Dica:</strong> Use nossa calculadora de reconstituição para determinar as concentrações precisas para seus protocolos de pesquisa.
                             </p>
                             <a
                                 href="/calculadora"
-                                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/50 text-blue-300 rounded-lg transition-colors text-sm font-semibold"
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/20 hover:bg-orange-500/30 border border-orange-500/50 text-orange-300 rounded-lg transition-colors text-sm font-semibold"
                             >
-                                Acessar Calculadora
+                                Acessar Calculadora Completa
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
                             </a>
+                        </div>
+
+                        <!-- Calculadora Rápida Inline -->
+                        <div class="bg-gray-800/50 border border-orange-500/20 rounded-lg p-6 mt-6">
+                            <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                                Calculadora Rápida (Retatrutide 10mg)
+                            </h4>
+                            <form id="calculadoraRetatrutide" class="space-y-4">
+                                <div>
+                                    <label for="doseRetatrutide" class="block text-sm font-medium text-gray-300 mb-2">
+                                        Dose Desejada (mg)
+                                    </label>
+                                    <input
+                                        type="number"
+                                        id="doseRetatrutide"
+                                        step="0.1"
+                                        min="0"
+                                        value="2.0"
+                                        placeholder="Ex: 2.0"
+                                        required
+                                        class="w-full px-4 py-2 bg-black/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500/50 transition-all duration-300"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="w-full py-3 bg-gradient-to-r from-orange-600 to-orange-500 text-white font-bold rounded-lg hover:from-orange-500 hover:to-orange-400 transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/50 active:scale-[0.98]"
+                                >
+                                    CALCULAR UNIDADES
+                                </button>
+                            </form>
+                            <div id="resultadoRetatrutide" class="hidden mt-4 pt-4 border-t border-white/10">
+                                <div class="bg-orange-500/20 border border-orange-500/30 rounded-lg p-4 text-center">
+                                    <p class="text-gray-400 text-xs mb-1">Unidades da Seringa (UI)</p>
+                                    <p id="resultadoUIRetatrutide" class="text-3xl font-bold text-orange-400">0</p>
+                                    <p class="text-gray-400 text-xs mt-1">Volume: <span id="resultadoVolumeRetatrutide" class="text-orange-300">0 ml</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-white/10 pt-6 mt-6">
+                            <h4 class="text-white font-bold mb-4">💉 Administração e Cuidados</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-orange-400 font-bold">•</span>
+                                    <span><strong class="text-white">Efeito Termogênico:</strong> É normal sentir um leve aumento na temperatura corporal ou frequência cardíaca devido à ação do Glucagon.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-orange-400 font-bold">•</span>
+                                    <span><strong class="text-white">Via:</strong> Subcutânea (Abdômen ou Coxa).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-orange-400 font-bold">•</span>
+                                    <span><strong class="text-white">Armazenamento:</strong> Geladeira obrigatória após reconstituído.</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </Accordion>
 
                 <!-- Accordion 4: Laudo Técnico -->
                 <Accordion title="Laudo Técnico (HPLC)">
-                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
-                        <p class="text-yellow-500 font-bold text-lg">
-                            [[ AGUARDANDO CONTEÚDO TÉCNICO ]] - Incluir informações sobre pureza certificada, lotes disponíveis, datas de teste e detalhes do laudo HPLC.
-                        </p>
+                    <div class="prose prose-invert max-w-none">
+                        <div class="grid grid-cols-2 gap-4 mb-6 text-center">
+                            <div class="bg-gray-800 p-3 rounded">
+                                <p class="text-xs text-gray-500">Pureza Certificada</p>
+                                <p class="text-xl font-bold text-orange-400">99.9%</p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded">
+                                <p class="text-xs text-gray-500">Lote</p>
+                                <p class="text-xl font-bold text-white">#OR-2026-025</p>
+                            </div>
+                        </div>
+
+                        <!-- Informações Técnicas Adicionais -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-800/50 p-3 rounded border border-white/5">
+                                <p class="text-xs text-gray-500 mb-1">Sequência</p>
+                                <p class="text-sm text-white font-medium">GGG-Tri-Agonist</p>
+                            </div>
+                            <div class="bg-gray-800/50 p-3 rounded border border-white/5">
+                                <p class="text-xs text-gray-500 mb-1">Fórmula Molecular</p>
+                                <p class="text-sm text-white font-medium">C221H342N46O68</p>
+                            </div>
+                            <div class="bg-gray-800/50 p-3 rounded border border-white/5">
+                                <p class="text-xs text-gray-500 mb-1">Peso Molecular</p>
+                                <p class="text-sm text-white font-medium">4731.33 g/mol</p>
+                            </div>
+                            <div class="bg-gray-800/50 p-3 rounded border border-white/5">
+                                <p class="text-xs text-gray-500 mb-1">CAS</p>
+                                <p class="text-sm text-white font-medium">2381089-83-2</p>
+                            </div>
+                        </div>
+
+                        <ul class="text-sm text-gray-400 space-y-2 mb-6 list-none">
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Análise de pureza por HPLC com detecção UV</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Identificação de impurezas e contaminantes</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Verificação de estrutura molecular</span>
+                            </li>
+                        </ul>
 
                         <a
                             href="#"
@@ -132,6 +428,25 @@ import Accordion from '../../components/Accordion.astro';
                         </a>
                     </div>
                 </Accordion>
+            </div>
+        </section>
+
+        <!-- Botão Voltar ao Catálogo -->
+        <section class="max-w-4xl mx-auto mt-12">
+            <div class="bg-gradient-to-r from-gray-900/20 to-gray-800/20 border border-white/10 rounded-xl p-6 md:p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-4">Explore Nossos Peptídeos</h3>
+                <p class="text-gray-400 text-sm mb-6">
+                    Volte ao catálogo completo para conhecer todos os nossos produtos de pesquisa.
+                </p>
+                <a
+                    href="/catalogo"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/50"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Voltar para o Catálogo de Peptídeos
+                </a>
             </div>
         </section>
     </main>
@@ -148,3 +463,46 @@ import Accordion from '../../components/Accordion.astro';
     </footer>
 </Layout>
 
+<script>
+    // Calculadora Rápida para Retatrutide (10mg em 2ml)
+    document.addEventListener('DOMContentLoaded', () => {
+        const formRetatrutide = document.getElementById('calculadoraRetatrutide') as HTMLFormElement | null;
+        const resultadoRetatrutide = document.getElementById('resultadoRetatrutide');
+        const resultadoUIRetatrutide = document.getElementById('resultadoUIRetatrutide');
+        const resultadoVolumeRetatrutide = document.getElementById('resultadoVolumeRetatrutide');
+
+        if (!formRetatrutide || !resultadoRetatrutide || !resultadoUIRetatrutide || !resultadoVolumeRetatrutide) {
+            return;
+        }
+
+        formRetatrutide.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const inputDose = document.getElementById('doseRetatrutide') as HTMLInputElement | null;
+            if (!inputDose) return;
+
+            // Valores fixos para Retatrutide Orion (10mg em 2ml)
+            const tamanhoFrasco = 10; // mg
+            const quantidadeAgua = 2; // ml
+            const doseDesejada = parseFloat(inputDose.value); // mg
+
+            // Validação
+            if (isNaN(doseDesejada) || doseDesejada <= 0 || doseDesejada > tamanhoFrasco) {
+                alert('Por favor, insira uma dose válida entre 0 e 10mg.');
+                return;
+            }
+
+            // Cálculo: 10mg em 2ml = 5mg/ml
+            // Cada 20 unidades = 1mg
+            const unidadesUI = doseDesejada * 20;
+            const volumeMl = doseDesejada / 5; // 1mg = 0.2ml (5mg/ml)
+
+            // Exibir resultados
+            resultadoUIRetatrutide.textContent = unidadesUI.toFixed(0);
+            resultadoVolumeRetatrutide.textContent = `${volumeMl.toFixed(2)} ml`;
+
+            // Mostrar área de resultado
+            resultadoRetatrutide.classList.remove('hidden');
+        });
+    });
+</script>

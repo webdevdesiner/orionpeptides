@@ -4,26 +4,60 @@ import Header from '../../components/Header.astro';
 import Accordion from '../../components/Accordion.astro';
 ---
 
-<Layout title="Água Estéril | Guia Técnico | Orion Peptides">
+<Layout title="Água Estéril | Solvente Farmacêutico | Orion Peptides">
     <Header />
     
     <main class="container mx-auto px-4 py-12 md:py-16">
         <!-- Topo - Resumo do Produto -->
         <section class="mb-16">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
-                <!-- Coluna 1: Imagem do Frasco -->
-                <div class="flex items-center justify-center">
-                    <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl p-12 flex items-center justify-center">
-                        <div class="relative">
-                            <!-- Placeholder do Frasco -->
-                            <div class="w-48 h-64 mx-auto bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg border-2 border-white/20 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                <!-- Coluna 1: Imagem do Produto -->
+                <div class="space-y-6">
+                    <div class="flex items-center justify-center">
+                        <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl p-6 flex items-center justify-center">
+                            <img 
+                                src="/image/catalogo/agua-esteril.png" 
+                                alt="Água Estéril - Solvente Farmacêutico" 
+                                class="w-full h-auto object-contain rounded-lg"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Especificações Técnicas Rápidas -->
+                    <div class="flex flex-col gap-4">
+                        <!-- Card 1: Volume -->
+                        <div class="bg-gray-900/50 backdrop-blur-md border border-blue-500/20 rounded-xl p-4 hover:border-blue-500/40 transition-all duration-300">
+                            <div class="flex flex-col items-center text-center space-y-2">
+                                <!-- Ícone Frasco -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                                 </svg>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Volume</p>
+                                <p class="text-sm text-white font-semibold">10ml (Ampola Multidose)</p>
                             </div>
-                            <!-- Rótulo -->
-                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-black/80 border border-white/20 rounded px-4 py-2">
-                                <p class="text-white font-bold text-sm">Água Estéril</p>
+                        </div>
+
+                        <!-- Card 2: Pureza -->
+                        <div class="bg-gray-900/50 backdrop-blur-md border border-blue-500/20 rounded-xl p-4 hover:border-blue-500/40 transition-all duration-300">
+                            <div class="flex flex-col items-center text-center space-y-2">
+                                <!-- Ícone Pureza -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Pureza</p>
+                                <p class="text-sm text-white font-semibold">100% (USP Grade)</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: pH -->
+                        <div class="bg-gray-900/50 backdrop-blur-md border border-blue-500/20 rounded-xl p-4 hover:border-blue-500/40 transition-all duration-300">
+                            <div class="flex flex-col items-center text-center space-y-2">
+                                <!-- Ícone pH -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">pH</p>
+                                <p class="text-sm text-white font-semibold">5.0 - 7.0 (Neutro)</p>
                             </div>
                         </div>
                     </div>
@@ -32,32 +66,130 @@ import Accordion from '../../components/Accordion.astro';
                 <!-- Coluna 2: Informações -->
                 <div class="space-y-6">
                     <div>
-                        <h1 class="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-blue-300">
                             Água Estéril
                         </h1>
-                        <p class="text-xl text-gray-400 font-medium mb-6">10 ml</p>
+                        <p class="text-xl text-gray-400 font-medium mb-3">Solvente Farmacêutico (Grau USP)</p>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                            É o solvente universal padrão ouro para a reconstituição de peptídeos liofilizados. Diferente da água comum ou mineral, ela passa por processos rigorosos de destilação e microfiltração para garantir a ausência total de bactérias, esporos e pirogênios.
+                        </p>
+                        <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3 mb-4">
+                            <p class="text-sm text-blue-200">
+                                <strong class="text-blue-300">Diferencial Orion:</strong> Frasco de <strong>10ml</strong>. A maioria dos peptídeos requer apenas 1ml ou 2ml. Um único frasco nosso permite reconstituir até 5 frascos de peptídeos (se feito no mesmo momento).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Seção Benefícios Pesquisados -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">
+                            Características Técnicas
+                        </h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                            <!-- Característica 1: Estéril -->
+                            <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+                                <!-- Ícone Estéril -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-blue-300 drop-shadow-[0_0_8px_rgba(147,197,253,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                                <h4 class="text-white font-bold text-sm md:text-base">Estéril</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Livre de bactérias</p>
+                            </div>
+
+                            <!-- Característica 2: Não Pirogênica -->
+                            <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+                                <!-- Ícone Não Pirogênica -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-blue-300 drop-shadow-[0_0_8px_rgba(147,197,253,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                                <h4 class="text-white font-bold text-sm md:text-base">Não Pirogênica</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Livre de endotoxinas</p>
+                            </div>
+
+                            <!-- Característica 3: USP Grade -->
+                            <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+                                <!-- Ícone USP -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-blue-300 drop-shadow-[0_0_8px_rgba(147,197,253,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                                </svg>
+                                <h4 class="text-white font-bold text-sm md:text-base">USP Grade</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Padrão farmacêutico</p>
+                            </div>
+
+                            <!-- Característica 4: Multidose -->
+                            <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+                                <!-- Ícone Multidose -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-blue-300 drop-shadow-[0_0_8px_rgba(147,197,253,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                                <h4 class="text-white font-bold text-sm md:text-base">Multidose</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">10ml (até 5 frascos)</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="space-y-4">
-                        <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
-                            <p class="text-sm text-gray-400 mb-1">Tipo</p>
-                            <p class="text-white font-semibold">Água Bacteriostática</p>
+                        <!-- Tabela de Diluição -->
+                        <div class="mt-8 border-t border-white/10 pt-6">
+                            <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                </svg>
+                                Tabela de Diluição (Referência Rápida)
+                            </h4>
+
+                            <div class="overflow-hidden rounded-xl border border-white/10 shadow-lg">
+                                <table class="w-full text-left text-sm">
+                                    <thead class="bg-blue-900/20 text-blue-200 uppercase text-xs font-bold tracking-wider">
+                                        <tr>
+                                            <th class="px-4 py-3">Produto Orion</th>
+                                            <th class="px-4 py-3">Volume de Água Recomendado</th>
+                                            <th class="px-4 py-3 text-white bg-blue-600/20 border-l border-blue-500/30">
+                                                Concentração Resultante
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5 bg-gray-900/40">
+                                        <tr class="hover:bg-white/5 transition-colors">
+                                            <td class="px-4 py-3 font-medium text-white">Tirzepatide (20mg)</td>
+                                            <td class="px-4 py-3 text-gray-300">2ml</td>
+                                            <td class="px-4 py-3 font-bold text-blue-300 border-l border-white/5">
+                                                10mg/ml
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-white/5 transition-colors">
+                                            <td class="px-4 py-3 font-medium text-white">BPC-157 (10mg)</td>
+                                            <td class="px-4 py-3 text-gray-300">2ml</td>
+                                            <td class="px-4 py-3 font-bold text-blue-300 border-l border-white/5">
+                                                5mg/ml
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-white/5 transition-colors">
+                                            <td class="px-4 py-3 font-medium text-white">GHK-Cu (100mg)</td>
+                                            <td class="px-4 py-3 text-gray-300">2ml (ou 3ml)</td>
+                                            <td class="px-4 py-3 font-bold text-blue-300 border-l border-white/5">
+                                                50mg/ml
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
                             <p class="text-sm text-gray-400 mb-1">Pureza Certificada</p>
-                            <p class="text-green-400 font-bold text-2xl">100% Estéril</p>
+                            <p class="text-blue-300 font-bold text-2xl">100% (Non-Pyrogenic)</p>
                         </div>
 
                         <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
-                            <p class="text-sm text-gray-400 mb-1">Aplicação</p>
-                            <p class="text-white">Reconstituição de peptídeos para pesquisa</p>
+                            <p class="text-sm text-gray-400 mb-1">Apresentação</p>
+                            <p class="text-white">Frasco de 10ml (Ampola Multidose)</p>
                         </div>
                     </div>
 
                     <a
                         href="#"
-                        class="block w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all duration-300 text-center shadow-lg hover:shadow-xl active:scale-[0.98]"
+                        class="block w-full md:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-lg hover:from-blue-400 hover:to-blue-500 transition-all duration-300 text-center shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50 active:scale-[0.98] border border-blue-400/30 hover:border-blue-400/50"
                     >
                         Encontrar Fornecedor
                     </a>
@@ -67,51 +199,139 @@ import Accordion from '../../components/Accordion.astro';
 
         <!-- Área Técnica - Accordions -->
         <section class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-500">
                 Informações Técnicas
             </h2>
 
             <div class="space-y-4">
                 <!-- Accordion 1: O que é Água Estéril? -->
-                <Accordion title="O que é Água Estéril?">
-                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
-                        <p class="text-yellow-500 font-bold">[[ TODO: INSERIR CONTEÚDO TÉCNICO AQUI ]]</p>
+                <Accordion title="O que é Água Estéril para Injeção?">
+                    <div class="prose prose-invert max-w-none">
+                        <p class="text-gray-300 mb-4">
+                            É o solvente universal padrão ouro para a reconstituição de peptídeos liofilizados. Diferente da água comum ou mineral, ela passa por processos rigorosos de destilação e microfiltração para garantir a ausência total de bactérias, esporos e pirogênios.
+                        </p>
+                        <p class="text-gray-300 mb-4">
+                            <strong class="text-white">Diferencial Orion:</strong> Frasco de <strong class="text-blue-300">10ml</strong>. A maioria dos peptídeos requer apenas 1ml ou 2ml. Um único frasco nosso permite reconstituir até 5 frascos de peptídeos (se feito no mesmo momento).
+                        </p>
+                        <div class="bg-red-900/20 border border-red-500/30 p-4 rounded text-sm text-red-200">
+                            <strong>Nota de Pesquisa:</strong> Este produto é destinado exclusivamente para fins de pesquisa científica e não deve ser utilizado para consumo humano ou veterinário sem aprovação regulatória adequada.
+                        </div>
                     </div>
                 </Accordion>
 
-                <!-- Accordion 2: Mecanismo de Ação -->
-                <Accordion title="Mecanismo de Ação (Ciência)">
-                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
-                        <p class="text-yellow-500 font-bold">[[ TODO: INSERIR CONTEÚDO TÉCNICO AQUI ]]</p>
+                <!-- Accordion 2: Estéril vs. Bacteriostática -->
+                <Accordion title="⚠️ Importante: Estéril vs. Bacteriostática">
+                    <div class="prose prose-invert max-w-none">
+                        <p class="text-gray-300 mb-6">Entenda a diferença para sua segurança:</p>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+                                <h4 class="text-blue-300 font-bold mb-2">Água Estéril (Este Produto)</h4>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 font-bold">•</span>
+                                        <span>Não contém conservantes.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 font-bold">•</span>
+                                        <span>Uma vez aberto/perfurado, o frasco deve ser usado imediatamente para misturar seus peptídeos e o restante descartado, pois não há agente que impeça a proliferação bacteriana após aberto.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 font-bold">•</span>
+                                        <span><strong class="text-white">Indicação:</strong> Ideal para quem tem alergia ao álcool benzílico ou para uso imediato.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-blue-400 font-bold">•</span>
+                                        <span><strong class="text-white">Dica:</strong> Se você precisa guardar o peptídeo misturado na geladeira por semanas, certifique-se de que o peptídeo em si tenha estabilidade ou transfira para um vial estéril selado.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </Accordion>
 
-                <!-- Accordion 3: Protocolo de Reconstituição -->
-                <Accordion title="Protocolo de Reconstituição">
-                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
-                        <p class="text-yellow-500 font-bold">[[ TODO: INSERIR CONTEÚDO TÉCNICO AQUI ]]</p>
+                <!-- Accordion 3: Protocolo Universal de Reconstituição -->
+                <Accordion title="🧪 Protocolo Universal de Reconstituição">
+                    <div class="prose prose-invert max-w-none">
+                        <div class="mb-8">
+                            <h4 class="text-white font-bold mb-4">Como misturar seus peptídeos Orion usando esta água:</h4>
+                            <ol class="list-decimal list-inside space-y-3 text-gray-300">
+                                <li><strong class="text-white">Preparação:</strong> Limpe a tampa de borracha do frasco de peptídeo e do frasco de água com álcool 70%.</li>
+                                <li><strong class="text-white">Extração:</strong> Puxe a quantidade desejada de água na seringa (ex: 2ml).</li>
+                                <li><strong class="text-white">Equalização:</strong> Se sentir resistência, injete um pouco de ar no frasco de água antes de puxar o líquido.</li>
+                                <li><strong class="text-white">Mistura:</strong> Injete a água no frasco do peptídeo, mirando na parede de vidro (não direto no pó).</li>
+                                <li><strong class="text-white">Finalização:</strong> Gire suavemente (não chacoalhe). A solução deve ficar cristalina.</li>
+                            </ol>
+                        </div>
 
                         <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mt-4">
                             <p class="text-sm text-blue-300 mb-3">
-                                <strong>💡 Dica:</strong> Use nossa calculadora de reconstituição para determinar as concentrações precisas para seus protocolos de pesquisa.
+                                <strong>Nota:</strong> A calculadora de dosagem está disponível nas páginas dos respectivos peptídeos.
                             </p>
-                            <a
-                                href="/calculadora"
-                                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/50 text-blue-300 rounded-lg transition-colors text-sm font-semibold"
-                            >
-                                Acessar Calculadora
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
                         </div>
                     </div>
                 </Accordion>
 
                 <!-- Accordion 4: Laudo Técnico -->
-                <Accordion title="Laudo Técnico (HPLC)">
-                    <div class="prose prose-invert max-w-none text-gray-300 space-y-4">
-                        <p class="text-yellow-500 font-bold">[[ TODO: INSERIR CONTEÚDO TÉCNICO AQUI ]]</p>
+                <Accordion title="Laudo Técnico (USP Grade)">
+                    <div class="prose prose-invert max-w-none">
+                        <div class="grid grid-cols-2 gap-4 mb-6 text-center">
+                            <div class="bg-gray-800 p-3 rounded">
+                                <p class="text-xs text-gray-500">Pureza Certificada</p>
+                                <p class="text-xl font-bold text-blue-300">100%</p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded">
+                                <p class="text-xs text-gray-500">Lote</p>
+                                <p class="text-xl font-bold text-white">#OR-2026-014</p>
+                            </div>
+                        </div>
+
+                        <!-- Informações Técnicas Adicionais -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-800/50 p-3 rounded border border-white/5">
+                                <p class="text-xs text-gray-500 mb-1">Sequência</p>
+                                <p class="text-sm text-white font-medium">H2O (Oxidano)</p>
+                            </div>
+                            <div class="bg-gray-800/50 p-3 rounded border border-white/5">
+                                <p class="text-xs text-gray-500 mb-1">Apresentação</p>
+                                <p class="text-sm text-white font-medium">Frasco de 10ml (Ampola Multidose)</p>
+                            </div>
+                            <div class="bg-gray-800/50 p-3 rounded border border-white/5">
+                                <p class="text-xs text-gray-500 mb-1">pH</p>
+                                <p class="text-sm text-white font-medium">5.0 - 7.0 (Neutro)</p>
+                            </div>
+                            <div class="bg-gray-800/50 p-3 rounded border border-white/5">
+                                <p class="text-xs text-gray-500 mb-1">CAS</p>
+                                <p class="text-sm text-white font-medium">7732-18-5</p>
+                            </div>
+                        </div>
+
+                        <ul class="text-sm text-gray-400 space-y-2 mb-6 list-none">
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Grau USP (United States Pharmacopeia)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Non-Pyrogenic (Livre de Endotoxinas)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Estéril por filtração e autoclavação</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Livre de partículas e contaminantes</span>
+                            </li>
+                        </ul>
 
                         <a
                             href="#"
@@ -124,6 +344,25 @@ import Accordion from '../../components/Accordion.astro';
                         </a>
                     </div>
                 </Accordion>
+            </div>
+        </section>
+
+        <!-- Botão Voltar ao Catálogo -->
+        <section class="max-w-4xl mx-auto mt-12">
+            <div class="bg-gradient-to-r from-blue-900/20 to-blue-800/20 border border-blue-500/30 rounded-xl p-6 md:p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-4">Explore Nossos Peptídeos</h3>
+                <p class="text-gray-400 text-sm mb-6">
+                    Volte ao catálogo completo para conhecer todos os nossos produtos de pesquisa.
+                </p>
+                <a
+                    href="/catalogo"
+                    class="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Voltar para o Catálogo de Peptídeos
+                </a>
             </div>
         </section>
     </main>
@@ -139,4 +378,3 @@ import Accordion from '../../components/Accordion.astro';
         </div>
     </footer>
 </Layout>
-
