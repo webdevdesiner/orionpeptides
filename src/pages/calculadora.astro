@@ -54,21 +54,33 @@ import Header from '../components/Header.astro';
                         />
                     </div>
 
-                    <!-- Input: Dose Desejada -->
+                    <!-- Input: Dose Desejada + Unidade (mcg/mg) -->
                     <div>
                         <label for="doseDesejada" class="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
-                            Dose Desejada (mcg)
+                            Dose Desejada
                         </label>
-                        <input
-                            type="number"
-                            id="doseDesejada"
-                            name="doseDesejada"
-                            step="0.1"
-                            min="0"
-                            placeholder="Ex: 250"
-                            required
-                            class="w-full px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300"
-                        />
+                        <div class="flex gap-2">
+                            <input
+                                type="number"
+                                id="doseDesejada"
+                                name="doseDesejada"
+                                step="0.1"
+                                min="0"
+                                placeholder="Ex: 250 ou 5"
+                                required
+                                class="flex-1 px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300"
+                            />
+                            <select
+                                id="unidadeDose"
+                                name="unidadeDose"
+                                aria-label="Unidade da dose"
+                                class="min-w-[6rem] px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer"
+                            >
+                                <option value="mcg">mcg</option>
+                                <option value="mg">mg</option>
+                            </select>
+                        </div>
+                        <p class="mt-1.5 text-xs text-gray-500 dark:text-gray-500">Ex.: BPC-157 250 mcg · Tirzepatide 5 mg</p>
                     </div>
 
                     <!-- Botão Calcular com Efeito Neon -->
@@ -170,10 +182,16 @@ import Header from '../components/Header.astro';
         // Capturar valores dos inputs
         const tamanhoFrasco = parseFloat(document.getElementById('tamanhoFrasco').value);
         const quantidadeAgua = parseFloat(document.getElementById('quantidadeAgua').value);
-        const doseDesejada = parseFloat(document.getElementById('doseDesejada').value);
+        let dose = parseFloat((document.getElementById('doseDesejada') as HTMLInputElement)?.value ?? '0');
+        const unidade = (document.getElementById('unidadeDose') as HTMLSelectElement | null)?.value ?? 'mcg';
+
+        // Converter mg → mcg internamente (cálculo sempre em mcg)
+        if (unidade === 'mg') {
+            dose = dose * 1000;
+        }
 
         // Validação básica
-        if (tamanhoFrasco <= 0 || quantidadeAgua <= 0 || doseDesejada <= 0) {
+        if (tamanhoFrasco <= 0 || quantidadeAgua <= 0 || dose <= 0) {
             alert('Por favor, preencha todos os campos com valores válidos maiores que zero.');
             return;
         }
@@ -184,8 +202,8 @@ import Header from '../components/Header.astro';
         // Passo 2: Calcular concentração (Total mcg / ml de água)
         const concentracao = totalMcg / quantidadeAgua;
 
-        // Passo 3: Calcular volume da dose (Dose Desejada / Concentração)
-        const volumeDose = doseDesejada / concentracao;
+        // Passo 3: Calcular volume da dose (Dose em mcg / Concentração)
+        const volumeDose = dose / concentracao;
 
         // Passo 4: Converter para "Ticks" (Unidades) de Seringa de Insulina (Volume * 100)
         const unidadesUI = volumeDose * 100;
