@@ -301,23 +301,8 @@ import Accordion from '../../components/Accordion.astro';
                             </ol>
                         </div>
 
-                        <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4 mt-4">
-                            <p class="text-sm text-cyan-300 mb-3">
-                                <strong>Dica:</strong> Use nossa calculadora de reconstituição para determinar as concentrações precisas para seus protocolos de pesquisa.
-                            </p>
-                            <a
-                                href="/calculadora"
-                                class="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/50 text-cyan-300 rounded-lg transition-colors text-sm font-semibold"
-                            >
-                                Acessar Calculadora Completa
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-
-                        <!-- Calculadora Rápida Inline -->
-                        <div class="bg-gray-800/50 border border-cyan-500/20 rounded-lg p-6 mt-6">
+                        <!-- Calculadora Rápida Inline (em primeiro) -->
+                        <div class="bg-gray-800/50 border border-cyan-500/20 rounded-lg p-6 mt-4">
                             <h4 class="text-white font-bold mb-4 flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -354,6 +339,21 @@ import Accordion from '../../components/Accordion.astro';
                                     <p class="text-gray-400 text-xs mt-1">Volume: <span id="resultadoVolumeNAD" class="text-cyan-300">0 ml</span></p>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4 mt-6">
+                            <p class="text-sm text-cyan-300 mb-3">
+                                <strong>Dica:</strong> Use a calculadora completa para outros frascos e diluições.
+                            </p>
+                            <a
+                                href="/calculadora"
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/50 text-cyan-300 rounded-lg transition-colors text-sm font-semibold"
+                            >
+                                Acessar Calculadora Completa
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
                         </div>
 
                         <div class="border-t border-white/10 pt-6 mt-6">
