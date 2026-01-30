@@ -16,6 +16,7 @@ const produtos = [
 		shadowHover: 'group-hover:shadow-[0_0_20px_-5px_rgba(234,179,8,0.4)]',
 		textShadow: 'drop-shadow-[0_0_4px_rgba(250,204,21,0.5)]',
 		imagem: '/image/catalogo/tirzepatide.png',
+		imagemCard: '/image/produtos/TIRZEPATIDE-card.png',
 		glowColor: 'amber',
 		dropShadow: '0 0 15px rgba(245,158,11,0.5)',
 		hoverShadow: 'hover:shadow-amber-500/20',
@@ -34,6 +35,7 @@ const produtos = [
 		shadowHover: 'group-hover:shadow-[0_0_20px_-5px_rgba(16,185,129,0.4)]',
 		textShadow: 'drop-shadow-[0_0_4px_rgba(16,185,129,0.5)]',
 		imagem: '/image/catalogo/bpc-157.png',
+		imagemCard: '/image/produtos/BPC-157-card.png',
 		glowColor: 'emerald',
 		dropShadow: '0 0 15px rgba(16,185,129,0.5)',
 		hoverShadow: 'hover:shadow-emerald-500/20',
@@ -52,6 +54,7 @@ const produtos = [
 		shadowHover: 'group-hover:shadow-[0_0_20px_-5px_rgba(249,115,22,0.4)]',
 		textShadow: 'drop-shadow-[0_0_4px_rgba(251,146,60,0.5)]',
 		imagem: '/image/catalogo/retatrutide.png',
+		imagemCard: '/image/produtos/RETRATUTIDE-card.png',
 		glowColor: 'orange',
 		dropShadow: '0 0 15px rgba(249,115,22,0.5)',
 		hoverShadow: 'hover:shadow-orange-500/20',
@@ -208,9 +211,9 @@ function getProductUrl(nome: string): string {
                         class={`bg-gray-900/50 backdrop-blur-sm border border-white/10 ${produto.borderCor} ${produto.borderHover} rounded-xl p-5 pt-16 md:pt-20 transition-all duration-500 hover:shadow-2xl ${produto.hoverShadow} hover:-translate-y-3 group block relative overflow-visible animate-on-scroll before:absolute before:inset-0 before:rounded-xl before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 ${produto.gradientOverlay} before:pointer-events-none`}
                         style={`animation-delay: ${index * 0.1}s;`}
                     >
-                        <!-- Imagem do Produto (glass.png) -->
+                        <!-- Imagem do Produto (cards da inicial) -->
                         <img
-                            src="/image/glass.png"
+                            src={produto.imagemCard}
                             alt={produto.nome}
                             class="absolute -top-6 md:-top-8 left-4 bottom-0 h-[220px] md:h-[260px] w-auto object-contain z-[5] transition-transform duration-500 group-hover:scale-105"
                         />
