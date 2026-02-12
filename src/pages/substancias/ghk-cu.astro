@@ -576,6 +576,18 @@ import Accordion from '../../components/Accordion.astro';
             try {
                 const adminSection = document.getElementById('administracaoGHKSection') as HTMLElement | null;
                 if (adminSection) {
+                    // se estiver dentro de um accordion, abrir o accordion primeiro
+                    const accordionContent = adminSection.closest('[data-accordion-content]') as HTMLElement | null;
+                    if (accordionContent) {
+                        const accId = accordionContent.getAttribute('data-accordion-content');
+                        if (accId) {
+                            const headerButton = document.querySelector(`[data-accordion-id="${accId}"]`) as HTMLElement | null;
+                            if (headerButton && headerButton.getAttribute('aria-expanded') !== 'true') {
+                                headerButton.click();
+                            }
+                        }
+                    }
+
                     // dar prioridade visual e centralizar a seção na viewport
                     adminSection.style.position = adminSection.style.position || 'relative';
                     adminSection.style.zIndex = '60';
