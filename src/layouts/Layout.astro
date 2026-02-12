@@ -75,6 +75,71 @@ const { title } = Astro.props;
                 }
             });
         </script>
+        <script>
+            // Show a small "Ver Aviso Legal" button in the footer when the user has dismissed the disclaimer.
+            document.addEventListener('DOMContentLoaded', () => {
+                try {
+                    const dismissed = localStorage.getItem('disclaimerDismissed');
+
+                    // create button
+                    const btn = document.createElement('button');
+                    btn.id = 'show-disclaimer-btn';
+                    btn.type = 'button';
+                    btn.textContent = 'Ver Aviso Legal';
+                    btn.className = 'text-xs text-gray-400 border border-gray-800 rounded px-2 py-1 ml-2 hover:text-gray-200';
+                    (btn.style as any).display = 'none';
+
+                    // find copyright paragraph
+                    const pList = Array.from(document.querySelectorAll('p'));
+                    let anchor: Element | null = null;
+                    for (const p of pList) {
+                        if (p.textContent && p.textContent.includes('© 2015')) {
+                            anchor = p;
+                            break;
+                        }
+                    }
+
+                    if (anchor && anchor.parentNode) {
+                        anchor.parentNode.insertBefore(btn, anchor.nextSibling);
+                    } else {
+                        // fallback: append to body end
+                        document.body.appendChild(btn);
+                    }
+
+                    if (dismissed === '1') {
+                        (btn.style as any).display = 'inline-block';
+                    }
+
+                    function injectDisclaimerAndHook() {
+                        const tpl = document.getElementById('disclaimer-template') as HTMLTemplateElement | null;
+                        if (!tpl) return;
+                        const node = tpl.content.firstElementChild.cloneNode(true) as HTMLElement;
+                        if (anchor && anchor.parentNode) {
+                            anchor.parentNode.insertBefore(node, anchor);
+                        } else {
+                            document.body.appendChild(node);
+                        }
+                        const dismissBtn = node.querySelector('#dismiss-disclaimer') as HTMLElement | null;
+                        if (dismissBtn) {
+                            dismissBtn.addEventListener('click', () => {
+                                const el = document.getElementById('site-disclaimer');
+                                if (el && el.parentNode) el.parentNode.removeChild(el);
+                                try { localStorage.setItem('disclaimerDismissed', '1'); } catch (e) {}
+                                (btn.style as any).display = 'inline-block';
+                            });
+                        }
+                    }
+
+                    btn.addEventListener('click', () => {
+                        try { localStorage.removeItem('disclaimerDismissed'); } catch (e) {}
+                        injectDisclaimerAndHook();
+                        (btn.style as any).display = 'none';
+                    });
+                } catch (err) {
+                    // silent
+                }
+            });
+        </script>
 
         
 	</body>
