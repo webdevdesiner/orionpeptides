@@ -13,6 +13,15 @@ import Accordion from '../../components/Accordion.astro';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
                 <!-- Coluna 1: Imagem do Produto -->
                 <div class="space-y-6">
+                    <!-- Mobile-only: título acima da imagem com ícone -->
+                    <div class="md:hidden flex items-center justify-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-white/5 border border-cyan-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.12)]">
+                            <img src="/image/catalogo/mots-c.png" alt="Ícone MOTS-C" class="w-8 h-8 object-contain" />
+                        </div>
+                        <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
+                            MOTS-C
+                        </h1>
+                    </div>
                     <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl overflow-hidden">
                         <div class="px-4 py-2.5 border-b border-white/10 bg-black/20">
                             <p class="text-xs text-gray-400 uppercase tracking-wider font-medium">Imagem do produto</p>
@@ -76,7 +85,7 @@ import Accordion from '../../components/Accordion.astro';
                 <!-- Coluna 2: Informações -->
                 <div class="space-y-6">
                     <div>
-                        <div class="flex items-center gap-4 mb-2">
+                        <div class="hidden md:flex items-center gap-4 mb-2">
                             <div class="w-14 h-14 rounded-full bg-white/5 border border-cyan-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(6,182,212,0.25)]">
                                 <img src="/image/catalogo/mots-c.png" alt="" class="w-10 h-10 object-contain" />
                             </div>
@@ -84,8 +93,8 @@ import Accordion from '../../components/Accordion.astro';
                                 MOTS-C
                             </h1>
                         </div>
-                        <p class="text-xl text-gray-400 font-medium mb-3">Mitochondrial-Derived Peptide (MDP)</p>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        <p class="text-xl text-gray-400 font-medium mb-3 hidden md:block">Mitochondrial-Derived Peptide (MDP)</p>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6 hidden md:block">
                             Conhecido cientificamente como <strong class="text-cyan-400">"mimético de exercício"</strong>, o MOTS-C atua diretamente na mitocôndria, regulando funções metabólicas. Ele ativa a via AMPK (a mesma ativada pelo exercício intenso), promovendo a queima de gordura visceral, melhora na sensibilidade à insulina e aumento da resistência física.
                         </p>
                         <div class="bg-cyan-900/20 border border-cyan-500/30 rounded-lg p-3 mb-4">
