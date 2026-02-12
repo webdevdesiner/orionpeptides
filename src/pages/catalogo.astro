@@ -6,6 +6,8 @@ import Header from '../components/Header.astro';
 function getProductUrl(nome: string): string {
 	const urlMap: Record<string, string> = {
 		'Tirzepatide': '/substancias/tirzepatide',
+		'Tirzepatide 40mg': '/substancias/tirzepatide-40mg',
+		'Tirzepatide 60mg': '/substancias/tirzepatide-60mg',
 		'Retatrutide': '/substancias/retatrutide',
 		'BPC-157': '/substancias/bpc-157',
 		'TB-500': '/substancias/tb-500',
@@ -38,6 +40,35 @@ const laudos = [
 		lote: '#OR-2026-028',
 		pureza: 99.8,
 		dataTeste: '28/01/2026',
+		categoria: 'Emagrecimento',
+		destaque: 'Gold Standard',
+		highPurity: true,
+		imagem: '/image/catalogo/tirzepatide.png',
+		glowColor: 'shadow-amber-500/50',
+		borderColor: 'group-hover:border-amber-500/50',
+		textColor: 'text-amber-400'
+	},
+	// Novas variações adicionadas
+	{
+		nome: 'Tirzepatide 40mg',
+		variacao: '40mg',
+		lote: '#OR-2026-040',
+		pureza: 99.8,
+		dataTeste: '01/02/2026',
+		categoria: 'Emagrecimento',
+		destaque: 'Gold Standard',
+		highPurity: true,
+		imagem: '/image/catalogo/tirzepatide.png',
+		glowColor: 'shadow-amber-500/50',
+		borderColor: 'group-hover:border-amber-500/50',
+		textColor: 'text-amber-400'
+	},
+	{
+		nome: 'Tirzepatide 60mg',
+		variacao: '60mg',
+		lote: '#OR-2026-060',
+		pureza: 99.8,
+		dataTeste: '02/02/2026',
 		categoria: 'Emagrecimento',
 		destaque: 'Gold Standard',
 		highPurity: true,
@@ -376,8 +407,12 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                             <!-- Nome do Produto e Variação -->
                             <div class="text-center mb-3">
                                 <h3 class={`text-xl font-bold mb-1 ${textColor} group-hover:scale-105 transition-all duration-300`}>
-                                    {laudo.nome}
+                                    {laudo.nome}{laudo.variacao ? ` ${laudo.variacao}` : ''}
                                 </h3>
+                                {/*
+                                    Mantemos a exibição da variação menor caso seja necessária em futuros estilos,
+                                    mas o título agora inclui automaticamente a variação (ex: "Tirzepatide 20mg").
+                                */}
                                 {laudo.variacao && (
                                     <p class="text-sm text-gray-500 font-medium">
                                         {laudo.variacao}
