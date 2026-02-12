@@ -13,9 +13,12 @@ import Accordion from '../../components/Accordion.astro';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
                 <!-- Coluna 1: Imagem do Produto -->
                 <div class="space-y-6">
-                    <!-- Mobile-only: título acima da imagem -->
-                    <div class="md:hidden text-center">
-                        <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-amber-200 to-amber-400 mb-2">
+                    <!-- Mobile-only: título acima da imagem com ícone -->
+                    <div class="md:hidden flex items-center justify-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-white/5 border border-amber-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_8px_rgba(245,158,11,0.15)]">
+                            <img src="/image/catalogo/tirzepatide.png" alt="Ícone Tirzepatide" class="w-8 h-8 object-contain" />
+                        </div>
+                        <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-amber-200 to-amber-400">
                             Tirzepatide
                         </h1>
                     </div>
