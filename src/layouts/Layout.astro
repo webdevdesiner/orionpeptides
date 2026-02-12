@@ -30,6 +30,20 @@ const { title } = Astro.props;
                 O conteúdo deste site tem caráter meramente informativo e educacional sobre as propriedades químicas das substâncias. A Orion Peptides não se responsabiliza pelo uso indevido, auto-medicação ou aplicação sem orientação profissional. Consulte sempre seu médico ou especialista antes de iniciar qualquer protocolo de pesquisa.
             </div>
         </div>
+        <script>
+            // Ajusta o padding-bottom do body para evitar que a disclaimer sobreponha o footer comercial
+            document.addEventListener('DOMContentLoaded', () => {
+                const disclaimer = document.getElementById('global-disclaimer');
+                if (!disclaimer) return;
+                const setPadding = () => {
+                    const h = disclaimer.offsetHeight || 0;
+                    // aplicar padding-bottom suficiente para tornar o footer visível
+                    document.body.style.paddingBottom = `${h}px`;
+                };
+                setPadding();
+                window.addEventListener('resize', setPadding);
+            });
+        </script>
 	</body>
 </html>
 
