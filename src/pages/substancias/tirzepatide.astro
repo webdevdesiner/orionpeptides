@@ -10,9 +10,20 @@ import Accordion from '../../components/Accordion.astro';
     <main class="container mx-auto px-4 py-12 md:py-16">
         <!-- Topo - Resumo do Produto -->
         <section class="mb-16">
+            <!-- Mobile-first: título no topo -->
+            <div class="md:hidden mb-6">
+                <h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-amber-200 to-amber-400 mb-2">
+                    Tirzepatide
+                </h1>
+                <p class="text-lg text-gray-400 font-medium mb-3">Agente Duplo GLP-1/GIP Agonist</p>
+                <p class="text-sm text-gray-500 leading-relaxed">
+                    O primeiro agonista duplo dos receptores de GLP-1 e GIP. Ao ativar esses dois receptores simultaneamente, promove controle glicêmico superior e perda de peso significativamente maior que monoterapias convencionais.
+                </p>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
                 <!-- Coluna 1: Imagem do Produto -->
-                <div class="space-y-6">
+                <div class="space-y-6 order-2 md:order-1">
                     <div class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl overflow-hidden">
                         <div class="px-4 py-2.5 border-b border-white/10 bg-black/20">
                             <p class="text-xs text-gray-400 uppercase tracking-wider font-medium">Imagem do produto</p>
@@ -30,6 +41,10 @@ import Accordion from '../../components/Accordion.astro';
                                 alt="Tirzepatide - Agonista Dual GLP-1/GIP" 
                                 class="w-full h-auto object-contain rounded-lg"
                             />
+                            <!-- Mobile: breve descrição logo após a foto -->
+                            <div class="md:hidden mt-4 text-sm text-gray-500">
+                                O primeiro agonista duplo dos receptores de GLP-1 e GIP. Ao ativar esses dois receptores simultaneamente, promove controle glicêmico superior e perda de peso significativamente maior que monoterapias convencionais.
+                            </div>
                         </div>
                     </div>
 
@@ -74,9 +89,9 @@ import Accordion from '../../components/Accordion.astro';
                 </div>
 
                 <!-- Coluna 2: Informações -->
-                <div class="space-y-6">
+                <div class="space-y-6 order-1 md:order-2">
                     <div>
-                        <div class="flex items-center gap-4 mb-2">
+                        <div class="flex items-center gap-4 mb-2 hidden md:flex">
                             <div class="w-14 h-14 rounded-full bg-white/5 border border-amber-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(245,158,11,0.25)]">
                                 <img src="/image/catalogo/tirzepatide.png" alt="" class="w-10 h-10 object-contain" />
                             </div>
@@ -84,8 +99,8 @@ import Accordion from '../../components/Accordion.astro';
                                 Tirzepatide
                             </h1>
                         </div>
-                        <p class="text-xl text-gray-400 font-medium mb-3">Agente Duplo GLP-1/GIP Agonist</p>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                        <p class="text-xl text-gray-400 font-medium mb-3 hidden md:block">Agente Duplo GLP-1/GIP Agonist</p>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6 hidden md:block">
                             O primeiro agonista duplo dos receptores de GLP-1 e GIP. Ao ativar esses dois receptores simultaneamente, promove controle glicêmico superior e perda de peso significativamente maior que monoterapias convencionais.
                         </p>
                         <div class="bg-amber-900/20 border border-amber-500/30 rounded-lg p-3 mb-4">
