@@ -42,18 +42,20 @@ const { title } = Astro.props;
                     const dismissed = localStorage.getItem('disclaimerDismissed');
                     if (dismissed === '1') return;
 
-                    const tpl = document.getElementById('disclaimer-template');
-                    if (!tpl) return;
-                    const node = tpl.content.firstElementChild.cloneNode(true);
+                    const tpl = document.getElementById('disclaimer-template') as HTMLTemplateElement | null;
+                    if (!tpl || !tpl.content.firstElementChild) return;
+                    const node = tpl.content.firstElementChild.cloneNode(true) as HTMLElement;
 
                     // Find copyright paragraphs and insert disclaimer before the first one found
-                    const copyrightCandidates = Array.from(document.querySelectorAll('p'));
+                    const copyrightCandidates = Array.from(document.querySelectorAll('p')) as HTMLParagraphElement[];
                     let inserted = false;
                     for (const p of copyrightCandidates) {
                         if (p.textContent && p.textContent.includes('© 2015')) {
-                            p.parentNode.insertBefore(node, p);
-                            inserted = true;
-                            break;
+                            if (p.parentNode) {
+                                p.parentNode.insertBefore(node, p);
+                                inserted = true;
+                                break;
+                            }
                         }
                     }
 
@@ -87,11 +89,11 @@ const { title } = Astro.props;
                     btn.type = 'button';
                     btn.textContent = 'Ver Aviso Legal';
                     btn.className = 'text-xs text-gray-400 border border-gray-800 rounded px-2 py-1 ml-2 hover:text-gray-200';
-                    (btn.style as any).display = 'none';
+                    btn.style.display = 'none';
 
                     // find copyright paragraph
-                    const pList = Array.from(document.querySelectorAll('p'));
-                    let anchor: Element | null = null;
+                    const pList = Array.from(document.querySelectorAll('p')) as HTMLParagraphElement[];
+                    let anchor: HTMLElement | null = null;
                     for (const p of pList) {
                         if (p.textContent && p.textContent.includes('© 2015')) {
                             anchor = p;
@@ -107,12 +109,13 @@ const { title } = Astro.props;
                     }
 
                     if (dismissed === '1') {
-                        (btn.style as any).display = 'inline-block';
+                        btn.style.display = 'inline-block';
                     }
 
                     function injectDisclaimerAndHook() {
                         const tpl = document.getElementById('disclaimer-template') as HTMLTemplateElement | null;
                         if (!tpl) return;
+                        if (!tpl.content.firstElementChild) return;
                         const node = tpl.content.firstElementChild.cloneNode(true) as HTMLElement;
                         if (anchor && anchor.parentNode) {
                             anchor.parentNode.insertBefore(node, anchor);
@@ -125,7 +128,7 @@ const { title } = Astro.props;
                                 const el = document.getElementById('site-disclaimer');
                                 if (el && el.parentNode) el.parentNode.removeChild(el);
                                 try { localStorage.setItem('disclaimerDismissed', '1'); } catch (e) {}
-                                (btn.style as any).display = 'inline-block';
+                                btn.style.display = 'inline-block';
                             });
                         }
                     }
@@ -133,7 +136,7 @@ const { title } = Astro.props;
                     btn.addEventListener('click', () => {
                         try { localStorage.removeItem('disclaimerDismissed'); } catch (e) {}
                         injectDisclaimerAndHook();
-                        (btn.style as any).display = 'none';
+                        btn.style.display = 'none';
                     });
                 } catch (err) {
                     // silent
@@ -246,7 +249,7 @@ const { title } = Astro.props;
     }
 </style>
 
-<script>
+        <script>
     // Adicionar animações de entrada suave para elementos
     document.addEventListener('DOMContentLoaded', () => {
         // Animar elementos com classe 'animate-on-scroll'
@@ -258,8 +261,9 @@ const { title } = Astro.props;
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    const target = entry.target as HTMLElement;
+                    target.style.opacity = '1';
+                    target.style.transform = 'translateY(0)';
                     observer.unobserve(entry.target);
                 }
             });
@@ -267,19 +271,20 @@ const { title } = Astro.props;
 
         // Observar elementos com animação
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-            observer.observe(el);
+            const he = el as HTMLElement;
+            he.style.opacity = '0';
+            he.style.transform = 'translateY(20px)';
+            he.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(he);
         });
 
         // Suavizar navegação entre links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
                 const href = this.getAttribute('href');
-                if (href !== '#' && href.length > 1) {
+                if (href !== '#' && href && href.length > 1) {
                     e.preventDefault();
-                    const target = document.querySelector(href);
+                    const target = document.querySelector(href) as HTMLElement | null;
                     if (target) {
                         const headerOffset = 80;
                         const elementPosition = target.getBoundingClientRect().top;
