@@ -576,10 +576,10 @@ import Accordion from '../../components/Accordion.astro';
             try {
                 const adminSection = document.getElementById('administracaoGHKSection') as HTMLElement | null;
                 if (adminSection) {
-                    const yOffset = -100; // compensar header fixo
-                    const rect = adminSection.getBoundingClientRect();
-                    const absoluteY = window.scrollY + rect.top + yOffset;
-                    window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+                    // dar prioridade visual e centralizar a seção na viewport
+                    adminSection.style.position = adminSection.style.position || 'relative';
+                    adminSection.style.zIndex = '60';
+                    adminSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             } catch (err) { /* ignore */ }
         });
