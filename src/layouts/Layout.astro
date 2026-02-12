@@ -22,6 +22,60 @@ const { title } = Astro.props;
 	<body class="bg-black text-white font-['Inter'] antialiased">
         <slot />
 
+        <!-- Dismissible Footer Disclaimer Template (will be injected before copyright on each page) -->
+        <template id="disclaimer-template">
+            <div id="site-disclaimer" class="w-full bg-neutral-950 text-xs text-gray-500 text-center py-4 border-t border-gray-800 flex items-start justify-center gap-4 px-4">
+                <div class="max-w-4xl">
+                    ⚠️ <strong class="text-gray-300">AVISO LEGAL:</strong> As informações e produtos disponibilizados neste site destinam-se exclusivamente para fins de pesquisa laboratorial e desenvolvimento científico.
+                    Estes compostos químicos não são medicamentos, não foram aprovados para tratamento, diagnóstico ou prevenção de doenças e não substituem aconselhamento médico profissional.
+                    A Orion Peptides não incentiva a automedicação e não se responsabiliza pelo uso indevido destas substâncias fora de ambiente controlado. Consulte sempre seu especialista antes de iniciar qualquer protocolo.
+                </div>
+                <button id="dismiss-disclaimer" aria-label="Fechar aviso legal" class="text-gray-400 hover:text-gray-200 ml-2 px-2 py-1 rounded-md border border-gray-800">
+                    ✕
+                </button>
+            </div>
+        </template>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                try {
+                    const dismissed = localStorage.getItem('disclaimerDismissed');
+                    if (dismissed === '1') return;
+
+                    const tpl = document.getElementById('disclaimer-template');
+                    if (!tpl) return;
+                    const node = tpl.content.firstElementChild.cloneNode(true);
+
+                    // Find copyright paragraphs and insert disclaimer before the first one found
+                    const copyrightCandidates = Array.from(document.querySelectorAll('p'));
+                    let inserted = false;
+                    for (const p of copyrightCandidates) {
+                        if (p.textContent && p.textContent.includes('© 2015')) {
+                            p.parentNode.insertBefore(node, p);
+                            inserted = true;
+                            break;
+                        }
+                    }
+
+                    // Fallback: append to body end (before footer)
+                    if (!inserted) {
+                        document.body.appendChild(node);
+                    }
+
+                    const dismissBtn = document.getElementById('dismiss-disclaimer');
+                    if (dismissBtn) {
+                        dismissBtn.addEventListener('click', () => {
+                            const el = document.getElementById('site-disclaimer');
+                            if (el && el.parentNode) el.parentNode.removeChild(el);
+                            try { localStorage.setItem('disclaimerDismissed', '1'); } catch (e) {}
+                        });
+                    }
+                } catch (err) {
+                    // silent
+                }
+            });
+        </script>
+
         
 	</body>
 </html>
