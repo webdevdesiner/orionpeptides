@@ -391,7 +391,7 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
 
                     return (
                         <div 
-                            class={`produto-card bg-gray-900/50 backdrop-blur-sm border border-white/10 ${borderColor} rounded-xl p-6 transition-all duration-500 hover:shadow-2xl ${hoverShadowColor} hover:-translate-y-3 group block relative overflow-visible animate-on-scroll before:absolute before:inset-0 before:rounded-xl before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 ${hoverGradientColor} before:pointer-events-none`}
+                            class={`produto-card bg-gray-900/50 backdrop-blur-sm border border-white/10 ${borderColor} rounded-xl p-6 transition-all duration-500 hover:shadow-2xl ${hoverShadowColor} hover:-translate-y-3 group block relative overflow-visible min-h-56 animate-on-scroll before:absolute before:inset-0 before:rounded-xl before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 ${hoverGradientColor} before:pointer-events-none`}
                             data-categoria={laudo.categoria}
                             data-nome={laudo.nome.toLowerCase()}
                             style={`animation-delay: ${index * 0.1}s;`}
