@@ -357,6 +357,9 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                     };
                     
                     const purityGradient = getPurityGradient(textColor);
+                    
+                    // Título a exibir: evita repetir a variação se já estiver no nome
+                    const displayTitle = laudo.variacao && !laudo.nome.includes(laudo.variacao) ? `${laudo.nome} ${laudo.variacao}` : laudo.nome;
 
                     return (
                         <div 
@@ -407,7 +410,7 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                             <!-- Nome do Produto e Variação -->
                             <div class="text-center mb-3">
                                 <h3 class={`text-xl font-bold mb-1 ${textColor} group-hover:scale-105 transition-all duration-300`}>
-                                    {laudo.nome}{laudo.variacao ? ` ${laudo.variacao}` : ''}
+                                    {displayTitle}
                                 </h3>
                                 {/*
                                     Mantemos a exibição da variação menor caso seja necessária em futuros estilos,
