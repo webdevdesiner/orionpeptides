@@ -22,28 +22,7 @@ const { title } = Astro.props;
 	<body class="bg-black text-white font-['Inter'] antialiased">
         <slot />
 
-        <!-- Global Disclaimer (appears on all pages) -->
-        <div id="global-disclaimer" class="fixed inset-x-0 bottom-0 z-50 flex items-center justify-center p-3 bg-gray-900 border-t border-gray-800">
-            <div class="max-w-4xl text-center text-xs text-gray-500">
-                ⚠️ <strong class="text-gray-300">AVISO LEGAL:</strong> Todos os produtos fornecidos neste site são destinados exclusivamente para fins de pesquisa laboratorial e desenvolvimento científico. Estes produtos não são medicamentos e não foram aprovados pela ANVISA para tratamento, diagnóstico ou prevenção de doenças em humanos.
-                <br/>
-                O conteúdo deste site tem caráter meramente informativo e educacional sobre as propriedades químicas das substâncias. A Orion Peptides não se responsabiliza pelo uso indevido, auto-medicação ou aplicação sem orientação profissional. Consulte sempre seu médico ou especialista antes de iniciar qualquer protocolo de pesquisa.
-            </div>
-        </div>
-        <script>
-            // Ajusta o padding-bottom do body para evitar que a disclaimer sobreponha o footer comercial
-            document.addEventListener('DOMContentLoaded', () => {
-                const disclaimer = document.getElementById('global-disclaimer');
-                if (!disclaimer) return;
-                const setPadding = () => {
-                    const h = disclaimer.offsetHeight || 0;
-                    // aplicar padding-bottom suficiente para tornar o footer visível
-                    document.body.style.paddingBottom = `${h}px`;
-                };
-                setPadding();
-                window.addEventListener('resize', setPadding);
-            });
-        </script>
+        
 	</body>
 </html>
 
