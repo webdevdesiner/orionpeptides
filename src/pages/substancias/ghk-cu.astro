@@ -395,8 +395,8 @@ import Accordion from '../../components/Accordion.astro';
                             </a>
                         </div>
 
-                        <div class="border-t border-white/10 pt-6 mt-6">
-                            <h4 class="text-white font-bold mb-4">💉 Administração</h4>
+                        <div class="border-t border-white/10 pt-6 mt-6" id="administracaoGHKSection">
+                            <h4 id="administracaoGHK" class="text-white font-bold mb-4">💉 Administração</h4>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-start gap-2">
                                     <span class="text-emerald-400 font-bold">•</span>
@@ -574,4 +574,48 @@ import Accordion from '../../components/Accordion.astro';
             resultadoGHKCu.classList.remove('hidden');
         });
     });
+</script>
+
+<!-- Debug: Test scroll to Administração -->
+<script>
+    (function() {
+        // create test button
+        const btn = document.createElement('button');
+        btn.id = 'testScrollAdminBtn';
+        btn.textContent = 'Testar scroll Administração';
+        btn.style.position = 'fixed';
+        btn.style.right = '16px';
+        btn.style.bottom = '16px';
+        btn.style.zIndex = '99999';
+        btn.style.padding = '10px 12px';
+        btn.style.background = 'linear-gradient(90deg,#10b981,#059669)';
+        btn.style.color = 'white';
+        btn.style.border = 'none';
+        btn.style.borderRadius = '8px';
+        btn.style.boxShadow = '0 6px 18px rgba(2,6,23,0.6)';
+        btn.style.cursor = 'pointer';
+        btn.style.fontSize = '13px';
+        document.body.appendChild(btn);
+
+        function highlight(el: any) {
+            if (!el) return;
+            const orig = el.style.boxShadow;
+            el.style.boxShadow = '0 0 0 4px rgba(250,204,21,0.18)';
+            setTimeout(() => { el.style.boxShadow = orig; }, 2000);
+        }
+
+        btn.addEventListener('click', () => {
+            const target = document.getElementById('administracaoGHK') || document.getElementById('administracaoGHKSection');
+            if (!target) {
+                alert('Elemento de Administração não encontrado.');
+                return;
+            }
+            // scroll so heading is visible with small offset
+            const yOffset = -80; // adjust for sticky header
+            const rect = target.getBoundingClientRect();
+            const absoluteY = window.scrollY + rect.top + yOffset;
+            window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+            highlight(target);
+        });
+    })();
 </script>
