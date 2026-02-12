@@ -301,7 +301,7 @@ import Accordion from '../../components/Accordion.astro';
                                     CALCULAR UNIDADES
                                 </button>
                             </form>
-                            <div id="resultadoBlendCI" class="hidden mt-4 pt-4 border-t border-white/10">
+                            <div id="resultadoBlendCI" class="hidden mt-4 pt-4 border-t border-white/10 relative z-50">
                                 <div class="bg-rose-500/20 border border-rose-500/30 rounded-lg p-4 text-center">
                                     <p class="text-gray-400 text-xs mb-1">Unidades da Seringa (UI)</p>
                                     <p id="resultadoUIBlendCI" class="text-3xl font-bold text-rose-400">0</p>
@@ -391,6 +391,12 @@ import Accordion from '../../components/Accordion.astro';
             resultadoIpam.textContent = doseEachMcg.toFixed(0);
 
             resultado.classList.remove('hidden');
+            // garantir que o resultado fique visível na viewport e acima de outros elementos
+            setTimeout(() => {
+                try {
+                    (resultado as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } catch (err) {}
+            }, 50);
         });
     });
 </script>
