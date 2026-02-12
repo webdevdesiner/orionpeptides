@@ -572,6 +572,16 @@ import Accordion from '../../components/Accordion.astro';
 
             // Mostrar área de resultado
             resultadoGHKCu.classList.remove('hidden');
+            // Garantir que a seção de Administração fique visível (se estiver abaixo)
+            try {
+                const adminSection = document.getElementById('administracaoGHKSection') as HTMLElement | null;
+                if (adminSection) {
+                    const yOffset = -100; // compensar header fixo
+                    const rect = adminSection.getBoundingClientRect();
+                    const absoluteY = window.scrollY + rect.top + yOffset;
+                    window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+                }
+            } catch (err) { /* ignore */ }
         });
     });
 </script>
