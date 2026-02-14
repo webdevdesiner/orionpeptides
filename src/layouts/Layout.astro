@@ -198,6 +198,79 @@ if (title) {
         <!-- Inserir seção de Referências Científicas apenas em páginas técnicas (Guia Técnico) -->
         {referencesForPage && referencesForPage.length > 0 ? <References references={referencesForPage} /> : null}
 
+        <!-- Keyboard shortcut: navigate between product technical pages with Left / Right arrows -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                try {
+                    const productPaths = [
+                        '/substancias/tirzepatide',
+                        '/substancias/tirzepatide-40mg',
+                        '/substancias/tirzepatide-60mg',
+                        '/substancias/retatrutide',
+                        '/substancias/retatrutide-20mg',
+                        '/substancias/bpc-157',
+                        '/substancias/blend-bpc-tb',
+                        '/substancias/tb-500',
+                        '/substancias/blend-cjc-ipamorelin',
+                        '/substancias/ghk-cu',
+                        '/substancias/tesamorelin',
+                        '/substancias/nad-plus',
+                        '/substancias/mots-c',
+                        '/substancias/agua-esteril'
+                    ];
+
+                    const pathname = window.location.pathname.replace(/\/$/, '');
+                    if (!pathname.startsWith('/substancias/')) return;
+
+                    const currentIndex = productPaths.indexOf(pathname);
+                    if (currentIndex === -1) return;
+
+                    // Optional: small visual hint when user presses arrows (transient)
+                    const hint = document.createElement('div');
+                    hint.style.position = 'fixed';
+                    hint.style.bottom = '18px';
+                    hint.style.right = '18px';
+                    hint.style.padding = '8px 10px';
+                    hint.style.background = 'rgba(0,0,0,0.6)';
+                    hint.style.color = '#cfeefe';
+                    hint.style.fontSize = '12px';
+                    hint.style.borderRadius = '8px';
+                    hint.style.zIndex = '9999';
+                    hint.style.backdropFilter = 'blur(6px)';
+                    hint.style.display = 'none';
+                    hint.textContent = 'Navegação: ← anterior · próximo →';
+                    document.body.appendChild(hint);
+
+                    function showHint() {
+                        hint.style.display = 'block';
+                        clearTimeout((hint as any)._timeout);
+                        (hint as any)._timeout = setTimeout(() => { hint.style.display = 'none'; }, 1200);
+                    }
+
+                    document.addEventListener('keydown', (e) => {
+                        const active = document.activeElement;
+                        if (active && ['INPUT', 'TEXTAREA', 'SELECT'].includes(active.tagName)) return;
+
+                        if (e.key === 'ArrowRight') {
+                            const next = productPaths[currentIndex + 1];
+                            if (next) {
+                                showHint();
+                                window.location.href = next;
+                            }
+                        } else if (e.key === 'ArrowLeft') {
+                            const prev = productPaths[currentIndex - 1];
+                            if (prev) {
+                                showHint();
+                                window.location.href = prev;
+                            }
+                        }
+                    });
+                } catch (err) {
+                    // silent
+                }
+            });
+        </script>
+
 	</body>
 </html>
 
