@@ -11,28 +11,28 @@ const { title } = Astro.props;
 // Mapa de referências por produto (substrings detectadas no title)
 const referenceMap: Record<string, { title: string; href?: string }[]> = {
 	'Tirzepatide': [
-		{ title: "Jastreboff AM, et al. 'Tirzepatide Once Weekly for the Treatment of Obesity.' New England Journal of Medicine (NEJM), 2022." }
+		{ title: "Jastreboff AM, et al. 'Tirzepatide Once Weekly for the Treatment of Obesity.' New England Journal of Medicine (NEJM), 2022.", href: "https://pubmed.ncbi.nlm.nih.gov/35658024/" }
 	],
 	'Retatrutide': [
-		{ title: "Jastreboff AM, et al. 'Triple-Hormone-Receptor Agonist Retatrutide for Obesity.' NEJM, 2023." }
+		{ title: "Jastreboff AM, et al. 'Triple-Hormone-Receptor Agonist Retatrutide for Obesity.' NEJM, 2023.", href: "https://pubmed.ncbi.nlm.nih.gov/37366315/" }
 	],
 	'BPC-157': [
-		{ title: "Seiwerth S, et al. 'BPC 157 and Standard Angiogenic Factors.' Current Pharmaceutical Design, 2018." }
+		{ title: "Seiwerth S, et al. 'BPC 157 and Standard Angiogenic Factors.' Current Pharmaceutical Design, 2018.", href: "https://pubmed.ncbi.nlm.nih.gov/29898649/" }
 	],
 	'TB-500': [
-		{ title: "Goldstein AL, et al. 'Thymosin beta4: a multi-functional regenerative peptide.' Ann N Y Acad Sci, 2010." }
+		{ title: "Goldstein AL, et al. 'Thymosin beta4: a multi-functional regenerative peptide.' Ann N Y Acad Sci, 2010.", href: "https://pubmed.ncbi.nlm.nih.gov/20420578/" }
 	],
 	'GHK-Cu': [
-		{ title: "Pickart L, et al. 'Regenerative and Protective Actions of the GHK-Cu Peptide.' International Journal of Molecular Sciences, 2018." }
+		{ title: "Pickart L, et al. 'Regenerative and Protective Actions of the GHK-Cu Peptide.' International Journal of Molecular Sciences, 2018.", href: "https://pubmed.ncbi.nlm.nih.gov/29986520/" }
 	],
 	'CJC-1295': [
-		{ title: "Teichman SL, et al. 'Prolonged Stimulation of Growth Hormone Release.' Journal of Clinical Endocrinology & Metabolism, 2006." }
+		{ title: "Teichman SL, et al. 'Prolonged Stimulation of Growth Hormone Release.' Journal of Clinical Endocrinology & Metabolism, 2006.", href: "https://pubmed.ncbi.nlm.nih.gov/16330454/" }
 	],
 	'Ipamorelin': [
-		{ title: "Raun K, et al. 'Ipamorelin, the first selective growth hormone secretagogue.' European Journal of Endocrinology, 1998." }
+		{ title: "Raun K, et al. 'Ipamorelin, the first selective growth hormone secretagogue.' European Journal of Endocrinology, 1998.", href: "https://pubmed.ncbi.nlm.nih.gov/9859861/" }
 	],
 	'AOD-9604': [
-		{ title: "Heffernan M, et al. 'The Effects of Human GH and Its Lipolytic Fragment (AOD9604).' Journal of Endocrinology & Metabolism, 2001." }
+		{ title: "Heffernan M, et al. 'The Effects of Human GH and Its Lipolytic Fragment (AOD9604).' Journal of Endocrinology & Metabolism, 2001.", href: "https://pubmed.ncbi.nlm.nih.gov/11739037/" }
 	]
 };
 
