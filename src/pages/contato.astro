@@ -776,30 +776,43 @@ import Header from '../components/Header.astro';
             try {
                 // Coleta os dados do formulário
                 const formData = new FormData(form);
-                
-                // Envia os dados via fetch (AJAX)
-                const response = await fetch('/processa.php', {
+
+                // Envia os dados via fetch (AJAX) para endpoint serverless compatível com Vercel
+                const response = await fetch('/api/contact', {
                     method: 'POST',
                     body: formData
                 });
-                
-                // Converte a resposta para JSON
-                const resultado = await response.json();
-                
+
+                // Se status não OK, ler texto e lançar erro legível
+                if (!response.ok) {
+                    const txt = await response.text().catch(() => '');
+                    throw new Error(`Erro no servidor (${response.status}): ${txt || 'sem detalhe'}`);
+                }
+
+                // Checa content-type antes de parsear JSON
+                const ct = response.headers.get('content-type') || '';
+                let resultado: any = null;
+                if (ct.includes('application/json')) {
+                    resultado = await response.json();
+                } else {
+                    const txt = await response.text().catch(() => '');
+                    resultado = { status: 'erro', mensagem: txt || 'Resposta inesperada do servidor' };
+                }
+
                 // Verifica o status da resposta
-                if (resultado.status === 'sucesso') {
+                if (resultado && resultado.status === 'sucesso') {
                     // Sucesso: mostra mensagem e limpa o formulário
-                    alert(resultado.mensagem);
+                    alert(resultado.mensagem || 'Enviado com sucesso.');
                     form.reset();
                 } else {
                     // Erro: mostra mensagem de erro
-                    alert('Erro: ' + resultado.mensagem);
+                    alert('Erro: ' + (resultado && resultado.mensagem ? resultado.mensagem : 'Erro desconhecido'));
                 }
-                
-            } catch (error) {
+
+            } catch (error: any) {
                 // Erro de rede ou servidor
                 console.error('Erro ao enviar formulário:', error);
-                alert('Erro ao processar sua solicitação. Por favor, tente novamente mais tarde.');
+                alert('Erro ao processar sua solicitação. Por favor, tente novamente mais tarde.\n' + (error && error.message ? error.message : ''));
             } finally {
                 // Restaura o botão (sempre executa, mesmo em caso de erro)
                 submitButton.disabled = false;
