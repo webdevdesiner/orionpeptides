@@ -18,29 +18,36 @@ const { references = [] } = Astro.props;
         <h3 class="text-sm font-semibold text-sky-200 mb-1">Fontes e Referências de Pesquisa</h3>
         <p class="text-xs text-gray-400 mb-3">Referências científicas e estudos relacionados ao conteúdo técnico desta página. Clique nos títulos para acessar os artigos quando disponível.</p>
 
-        <div class="space-y-2 text-xs text-gray-300">
+        <div class="space-y-4 text-sm text-gray-300">
           <!-- If references provided, render them; else show placeholder -->
           {references.length > 0 ? (
-            <ul class="list-inside list-decimal space-y-1">
+            <ul class="list-inside list-decimal">
               {references.map((ref) => (
-                <li class="flex items-baseline gap-2">
+                <li class="py-3">
                   {ref.href ? (
-                    <a class="italic text-sky-200 hover:underline flex items-center gap-2" href={ref.href} target="_blank" rel="noopener noreferrer">
-                      <span>{ref.title}</span>
+                    <a
+                      class="block italic text-sky-200 hover:underline flex items-center gap-3 min-h-[44px]"
+                      href={ref.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span class="min-w-0 break-words line-clamp-2">{ref.title}</span>
                       <span class="text-[10px] text-sky-300 uppercase tracking-wider">PubMed</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-sky-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7v7m0 0L10 21l-7-7 11-11z" />
                       </svg>
                     </a>
                   ) : (
-                    <span class="italic">{ref.title}</span>
+                    <div class="min-h-[44px]">
+                      <span class="italic min-w-0 break-words line-clamp-2">{ref.title}</span>
+                    </div>
                   )}
                 </li>
               ))}
             </ul>
           ) : (
-            <ul class="list-inside list-decimal space-y-1">
-              <li class="italic text-gray-400">Placeholder — adicione as referências científicas específicas deste produto aqui.</li>
+            <ul class="list-inside list-decimal">
+              <li class="py-3 italic text-gray-400">Placeholder — adicione as referências científicas específicas deste produto aqui.</li>
             </ul>
           )}
         </div>
