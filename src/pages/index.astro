@@ -97,8 +97,8 @@ function getProductUrl(nome: string): string {
             >
                 <source src="/video/plexus.mp4" type="video/mp4" />
             </video>
-            <!-- Overlay estilo catálogo -->
-            <div class="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" aria-hidden="true"></div>
+            <!-- Overlay estilo similar à página de contato (mais vida, menos película escura) -->
+            <div class="absolute inset-0 z-0 video-fallback" aria-hidden="true"></div>
             
             <!-- Conteúdo Centralizado com Card Glass (neo/glow catálogo) -->
             <div class="relative z-10 text-center px-8 md:px-12 lg:px-16 max-w-4xl mx-auto">
@@ -379,5 +379,19 @@ function getProductUrl(nome: string): string {
 
     .hero-card:hover {
         box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+    }
+
+    /* video-fallback style borrowed from contato to give more life to background */
+    .video-fallback {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 20% 50%, rgba(0, 100, 200, 0.12) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(100, 0, 200, 0.12) 0%, transparent 50%),
+                    linear-gradient(135deg, rgba(10,10,10,0.06) 0%, rgba(26,26,46,0.12) 100%);
+        z-index: -1;
+        pointer-events: none;
     }
 </style>
