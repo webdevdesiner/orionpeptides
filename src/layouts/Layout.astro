@@ -330,21 +330,6 @@ if (title) {
         animation: fadeInUp 0.8s ease-out;
     }
 
-    /* Tables: ensure horizontal scroll on small screens */
-    .prose table, table {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Mobile typography safeguard: ensure readable font-size */
-    @media (max-width: 640px) {
-        body, .prose, p, td, th, li, .text-sm {
-            font-size: 14px !important;
-            line-height: 1.4 !important;
-        }
-    }
     /* Suavizar transições de hover */
     * {
         transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
