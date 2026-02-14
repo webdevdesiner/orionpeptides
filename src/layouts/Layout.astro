@@ -7,6 +7,43 @@ interface Props {
 import References from '../components/References.astro';
 
 const { title } = Astro.props;
+
+// Mapa de referências por produto (substrings detectadas no title)
+const referenceMap: Record<string, { title: string; href?: string }[]> = {
+	'Tirzepatide': [
+		{ title: "Jastreboff AM, et al. 'Tirzepatide Once Weekly for the Treatment of Obesity.' New England Journal of Medicine (NEJM), 2022." }
+	],
+	'Retatrutide': [
+		{ title: "Jastreboff AM, et al. 'Triple-Hormone-Receptor Agonist Retatrutide for Obesity.' NEJM, 2023." }
+	],
+	'BPC-157': [
+		{ title: "Seiwerth S, et al. 'BPC 157 and Standard Angiogenic Factors.' Current Pharmaceutical Design, 2018." }
+	],
+	'TB-500': [
+		{ title: "Goldstein AL, et al. 'Thymosin beta4: a multi-functional regenerative peptide.' Ann N Y Acad Sci, 2010." }
+	],
+	'GHK-Cu': [
+		{ title: "Pickart L, et al. 'Regenerative and Protective Actions of the GHK-Cu Peptide.' International Journal of Molecular Sciences, 2018." }
+	],
+	'CJC-1295': [
+		{ title: "Teichman SL, et al. 'Prolonged Stimulation of Growth Hormone Release.' Journal of Clinical Endocrinology & Metabolism, 2006." }
+	],
+	'Ipamorelin': [
+		{ title: "Raun K, et al. 'Ipamorelin, the first selective growth hormone secretagogue.' European Journal of Endocrinology, 1998." }
+	],
+	'AOD-9604': [
+		{ title: "Heffernan M, et al. 'The Effects of Human GH and Its Lipolytic Fragment (AOD9604).' Journal of Endocrinology & Metabolism, 2001." }
+	]
+};
+
+let referencesForPage: { title: string; href?: string }[] = [];
+if (title) {
+	for (const key in referenceMap) {
+		if (title.includes(key)) {
+			referencesForPage = referencesForPage.concat(referenceMap[key]);
+		}
+	}
+}
 ---
 
 <!doctype html>
@@ -147,7 +184,7 @@ const { title } = Astro.props;
         </script>
 
         <!-- Inserir seção de Referências Científicas apenas em páginas técnicas (Guia Técnico) -->
-        {title && title.includes('Guia Técnico') ? <References /> : null}
+        {referencesForPage && referencesForPage.length > 0 ? <References references={referencesForPage} /> : null}
 
 	</body>
 </html>
