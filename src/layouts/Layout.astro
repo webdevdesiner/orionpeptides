@@ -4,6 +4,8 @@ interface Props {
 	title: string;
 }
 
+import References from '../components/References.astro';
+
 const { title } = Astro.props;
 ---
 
@@ -144,7 +146,9 @@ const { title } = Astro.props;
             });
         </script>
 
-        
+        <!-- Inserir seção de Referências Científicas apenas em páginas técnicas (Guia Técnico) -->
+        {title && title.includes('Guia Técnico') ? <References /> : null}
+
 	</body>
 </html>
 

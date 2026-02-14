@@ -1,0 +1,45 @@
+---
+interface Props {
+  // optional array of references can be passed, else placeholder is shown
+  references?: { title: string; href?: string }[];
+}
+
+const { references = [] } = Astro.props;
+---
+
+<section class="max-w-4xl mx-auto mt-12 mb-8 px-4">
+  <div class="bg-black/60 border border-sky-800/20 rounded-xl px-6 py-4">
+    <div class="flex items-start gap-3">
+      <!-- Microscope / Book icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-300 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 7v6m0 0l3-3m-3 3l-3-3M4 19a8 8 0 1116 0H4z" />
+      </svg>
+      <div class="flex-1">
+        <h3 class="text-sm font-semibold text-sky-200 mb-1">Fontes e Referências de Pesquisa</h3>
+        <p class="text-xs text-gray-400 mb-3">Referências científicas e estudos relacionados ao conteúdo técnico desta página. Clique nos títulos para acessar os artigos quando disponível.</p>
+
+        <div class="space-y-2 text-xs text-gray-300">
+          <!-- If references provided, render them; else show placeholder -->
+          {references.length > 0 ? (
+            <ul class="list-inside list-decimal space-y-1">
+              {references.map((ref) => (
+                <li>
+                  {ref.href ? (
+                    <a class="italic text-sky-200 hover:underline" href={ref.href} target="_blank" rel="noopener noreferrer">{ref.title}</a>
+                  ) : (
+                    <span class="italic">{ref.title}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ul class="list-inside list-decimal space-y-1">
+              <li class="italic text-gray-400">Placeholder — adicione as referências científicas específicas deste produto aqui.</li>
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -7,19 +7,19 @@ interface Props {
 const { title, id = `accordion-${Math.random().toString(36).substr(2, 9)}` } = Astro.props;
 ---
 
-<div class="accordion-item border border-white/10 rounded-lg overflow-hidden mb-4">
+<div class="accordion-item rounded-lg overflow-hidden mb-4">
 	<button
-		class="accordion-header w-full bg-gray-900 px-6 py-4 flex items-center justify-between text-left hover:bg-gray-800 transition-colors duration-200"
+		class="accordion-header w-full px-6 py-4 flex items-center justify-between text-left transform transition-all duration-300 bg-gradient-to-r from-sky-900/80 to-sky-800/60 border border-sky-700/30 shadow-lg shadow-sky-900/30 hover:from-sky-800/70 hover:to-sky-700/50 hover:shadow-xl hover:-translate-y-0.5 ring-1 ring-sky-700/10"
 		data-accordion-id={id}
 		aria-expanded="false"
 		aria-controls={`${id}-content`}
 	>
-		<span class="text-white font-semibold text-lg">{title}</span>
+		<span class="text-white font-bold text-xl md:text-2xl">{title}</span>
 		<div class="flex items-center gap-1 relative">
 			<!-- Ícone Seta para Cima (mostra quando aberto) -->
 			<svg
-				class="accordion-icon-up h-5 w-5 transition-opacity duration-300 flex-shrink-0 absolute"
-				style="color: #937039; opacity: 0;"
+				class="accordion-icon-up h-5 w-5 transition-opacity duration-300 transform absolute text-cyan-300"
+				style="opacity: 0;"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
@@ -28,8 +28,8 @@ const { title, id = `accordion-${Math.random().toString(36).substr(2, 9)}` } = A
 			</svg>
 			<!-- Ícone Seta para Baixo (mostra quando fechado) -->
 			<svg
-				class="accordion-icon-down h-5 w-5 transition-opacity duration-300 flex-shrink-0"
-				style="color: #937039; opacity: 1;"
+				class="accordion-icon-down h-5 w-5 transition-opacity duration-300 transform text-cyan-300"
+				style="opacity: 1;"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
@@ -41,7 +41,7 @@ const { title, id = `accordion-${Math.random().toString(36).substr(2, 9)}` } = A
 	
 	<div
 		id={`${id}-content`}
-		class="accordion-content bg-gray-900/50 backdrop-blur-sm max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+		class="accordion-content bg-gradient-to-r from-sky-950/40 to-black/30 backdrop-blur-sm max-h-0 overflow-hidden transition-all duration-300 ease-in-out border-t border-sky-700/20"
 		data-accordion-content={id}
 	>
 		<div class="px-6 py-4">
@@ -52,16 +52,16 @@ const { title, id = `accordion-${Math.random().toString(36).substr(2, 9)}` } = A
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
-		const buttons = document.querySelectorAll('[data-accordion-id]');
-		
+		const buttons = document.querySelectorAll<HTMLElement>('[data-accordion-id]');
+
 		buttons.forEach((button) => {
 			button.addEventListener('click', () => {
-				const accordionId = button.getAttribute('data-accordion-id');
-				const content = document.querySelector(`[data-accordion-content="${accordionId}"]`);
-				const iconUp = button.querySelector('.accordion-icon-up');
-				const iconDown = button.querySelector('.accordion-icon-down');
+				const accordionId = button.getAttribute('data-accordion-id') || '';
+				const content = document.querySelector<HTMLElement>(`[data-accordion-content="${accordionId}"]`);
+				const iconUp = button.querySelector<HTMLElement>('.accordion-icon-up');
+				const iconDown = button.querySelector<HTMLElement>('.accordion-icon-down');
 				const isExpanded = button.getAttribute('aria-expanded') === 'true';
-				
+
 				if (content && iconUp && iconDown) {
 					if (isExpanded) {
 						// Fechar - mostra seta para baixo
@@ -69,14 +69,18 @@ const { title, id = `accordion-${Math.random().toString(36).substr(2, 9)}` } = A
 						iconUp.style.opacity = '0';
 						iconDown.style.opacity = '1';
 						button.setAttribute('aria-expanded', 'false');
-						button.classList.remove('bg-gray-800');
+						button.classList.remove('accordion-open');
+						// reset rotation
+						iconDown.style.transform = 'rotate(0deg)';
 					} else {
 						// Abrir - mostra seta para cima
 						content.style.maxHeight = content.scrollHeight + 'px';
 						iconUp.style.opacity = '1';
 						iconDown.style.opacity = '0';
 						button.setAttribute('aria-expanded', 'true');
-						button.classList.add('bg-gray-800');
+						button.classList.add('accordion-open');
+						// rotate the down icon for a smooth effect (will be hidden, but provides animation)
+						iconDown.style.transform = 'rotate(180deg)';
 					}
 				}
 			});
@@ -87,6 +91,16 @@ const { title, id = `accordion-${Math.random().toString(36).substr(2, 9)}` } = A
 <style>
 	.accordion-content {
 		transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+	}
+	/* extra polish for icons and header */
+	.accordion-header .accordion-icon-down,
+	.accordion-header .accordion-icon-up {
+		transition: transform 0.35s cubic-bezier(.2,.9,.2,1), opacity 0.25s;
+	}
+	/* make opened headers visually superior to FAQ: subtle glow */
+	.accordion-header.accordion-open {
+		box-shadow: 0 10px 30px rgba(14,165,233,0.08), 0 2px 6px rgba(2,6,23,0.4);
+		border-color: rgba(14,165,233,0.35);
 	}
 </style>
 
