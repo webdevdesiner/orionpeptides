@@ -198,6 +198,54 @@ if (title) {
         <!-- Inserir seção de Referências Científicas apenas em páginas técnicas (Guia Técnico) -->
         {referencesForPage && referencesForPage.length > 0 ? <References references={referencesForPage} /> : null}
 
+        <!-- Affiliate tracking (capture ?ref= and expose helper functions) -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                try {
+                    const params = new URLSearchParams(window.location.search);
+                    const refParam = params.get('ref');
+                    if (refParam) {
+                        const clean = String(refParam).trim();
+                        if (clean) {
+                            try { sessionStorage.setItem('affiliateRef', clean); } catch (e) {}
+                            try { localStorage.setItem('affiliateRef', clean); } catch (e) {}
+                        }
+                    }
+
+                    // Expose helper to read affiliate ref (prefers sessionStorage)
+                    (window as any).getAffiliateRef = function() {
+                        try {
+                            return sessionStorage.getItem('affiliateRef') || localStorage.getItem('affiliateRef') || null;
+                        } catch (e) { return null; }
+                    };
+
+                    // Build WhatsApp link helper: pass productName and phone (in international format, e.g. 5511999999999)
+                    (window as any).buildWhatsappLink = function(productName, phone) {
+                        const ref = (window as any).getAffiliateRef();
+                        const message = ref
+                            ? `Olá, vim por indicação de ${ref} e gostaria de saber mais sobre ${productName}.`
+                            : `Olá, gostaria de saber mais sobre ${productName}.`;
+                        const encoded = encodeURIComponent(message);
+                        const p = String(phone || '').replace(/\D/g,'');
+                        if (!p) return `https://wa.me/?text=${encoded}`;
+                        return `https://wa.me/${p}?text=${encoded}`;
+                    };
+
+                    // Auto-inject WhatsApp href for any anchor with data-wa-product and data-wa-phone
+                    document.querySelectorAll('a[data-wa-product]').forEach((el) => {
+                        const a = el as HTMLAnchorElement;
+                        const product = a.getAttribute('data-wa-product') || a.dataset.waProduct || '';
+                        const phone = a.getAttribute('data-wa-phone') || a.dataset.waPhone || '';
+                        const href = (window as any).buildWhatsappLink(product, phone);
+                        a.setAttribute('href', href);
+                        a.setAttribute('target', '_blank');
+                        a.setAttribute('rel', 'noopener noreferrer');
+                    });
+                } catch (err) {
+                    // silent
+                }
+            });
+        </script>
         <!-- Keyboard shortcut: navigate between product technical pages with Left / Right arrows -->
         <script>
             document.addEventListener('DOMContentLoaded', () => {
