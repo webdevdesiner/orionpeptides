@@ -222,9 +222,14 @@ if (title) {
                     // Build WhatsApp link helper: pass productName and phone (in international format, e.g. 5511999999999)
                     (window as any).buildWhatsappLink = function(productName, phone) {
                         const ref = (window as any).getAffiliateRef();
-                        const message = ref
-                            ? `Olá, vim por indicação de ${ref} e gostaria de saber mais sobre ${productName}.`
-                            : `Olá, gostaria de saber mais sobre ${productName}.`;
+                        let message;
+                        if (ref) {
+                            // Persuasive commercial message with affiliate code in uppercase
+                            const code = String(ref).toUpperCase().replace(/\s+/g, '');
+                            message = `Olá! Quero ativar o código VIP-${code} para garantir minhas condições especiais no ${productName}.`;
+                        } else {
+                            message = `Olá, gostaria de saber mais sobre ${productName}.`;
+                        }
                         const encoded = encodeURIComponent(message);
                         const p = String(phone || '').replace(/\D/g,'');
                         if (!p) return `https://wa.me/?text=${encoded}`;
