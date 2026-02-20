@@ -373,45 +373,57 @@ if (title) {
         </script>
 
         <!-- VIP Toast: appear only when ?ref= present in URL -->
-        <style>
+        <style is:global>
+            /* Forçar estilo do VIP toast (uso de !important para sobrepor regras existentes) */
             .vip-toast {
-                position: fixed;
-                left: 50%;
-                transform: translateX(-50%) translateY(20px);
-                bottom: 24px;
-                z-index: 99999;
-                background: linear-gradient(180deg, rgba(10,10,10,0.95), rgba(20,20,20,0.95));
-                color: #f5e6c8;
-                border: 1px solid rgba(212,175,55,0.18);
-                padding: 12px 18px;
-                border-radius: 12px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.4);
-                font-weight: 600;
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                min-width: 280px;
-                max-width: calc(100% - 40px);
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 300ms ease, transform 400ms cubic-bezier(.2,.9,.2,1);
+                position: fixed !important;
+                left: 50% !important;
+                transform: translateX(-50%) translateY(0) !important;
+                bottom: 24px !important;
+                z-index: 99999 !important;
+                background: linear-gradient(180deg, rgba(10,10,10,0.98), rgba(20,20,20,0.98)) !important;
+                color: #f5e6c8 !important;
+                border: 1px solid rgba(212,175,55,0.98) !important;
+                padding: 14px 20px !important;
+                border-radius: 12px !important;
+                box-shadow: 0 12px 40px rgba(0,0,0,0.85) !important;
+                font-weight: 700 !important;
+                display: flex !important;
+                gap: 12px !important;
+                align-items: center !important;
+                min-width: 300px !important;
+                max-width: calc(100% - 24px) !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                transition: opacity 200ms ease !important;
             }
             .vip-toast.show {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-                pointer-events: auto;
+                opacity: 1 !important;
+                transform: translateX(-50%) translateY(0) !important;
+                pointer-events: auto !important;
             }
             .vip-toast .gold {
-                color: #d4af37;
-                font-weight: 800;
+                color: #d4af37 !important;
+                font-weight: 900 !important;
+            }
+            /* Ensure toast is visible even if body has overflow hidden */
+            body, html {
+                overflow: visible !important;
+            }
+            #vip-toast-element {
+                display: block !important;
+                visibility: visible !important;
             }
             @media (min-width: 768px) {
-                .vip-toast { bottom: 36px; }
+                .vip-toast { bottom: 36px !important; }
             }
         </style>
 
-        <script>
+        <script is:inline>
             (function () {
+                // Debug alert to confirm script carregou no navegador
+                try { alert('Debug: Script do Toast carregou!'); } catch (e) {}
+
                 function createAndShowVipToast(ref) {
                     try {
                         if (!ref) return;
