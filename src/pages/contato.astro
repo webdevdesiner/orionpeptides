@@ -774,41 +774,37 @@ import Header from '../components/Header.astro';
             submitButton.textContent = 'Enviando...';
             
             try {
-                // Coleta os dados do formulário
-                const formData = new FormData(form);
+                // Coleta os dados dos inputs explicitamente
+                const nomeInput = form.querySelector('#name') as HTMLInputElement | null;
+                const emailInput = form.querySelector('#email') as HTMLInputElement | null;
+                const whatsappInput = form.querySelector('#whatsapp') as HTMLInputElement | null;
 
-                // Envia os dados via fetch (AJAX) para endpoint serverless compatível com Vercel
-                const response = await fetch('/api/contact', {
+                const nome = nomeInput ? nomeInput.value.trim() : '';
+                const email = emailInput ? emailInput.value.trim() : '';
+                const whatsapp = whatsappInput ? whatsappInput.value.trim() : '';
+
+                // payload conforme especificado
+                const payload = {
+                    nome: nome,
+                    email: email,
+                    whatsapp: whatsapp,
+                    tipo_evento: 'Formulário de Contato',
+                    device: navigator.userAgent
+                };
+
+                // Envia os dados para a planilha Google Apps Script (fire-and-forget no-cors)
+                await fetch('https://script.google.com/macros/s/AKfycbzjoILnv3oidXnT3NkwGxWMJWEk817OasOpmXIleVPdUSk7b6lRyWfK7zVyXPjz6ZRU/exec', {
                     method: 'POST',
-                    body: formData
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
                 });
 
-                // Se status não OK, ler texto e lançar erro legível
-                if (!response.ok) {
-                    const txt = await response.text().catch(() => '');
-                    throw new Error(`Erro no servidor (${response.status}): ${txt || 'sem detalhe'}`);
-                }
-
-                // Checa content-type antes de parsear JSON
-                const ct = response.headers.get('content-type') || '';
-                let resultado: any = null;
-                if (ct.includes('application/json')) {
-                    resultado = await response.json();
-                } else {
-                    const txt = await response.text().catch(() => '');
-                    resultado = { status: 'erro', mensagem: txt || 'Resposta inesperada do servidor' };
-                }
-
-                // Verifica o status da resposta
-                if (resultado && resultado.status === 'sucesso') {
-                    // Sucesso: mostra mensagem e limpa o formulário
-                    alert(resultado.mensagem || 'Enviado com sucesso.');
-                    form.reset();
-                } else {
-                    // Erro: mostra mensagem de erro
-                    alert('Erro: ' + (resultado && resultado.mensagem ? resultado.mensagem : 'Erro desconhecido'));
-                }
-
+                // Como usamos no-cors, a resposta é opaca — assumir sucesso se não houve exceção
+                alert('Enviado com sucesso.');
+                form.reset();
             } catch (error: any) {
                 // Erro de rede ou servidor
                 console.error('Erro ao enviar formulário:', error);
