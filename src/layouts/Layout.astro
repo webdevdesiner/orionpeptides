@@ -495,8 +495,22 @@ if (title) {
             }
 
             @media (min-width: 768px) {
-                /* elevar mais na versão desktop para evitar sobreposição com o rodapé/ícones */
-                .vip-toast { bottom: 140px !important; }
+                /* Desktop: make toast compact like mobile and keep it at top */
+                .vip-toast {
+                    top: 20px !important;
+                    bottom: auto !important;
+                    /* compact width similar to mobile */
+                    max-width: 420px !important;
+                    min-width: 0 !important;
+                    width: min(88%, 420px) !important;
+                    padding: 10px 20px !important;
+                    border-radius: 28px !important;
+                    transform: translateX(-50%) translateY(0) !important;
+                }
+                /* slightly reduce shine overlay span on desktop */
+                .vip-toast::after {
+                    width: 250% !important;
+                }
             }
         </style>
 
