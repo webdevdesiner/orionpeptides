@@ -774,31 +774,28 @@ import Header from '../components/Header.astro';
             submitButton.textContent = 'Enviando...';
             
             try {
-                // Captura direta dos valores conforme solicitado
-                const nomeValue = (document.getElementById('name') as HTMLInputElement)?.value || '';
-                const emailValue = (document.getElementById('email') as HTMLInputElement)?.value || '';
-                const whatsappValue = (document.getElementById('whatsapp') as HTMLInputElement)?.value || '';
+                const nomeValue = (document.getElementById('name') as HTMLInputElement).value;
+                const emailValue = (document.getElementById('email') as HTMLInputElement).value;
+                const whatsappValue = (document.getElementById('whatsapp') as HTMLInputElement).value;
 
-                // Monta o corpo exatamente no formato requerido
-                const bodyPayload = JSON.stringify({
-                    nome: nomeValue,
-                    email: emailValue,
-                    whatsapp: whatsappValue,
-                    tipo_evento: 'Formulário de Contato',
-                    device: navigator.userAgent
-                });
+                // Usar URLSearchParams para compatibilidade com Google Apps Script
+                const formData = new URLSearchParams();
+                formData.append('nome', nomeValue);
+                formData.append('email', emailValue);
+                formData.append('whatsapp', whatsappValue);
+                formData.append('tipo_evento', 'Formulário de Contato');
+                formData.append('device', navigator.userAgent);
 
-                // Envia os dados para a planilha Google Apps Script usando text/plain para evitar CORS issues
                 await fetch('https://script.google.com/macros/s/AKfycbzjoILnv3oidXnT3NkwGxWMJWEk817OasOpmXIleVPdUSk7b6lRyWfK7zVyXPjz6ZRU/exec', {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
-                        'Content-Type': 'text/plain'
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    body: bodyPayload
+                    body: formData.toString()
                 });
 
-                // Como usamos no-cors, a resposta é opaca — assumir sucesso se não houve exceção
+                // Assumir sucesso (no-cors) e resetar formulário
                 alert('Enviado com sucesso.');
                 form.reset();
             } catch (error: any) {
