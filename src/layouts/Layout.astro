@@ -232,7 +232,9 @@ if (title) {
                     };
 
                     // Ensure anchors that should act as WhatsApp contact buttons have data attributes.
-                    const defaultPhone = (window as any).__DEFAULT_WA_PHONE || '';
+                    // Set global default WhatsApp phone if not already defined
+                    try { (window as any).DEFAULT_WA_PHONE = (window as any).DEFAULT_WA_PHONE || '5518981522804'; } catch (e) {}
+                    const defaultPhone = (window as any).DEFAULT_WA_PHONE || '';
 
                     function inferProductFromAnchor(a: HTMLElement) {
                         // 1) check explicit attributes
@@ -271,7 +273,7 @@ if (title) {
                             if (product) {
                                 a.setAttribute('data-wa-product', product);
                                 if (!a.getAttribute('data-wa-phone')) {
-                                    a.setAttribute('data-wa-phone', defaultPhone);
+                                    a.setAttribute('data-wa-phone', (window as any).DEFAULT_WA_PHONE || defaultPhone);
                                 }
                             }
                         }
