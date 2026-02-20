@@ -386,6 +386,26 @@ if (title) {
                     box-shadow: 0 0 15px rgba(212,175,55,0.28);
                 }
             }
+            @keyframes vip-shine {
+                0% {
+                    transform: translateX(-60%) skewX(-18deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 0.6;
+                }
+                50% {
+                    transform: translateX(60%) skewX(-18deg);
+                    opacity: 0.9;
+                }
+                90% {
+                    opacity: 0.6;
+                }
+                100% {
+                    transform: translateX(160%) skewX(-18deg);
+                    opacity: 0;
+                }
+            }
 
             .vip-toast {
                 position: fixed !important;
@@ -398,6 +418,7 @@ if (title) {
                 border: 2px solid #d4af37 !important;
                 padding: 12px 30px !important;
                 border-radius: 50px !important;
+                overflow: hidden !important;
                 box-shadow: 0 0 20px rgba(212,175,55,0.4) !important;
                 font-weight: 700 !important;
                 display: flex !important;
@@ -428,6 +449,25 @@ if (title) {
                 filter: drop-shadow(0 0 6px rgba(212,175,55,0.6));
                 transform-origin: center;
                 animation: vip-pulse-glow 2s infinite ease-in-out;
+            }
+            /* moving shine overlay */
+            .vip-toast::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 200%;
+                height: 100%;
+                pointer-events: none;
+                background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 40%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0.12) 60%, rgba(255,255,255,0) 100%);
+                transform: translateX(-60%) skewX(-18deg);
+                mix-blend-mode: screen;
+                opacity: 0;
+                animation: vip-shine 2s ease-in-out 0s 1;
+            }
+            /* replay shine each time toast is shown */
+            .vip-toast.show::after {
+                animation: vip-shine 2s ease-in-out 0s 1;
             }
 
             /* Force visibility even if parent uses overflow hidden */
