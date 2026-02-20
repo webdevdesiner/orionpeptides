@@ -411,35 +411,64 @@ if (title) {
         </style>
 
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                try {
-                    if (!window.location.search || !window.location.search.includes('ref=')) return;
-                    const params = new URLSearchParams(window.location.search);
-                    const ref = params.get('ref');
-                    if (!ref) return;
+            (function () {
+                function createAndShowVipToast(ref) {
+                    try {
+                        if (!ref) return;
+                        const code = String(ref).toUpperCase().replace(/\s+/g, '');
+                        // avoid duplicate toasts
+                        if (document.getElementById('vip-toast-element')) return;
 
-                    const code = String(ref).toUpperCase().replace(/\s+/g, '');
-                    const toast = document.createElement('div');
-                    toast.className = 'vip-toast';
-                    toast.innerHTML = `<span style="font-size:18px">🎁</span><span> <span class="gold">Código VIP-${code}</span> ativado com sucesso!</span>`;
-                    document.body.appendChild(toast);
+                        const toast = document.createElement('div');
+                        toast.id = 'vip-toast-element';
+                        toast.className = 'vip-toast';
+                        toast.setAttribute('role', 'status');
+                        toast.setAttribute('aria-live', 'polite');
+                        toast.innerHTML = `<span style="font-size:18px">🎁</span><span> <span class="gold">Código VIP-${code}</span> ativado com sucesso!</span>`;
 
-                    // animate in
-                    requestAnimationFrame(() => {
-                        toast.classList.add('show');
-                    });
+                        // ensure we append to body (or fallback to documentElement)
+                        const targetRoot = document.body || document.documentElement;
+                        targetRoot.appendChild(toast);
 
-                    // keep visible 5s, then fade out
-                    setTimeout(() => {
-                        toast.classList.remove('show');
+                        // small defer to ensure CSS is available and browser paints
+                        requestAnimationFrame(() => {
+                            // extra micro-delay for robustness
+                            setTimeout(() => {
+                                toast.classList.add('show');
+                            }, 16);
+                        });
+
+                        // auto-hide after 5s
                         setTimeout(() => {
-                            if (toast.parentNode) toast.parentNode.removeChild(toast);
-                        }, 400);
-                    }, 5000);
-                } catch (e) {
-                    // silent
+                            try { toast.classList.remove('show'); } catch (e) {}
+                            setTimeout(() => {
+                                try { if (toast.parentNode) toast.parentNode.removeChild(toast); } catch (e) {}
+                            }, 420);
+                        }, 5000);
+                    } catch (e) {
+                        // silent
+                    }
                 }
-            });
+
+                function initVipToastIfRef() {
+                    try {
+                        if (!window.location.search || !window.location.search.includes('ref=')) return;
+                        const params = new URLSearchParams(window.location.search);
+                        const ref = params.get('ref');
+                        if (!ref) return;
+                        createAndShowVipToast(ref);
+                    } catch (e) {
+                        // silent
+                    }
+                }
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initVipToastIfRef);
+                } else {
+                    // already ready
+                    initVipToastIfRef();
+                }
+            })();
         </script>
 
 	</body>
