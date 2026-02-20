@@ -472,8 +472,6 @@ if (title) {
                         requestAnimationFrame(() => {
                             // extra micro-delay for robustness
                             setTimeout(() => {
-                                // Before showing, adjust position for desktop if possible
-                                adjustToastPositionForDesktop(toast);
                                 toast.classList.add('show');
                             }, 16);
                         });
@@ -489,90 +487,7 @@ if (title) {
                         // silent
                     }
                 }
-                
-                // Adjust toast position on desktop to be centered between hero card and trust bar
-                function adjustToastPositionForDesktop(toastEl) {
-                    try {
-                        if (!toastEl) return;
-                        // only on desktop widths
-                        if (window.innerWidth < 768) {
-                            // ensure bottom fallback for mobile
-                            toastEl.style.top = '';
-                            toastEl.style.bottom = '';
-                            return;
-                        }
 
-                        // helper: find element containing given substring
-                        function findByText(substr) {
-                            substr = String(substr).trim();
-                            if (!substr) return null;
-                            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_ELEMENT, null);
-                            let node;
-                            while ((node = walker.nextNode())) {
-                                try {
-                                    if (node.textContent && node.textContent.includes(substr)) return node;
-                                } catch (e) {}
-                            }
-                            return null;
-                        }
-
-                        // Try to find hero block by known text
-                        const heroCandidate = findByText('Redefinindo o Potencial Humano') || findByText('Peptídeos de precisão') || document.querySelector('.hero-card');
-                        // Try to find trust bar by known label
-                        const trustCandidate = findByText('Pureza HPLC') || findByText('Tecnologia') || findByText('Liofilização') || document.querySelector('.trust-bar');
-
-                        if (!heroCandidate || !trustCandidate) {
-                            // can't reliably position, leave default bottom
-                            toastEl.style.top = '';
-                            toastEl.style.bottom = '80px';
-                            return;
-                        }
-
-                        const heroRect = (heroCandidate as Element).getBoundingClientRect();
-                        const trustRect = (trustCandidate as Element).getBoundingClientRect();
-
-                        // compute midpoint between hero bottom and trust top (viewport coords)
-                        const heroBottom = heroRect.bottom + window.scrollY;
-                        const trustTop = trustRect.top + window.scrollY;
-                        let mid = heroBottom + (trustTop - heroBottom) / 2;
-
-                        // subtract half toast height to center vertically
-                        const toastH = toastEl.getBoundingClientRect().height || 60;
-                        let topPos = mid - toastH / 2 - window.scrollY;
-
-                        // clamp to reasonable viewport margins
-                        const minTop = 40;
-                        const maxTop = window.innerHeight - toastH - 40;
-                        if (topPos < minTop) topPos = minTop;
-                        if (topPos > maxTop) topPos = maxTop;
-
-                        // apply fixed positioning via top
-                        toastEl.style.bottom = '';
-                        toastEl.style.top = `${Math.round(topPos)}px`;
-                    } catch (e) {
-                        // fallback: do nothing
-                    }
-                }
-
-                // Recompute position on resize/scroll (debounced)
-                let _vipPosTimeout = null;
-                function scheduleReposition(toastEl) {
-                    try {
-                        if (_vipPosTimeout) clearTimeout(_vipPosTimeout);
-                        _vipPosTimeout = setTimeout(() => {
-                            adjustToastPositionForDesktop(toastEl);
-                        }, 120);
-                    } catch (e) {}
-                }
-
-                window.addEventListener('resize', () => {
-                    const t = document.getElementById('vip-toast-element');
-                    if (t) scheduleReposition(t);
-                });
-                window.addEventListener('scroll', () => {
-                    const t = document.getElementById('vip-toast-element');
-                    if (t) scheduleReposition(t);
-                });
                 function initVipToastIfRef() {
                     try {
                         if (!window.location.search || !window.location.search.includes('ref=')) return;
