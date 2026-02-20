@@ -519,6 +519,32 @@ if (title) {
         <script is:inline>
             (function () {
                 // debug alert removed
+                function trackLead(cupom) {
+                    try {
+                        if (!cupom || typeof window === 'undefined') return;
+                        var key = 'vipLeadSent_' + String(cupom).toUpperCase().replace(/\s+/g, '');
+                        try {
+                            if (sessionStorage.getItem(key)) return;
+                            sessionStorage.setItem(key, '1');
+                        } catch (e) { /* ignore sessionStorage errors */ }
+
+                        // fire-and-forget POST to Google Apps Script; use no-cors as requested
+                        fetch('https://script.google.com/macros/s/AKfycbzjoILnv3oidXnT3NkwGxWMJWEk817OasOpmXIleVPdUSk7b6lRyWfK7zVyXPjz6ZRU/exec', {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                cupom: cupom,
+                                device: navigator.userAgent,
+                                url: window.location.href
+                            })
+                        }).catch(function () { /* ignore network errors in no-cors mode */ });
+                    } catch (err) {
+                        // silent
+                    }
+                }
 
                 function createAndShowVipToast(ref) {
                     try {
@@ -565,6 +591,8 @@ if (title) {
                         const ref = params.get('ref');
                         if (!ref) return;
                         createAndShowVipToast(ref);
+                        // track lead once per session/visit
+                        try { trackLead(ref); } catch (e) {}
                     } catch (e) {
                         // silent
                     }
