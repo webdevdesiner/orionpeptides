@@ -374,46 +374,72 @@ if (title) {
 
         <!-- VIP Toast: appear only when ?ref= present in URL -->
         <style is:global>
-            /* Forçar estilo do VIP toast (uso de !important para sobrepor regras existentes) */
+            /* Ultra-Premium VIP toast styling */
+            @keyframes vip-pulse-glow {
+                0% {
+                    box-shadow: 0 0 15px rgba(212,175,55,0.28);
+                }
+                50% {
+                    box-shadow: 0 0 25px rgba(212,175,55,0.45);
+                }
+                100% {
+                    box-shadow: 0 0 15px rgba(212,175,55,0.28);
+                }
+            }
+
             .vip-toast {
                 position: fixed !important;
                 left: 50% !important;
                 transform: translateX(-50%) translateY(0) !important;
                 bottom: 24px !important;
                 z-index: 99999 !important;
-                background: linear-gradient(180deg, rgba(10,10,10,0.98), rgba(20,20,20,0.98)) !important;
-                color: #f5e6c8 !important;
-                border: 1px solid rgba(212,175,55,0.98) !important;
-                padding: 14px 20px !important;
-                border-radius: 12px !important;
-                box-shadow: 0 12px 40px rgba(0,0,0,0.85) !important;
+                background: #0a0a0a !important;
+                color: #fff !important;
+                border: 2px solid #d4af37 !important;
+                padding: 12px 30px !important;
+                border-radius: 50px !important;
+                box-shadow: 0 0 20px rgba(212,175,55,0.4) !important;
                 font-weight: 700 !important;
                 display: flex !important;
-                gap: 12px !important;
+                gap: 14px !important;
                 align-items: center !important;
-                min-width: 300px !important;
+                min-width: 320px !important;
                 max-width: calc(100% - 24px) !important;
                 opacity: 0 !important;
                 pointer-events: none !important;
-                transition: opacity 200ms ease !important;
+                transition: opacity 220ms ease, transform 320ms ease !important;
+                animation: vip-pulse-glow 2s infinite ease-in-out !important;
             }
+
             .vip-toast.show {
                 opacity: 1 !important;
                 transform: translateX(-50%) translateY(0) !important;
                 pointer-events: auto !important;
             }
+
             .vip-toast .gold {
                 color: #d4af37 !important;
                 font-weight: 900 !important;
             }
-            /* Ensure toast is visible even if body has overflow hidden */
-            body, html {
+
+            /* Gift icon glow and subtle pulse */
+            .vip-gift {
+                font-size: 18px;
+                filter: drop-shadow(0 0 6px rgba(212,175,55,0.6));
+                transform-origin: center;
+                animation: vip-pulse-glow 2s infinite ease-in-out;
+            }
+
+            /* Force visibility even if parent uses overflow hidden */
+            html, body {
                 overflow: visible !important;
             }
+
             #vip-toast-element {
                 display: block !important;
                 visibility: visible !important;
             }
+
             @media (min-width: 768px) {
                 .vip-toast { bottom: 36px !important; }
             }
@@ -435,7 +461,7 @@ if (title) {
                         toast.className = 'vip-toast';
                         toast.setAttribute('role', 'status');
                         toast.setAttribute('aria-live', 'polite');
-                        toast.innerHTML = `<span style="font-size:18px">🎁</span><span> <span class="gold">Código VIP-${code}</span> ativado com sucesso!</span>`;
+                        toast.innerHTML = `<span class="vip-gift" aria-hidden="true">🎁</span><span> <span class="gold">Código VIP-${code}</span> ativado com sucesso!</span>`;
 
                         // ensure we append to body (or fallback to documentElement)
                         const targetRoot = document.body || document.documentElement;
