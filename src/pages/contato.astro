@@ -778,13 +778,13 @@ import Header from '../components/Header.astro';
                 const emailValue = (document.getElementById('email') as HTMLInputElement).value;
                 const whatsappValue = (document.getElementById('whatsapp') as HTMLInputElement).value;
 
-                // Usar URLSearchParams para compatibilidade com Google Apps Script
-                const formData = new URLSearchParams();
-                formData.append('nome', nomeValue);
-                formData.append('email', emailValue);
-                formData.append('whatsapp', whatsappValue);
-                formData.append('tipo_evento', 'Formulário de Contato');
-                formData.append('device', navigator.userAgent);
+                // Usar URLSearchParams (params) para compatibilidade com Google Apps Script
+                const params = new URLSearchParams();
+                params.append('nome', (document.getElementById('name') as HTMLInputElement).value);
+                params.append('email', (document.getElementById('email') as HTMLInputElement).value);
+                params.append('whatsapp', (document.getElementById('whatsapp') as HTMLInputElement).value);
+                params.append('tipo_evento', 'Formulário de Contato');
+                params.append('device', navigator.userAgent);
 
                 await fetch('https://script.google.com/macros/s/AKfycbzjoILnv3oidXnT3NkwGxWMJWEk817OasOpmXIleVPdUSk7b6lRyWfK7zVyXPjz6ZRU/exec', {
                     method: 'POST',
@@ -792,7 +792,7 @@ import Header from '../components/Header.astro';
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    body: formData.toString()
+                    body: params.toString()
                 });
 
                 // Assumir sucesso (no-cors) e resetar formulário
