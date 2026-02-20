@@ -269,7 +269,9 @@ if (title) {
 
                     // Auto-detect buttons that likely are 'Encontrar Fornecedor' or WhatsApp CTAs
                     document.querySelectorAll('a').forEach((el) => {
-                        const a = el as HTMLAnchorElement;
+                    const a = el as HTMLAnchorElement;
+                        // skip anchors explicitly marked to avoid WA injection (e.g., site navigation)
+                        if (a.hasAttribute('data-no-wa')) return;
                         if (a.dataset.waProduct) return; // already set
                         const text = (a.textContent || '').toLowerCase();
                         // targets: 'encontrar fornecedor', 'contato', 'whatsapp', 'comprar', 'comprar agora'
