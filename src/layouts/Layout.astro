@@ -231,6 +231,52 @@ if (title) {
                         return `https://wa.me/${p}?text=${encoded}`;
                     };
 
+                    // Ensure anchors that should act as WhatsApp contact buttons have data attributes.
+                    const defaultPhone = (window as any).__DEFAULT_WA_PHONE || '';
+
+                    function inferProductFromAnchor(a: HTMLElement) {
+                        // 1) check explicit attributes
+                        const explicit = (a.getAttribute('data-product') || a.getAttribute('data-name') || a.getAttribute('aria-label'));
+                        if (explicit) return explicit.trim();
+
+                        // 2) check nearest parent with data-nome (catalog cards)
+                        const card = a.closest('[data-nome]') as HTMLElement | null;
+                        if (card) {
+                            const nome = card.getAttribute('data-nome') || card.dataset.nome;
+                            if (nome) return String(nome).trim();
+                        }
+
+                        // 3) look for nearby headings
+                        const ancestor = a.closest('section,article,div') as HTMLElement | null;
+                        if (ancestor) {
+                            const h = ancestor.querySelector('h1,h2,h3') as HTMLElement | null;
+                            if (h && h.textContent) return h.textContent.trim();
+                        }
+
+                        // 4) fallback: page title
+                        const h1 = document.querySelector('h1') as HTMLElement | null;
+                        if (h1 && h1.textContent) return h1.textContent.trim();
+
+                        return '';
+                    }
+
+                    // Auto-detect buttons that likely are 'Encontrar Fornecedor' or WhatsApp CTAs
+                    document.querySelectorAll('a').forEach((el) => {
+                        const a = el as HTMLAnchorElement;
+                        if (a.dataset.waProduct) return; // already set
+                        const text = (a.textContent || '').toLowerCase();
+                        // targets: 'encontrar fornecedor', 'contato', 'whatsapp', 'comprar', 'comprar agora'
+                        if (/\b(encontrar fornecedor|encontrar fornecedor|contato|whatsapp|comprar|comprar agora|fale conosco)\b/i.test(text)) {
+                            const product = inferProductFromAnchor(a);
+                            if (product) {
+                                a.setAttribute('data-wa-product', product);
+                                if (!a.getAttribute('data-wa-phone')) {
+                                    a.setAttribute('data-wa-phone', defaultPhone);
+                                }
+                            }
+                        }
+                    });
+
                     // Auto-inject WhatsApp href for any anchor with data-wa-product and data-wa-phone
                     document.querySelectorAll('a[data-wa-product]').forEach((el) => {
                         const a = el as HTMLAnchorElement;
