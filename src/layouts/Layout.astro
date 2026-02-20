@@ -396,7 +396,7 @@ if (title) {
                 }
                 50% {
                     transform: translateX(60%) skewX(-18deg);
-                    opacity: 0.9;
+                    opacity: 0.95;
                 }
                 90% {
                     opacity: 0.6;
@@ -463,11 +463,12 @@ if (title) {
                 transform: translateX(-60%) skewX(-18deg);
                 mix-blend-mode: screen;
                 opacity: 0;
-                animation: vip-shine 2s ease-in-out 0s 1;
+                /* slower and run twice for added emphasis */
+                animation: vip-shine 3.5s ease-in-out 0s 2;
             }
             /* replay shine each time toast is shown */
             .vip-toast.show::after {
-                animation: vip-shine 2s ease-in-out 0s 1;
+                animation: vip-shine 3.5s ease-in-out 0s 2;
             }
 
             /* Force visibility even if parent uses overflow hidden */
