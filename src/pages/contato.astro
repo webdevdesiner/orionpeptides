@@ -774,30 +774,21 @@ import Header from '../components/Header.astro';
             submitButton.textContent = 'Enviando...';
             
             try {
-                const nomeValue = (document.getElementById('name') as HTMLInputElement).value;
-                const emailValue = (document.getElementById('email') as HTMLInputElement).value;
-                const whatsappValue = (document.getElementById('whatsapp') as HTMLInputElement).value;
-
-                // Usar URLSearchParams (params) para compatibilidade com Google Apps Script
-                const params = new URLSearchParams();
-                params.append('nome', (document.getElementById('name') as HTMLInputElement).value);
-                params.append('email', (document.getElementById('email') as HTMLInputElement).value);
-                params.append('whatsapp', (document.getElementById('whatsapp') as HTMLInputElement).value);
-                params.append('tipo_evento', 'Formulário de Contato');
-                params.append('device', navigator.userAgent);
-
-                await fetch('https://script.google.com/macros/s/AKfycbzjoILnv3oidXnT3NkwGxWMJWEk817OasOpmXIleVPdUSk7b6lRyWfK7zVyXPjz6ZRU/exec', {
+                const formData = new FormData(form);
+                
+                const response = await fetch('/processa.php', {
                     method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: params.toString()
+                    body: formData
                 });
-
-                // Assumir sucesso (no-cors) e resetar formulário
-                alert('Enviado com sucesso.');
-                form.reset();
+                
+                const resultado = await response.json();
+                
+                if (resultado.status === 'sucesso') {
+                    alert(resultado.mensagem || 'Enviado com sucesso!');
+                    form.reset();
+                } else {
+                    alert('Erro: ' + resultado.mensagem);
+                }
             } catch (error: any) {
                 // Erro de rede ou servidor
                 console.error('Erro ao enviar formulário:', error);
