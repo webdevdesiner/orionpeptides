@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 
+// Altere este valor quando atualizar imagens para forçar o navegador/CDN a buscar a nova versão
+const ASSETS_VERSION = '2';
+
 // Dados dos Produtos em Destaque (cores e neo iguais ao catálogo)
 const produtos = [
 	{
@@ -104,7 +107,7 @@ function getProductUrl(nome: string): string {
             <div class="relative z-10 text-center px-8 md:px-12 lg:px-16 max-w-4xl mx-auto">
                 <div class="hero-card p-6 md:p-8 lg:p-10">
                     <!-- Logo com efeito de brilho -->
-                    <img src="/logo.png" alt="Logo Orion" class="hero-logo" />
+                    <img src={`/logo.png?v=${ASSETS_VERSION}`} alt="Logo Orion" class="hero-logo" />
                     
                     <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-5 tracking-tight font-['Inter'] drop-shadow-[0_0_24px_rgba(59,130,246,0.3)]">
                         <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-gray-400" style="-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Redefinindo o </span>
@@ -215,7 +218,7 @@ function getProductUrl(nome: string): string {
                     >
                         <!-- Imagem do Produto (cards da inicial) -->
                         <img
-                            src={produto.imagemCard}
+                            src={`${produto.imagemCard}?v=${ASSETS_VERSION}`}
                             alt={produto.nome}
                             class="absolute -top-6 md:-top-8 left-4 bottom-0 h-[220px] md:h-[260px] w-auto object-contain z-[5] transition-transform duration-500 group-hover:scale-105"
                         />
@@ -236,7 +239,7 @@ function getProductUrl(nome: string): string {
                         <div class="relative z-10 ml-24 md:ml-28 text-right">
                             <div class="flex items-center gap-2 justify-end mb-2">
                                 <div class={`w-9 h-9 rounded-full bg-white/5 border ${produto.borderCor} flex items-center justify-center flex-shrink-0`}>
-                                    <img src={produto.imagem} alt="" class="w-6 h-6 object-contain" style={`filter: drop-shadow(${produto.dropShadow});`} />
+                                    <img src={`${produto.imagem}?v=${ASSETS_VERSION}`} alt="" class="w-6 h-6 object-contain" style={`filter: drop-shadow(${produto.dropShadow});`} />
                                 </div>
                                 <h3 class={`text-2xl md:text-3xl font-bold ${produto.textColor} group-hover:scale-105 transition-all duration-300`}>
                                     {produto.nome}

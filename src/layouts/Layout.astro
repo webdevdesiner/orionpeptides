@@ -2,11 +2,19 @@
 // src/layouts/Layout.astro
 interface Props {
 	title: string;
+	description?: string;
+	/** URL absoluta ou caminho para imagem Open Graph (ex: /logo.png). Se não informado, usa /logo.png. */
+	ogImage?: string;
 }
 
 import References from '../components/References.astro';
 
-const { title } = Astro.props;
+const DEFAULT_DESCRIPTION = 'Orion Peptides - Biotecnologia e Protocolos de Pesquisa';
+const { title, description = DEFAULT_DESCRIPTION, ogImage } = Astro.props;
+
+const site = (import.meta.env.SITE || Astro.url?.origin || '').replace(/\/$/, '');
+const imagePath = ogImage?.startsWith('/') ? ogImage : `/${ogImage || 'logo.png'}`;
+const ogImageUrl = ogImage?.startsWith('http') ? ogImage : (site ? `${site}${imagePath}` : imagePath);
 
 // Mapa de referências por produto (substrings detectadas no title)
 const referenceMap: Record<string, { title: string; href?: string }[]> = {
@@ -62,8 +70,14 @@ if (title) {
 <html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Orion Peptides - Biotecnologia e Protocolos de Pesquisa" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:locale" content="pt_BR" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -238,7 +252,7 @@ if (title) {
 
                     // Ensure anchors that should act as WhatsApp contact buttons have data attributes.
                     // Set global default WhatsApp phone if not already defined
-                    try { (window as any).DEFAULT_WA_PHONE = (window as any).DEFAULT_WA_PHONE || '5518981522804'; } catch (e) {}
+                    try { (window as any).DEFAULT_WA_PHONE = (window as any).DEFAULT_WA_PHONE || '5511911387063'; } catch (e) {}
                     const defaultPhone = (window as any).DEFAULT_WA_PHONE || '';
 
                     function inferProductFromAnchor(a: HTMLElement) {

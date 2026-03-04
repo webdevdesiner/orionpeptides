@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orionpeptideos.com/sitemap-index.xml
