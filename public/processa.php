@@ -42,6 +42,8 @@ $whatsapp = strip_tags(trim($_POST['whatsapp']));
 // Remove caracteres não numéricos do WhatsApp (mantém apenas números)
 $whatsapp = preg_replace('/[^0-9]/', '', $whatsapp);
 
+$tipo = isset($_POST['tipo']) ? strip_tags(trim($_POST['tipo'])) : 'Não informado';
+
 // Validação adicional
 if (empty($nome) || strlen($nome) < 3) {
     echo json_encode([
@@ -99,7 +101,7 @@ if (!$arquivo_existe) {
     fwrite($handle, "\xEF\xBB\xBF");
     
     // Adiciona cabeçalho do CSV
-    $cabecalho = ['Data/Hora', 'Nome', 'E-mail', 'WhatsApp', 'IP'];
+    $cabecalho = ['Data/Hora', 'Nome', 'E-mail', 'WhatsApp', 'Tipo', 'IP'];
     fputcsv($handle, $cabecalho, ';');
 }
 
@@ -109,6 +111,7 @@ $dados = [
     $nome,
     $email,
     $whatsapp,
+    $tipo,
     $ip
 ];
 

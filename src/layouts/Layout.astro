@@ -115,7 +115,7 @@ if (title) {
                     const copyrightCandidates = Array.from(document.querySelectorAll('p')) as HTMLParagraphElement[];
                     let inserted = false;
                     for (const p of copyrightCandidates) {
-                        if (p.textContent && p.textContent.includes('© 2015')) {
+                        if (p.textContent && p.textContent.includes('© 2025')) {
                             if (p.parentNode) {
                                 p.parentNode.insertBefore(node, p);
                                 inserted = true;
@@ -160,7 +160,7 @@ if (title) {
                     const pList = Array.from(document.querySelectorAll('p')) as HTMLParagraphElement[];
                     let anchor: HTMLElement | null = null;
                     for (const p of pList) {
-                        if (p.textContent && p.textContent.includes('© 2015')) {
+                        if (p.textContent && p.textContent.includes('© 2025')) {
                             anchor = p;
                             break;
                         }

@@ -28,7 +28,7 @@ const produtos = [
 	},
 	{
 		nome: 'BPC-157 + TB-500',
-		descricao: 'Blend Wolverine para recuperação de lesões e suporte articular.',
+		descricao: 'Blend Wolverine: recuperação e suporte articular.',
 		link: '/substancias/blend-bpc-tb',
 		destaque: 'Wolverine',
 		corGradiente: 'from-emerald-900/20 to-black',
@@ -235,17 +235,17 @@ function getProductUrl(nome: string): string {
                             </span>
                         </div>
 
-                        <!-- Conteúdo do Card: ícone catálogo pequeno + título -->
-                        <div class="relative z-10 ml-24 md:ml-28 text-right">
-                            <div class="flex items-center gap-2 justify-end mb-2">
-                                <div class={`w-9 h-9 rounded-full bg-white/5 border ${produto.borderCor} flex items-center justify-center flex-shrink-0`}>
-                                    <img src={`${produto.imagem}?v=${ASSETS_VERSION}`} alt="" class="w-6 h-6 object-contain" style={`filter: drop-shadow(${produto.dropShadow});`} />
+                        <!-- Conteúdo do Card: ícone catálogo pequeno + título (BPC-157: margem maior para não tampar o frasco) -->
+                        <div class={`relative z-10 text-right ${produto.nome === 'BPC-157 + TB-500' ? 'ml-32 md:ml-40' : 'ml-24 md:ml-28'}`}>
+                            <div class={`flex items-center justify-end mb-2 ${produto.nome === 'BPC-157 + TB-500' ? 'gap-1' : 'gap-2'}`}>
+                                <div class={`rounded-full bg-white/5 border ${produto.borderCor} flex items-center justify-center flex-shrink-0 ${produto.nome === 'BPC-157 + TB-500' ? 'w-7 h-7' : 'w-9 h-9'}`}>
+                                    <img src={`${produto.imagem}?v=${ASSETS_VERSION}`} alt="" class={`object-contain ${produto.nome === 'BPC-157 + TB-500' ? 'w-4 h-4' : 'w-6 h-6'}`} style={`filter: drop-shadow(${produto.dropShadow});`} />
                                 </div>
                                 <h3 class={`text-2xl md:text-3xl font-bold ${produto.textColor} group-hover:scale-105 transition-all duration-300`}>
                                     {produto.nome}
                                 </h3>
                             </div>
-                            <p class="text-base md:text-lg text-gray-300 mb-4">
+                            <p class={`text-base md:text-lg text-gray-300 mb-4 break-words ${produto.nome === 'BPC-157 + TB-500' ? 'w-full' : 'max-w-[50%] ml-auto'}`}>
                                 {produto.descricao}
                             </p>
                         </div>
@@ -312,7 +312,7 @@ function getProductUrl(nome: string): string {
                 </div>
                 
                 <p class="text-gray-400 text-sm">
-                    © 2015 <span class="text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
+                    © 2025 <span class="text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
                 </p>
             </div>
         </div>

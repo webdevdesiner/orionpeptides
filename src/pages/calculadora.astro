@@ -55,11 +55,11 @@ import Header from '../components/Header.astro';
                     </div>
 
                     <!-- Input: Dose Desejada + Unidade (mcg/mg) -->
-                    <div>
+                    <div class="min-w-0">
                         <label for="doseDesejada" class="block text-sm font-medium text-gray-300 dark:text-gray-300 mb-2">
                             Dose Desejada
                         </label>
-                        <div class="flex gap-2">
+                        <div class="flex gap-2 min-w-0">
                             <input
                                 type="number"
                                 id="doseDesejada"
@@ -68,13 +68,13 @@ import Header from '../components/Header.astro';
                                 min="0"
                                 placeholder="Ex: 250 ou 5"
                                 required
-                                class="flex-1 px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300"
+                                class="min-w-0 flex-1 px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300"
                             />
                             <select
                                 id="unidadeDose"
                                 name="unidadeDose"
                                 aria-label="Unidade da dose"
-                                class="min-w-[6rem] px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer"
+                                class="shrink-0 w-24 px-4 py-3 bg-black/50 dark:bg-black/50 border border-white/10 dark:border-white/10 rounded-lg text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-500 focus:border-blue-500/50 dark:focus:border-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] dark:focus:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300 cursor-pointer"
                             >
                                 <option value="mcg">mcg</option>
                                 <option value="mg">mg</option>
@@ -162,7 +162,7 @@ import Header from '../components/Header.astro';
                 </div>
                 
                 <p class="text-gray-400 dark:text-gray-400 text-sm">
-                    © 2015 <span class="text-white dark:text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
+                    © 2025 <span class="text-white dark:text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
                 </p>
             </div>
         </div>

@@ -1,0 +1,51 @@
+---
+// Redirecionamento para WhatsApp com mensagem de indicação DTPAR (Dutra Táxi)
+const mensagem = 'Olá! Tenho interesse em obter mais informações sobre os peptídeos Orion. Meu código de indicação é DTPAR de Dutra Táxi.';
+const waUrl = `https://wa.me/5511911387063?text=${encodeURIComponent(mensagem)}`;
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="refresh" content={`0;url=${waUrl}`} />
+		<title>Redirecionando para Dutra Táxi</title>
+		<link rel="canonical" href={waUrl} />
+		<style is:global>
+			* { box-sizing: border-box; margin: 0; padding: 0; }
+			body {
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: #0f0f0f;
+				color: #e5e5e5;
+				font-family: system-ui, -apple-system, sans-serif;
+				padding: 1rem;
+			}
+			.message {
+				text-align: center;
+				font-size: 1.125rem;
+				letter-spacing: 0.02em;
+			}
+			.message::after {
+				content: '';
+				display: inline-block;
+				width: 0.35em;
+				height: 1em;
+				background: currentColor;
+				margin-left: 0.15em;
+				animation: blink 0.8s step-end infinite;
+			}
+			@keyframes blink {
+				50% { opacity: 0; }
+			}
+		</style>
+	</head>
+	<body>
+		<p class="message">Redirecionando para Dutra Táxi...</p>
+		<script define:vars={{ waUrl }}>
+			window.location.href = waUrl;
+		</script>
+	</body>
+</html>
