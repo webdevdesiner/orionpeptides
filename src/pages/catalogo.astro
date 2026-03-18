@@ -14,10 +14,15 @@ function getProductUrl(nome: string): string {
 		'BPC-157 + TB-500': '/substancias/blend-bpc-tb',
 		'TB-500': '/substancias/tb-500',
 		'CJC-1295 + Ipamorelin': '/substancias/blend-cjc-ipamorelin',
+		'Ipamorelin 10mg': '/substancias/ipamorelin-10mg',
+		'AOD-9604 5mg': '/substancias/aod9604-5mg',
+		'SLU-PP-332 5mg': '/substancias/slu-pp-332-5mg',
+		'SS-31 10mg (Elamipretide)': '/substancias/ss-31-10mg',
 		'NAD+': '/substancias/nad-plus',
 		'MOTS-C': '/substancias/mots-c',
 		'GHK-Cu': '/substancias/ghk-cu',
 		'KLOW Blend 80mg': '/substancias/klow-80mg',
+		'KLOW Blend 80mg (Recovery Stack)': '/substancias/klow-80mg',
 		'Tesamorelin': '/substancias/tesamorelin',
 		'Água Estéril': '/substancias/agua-esteril'
 	};
@@ -74,6 +79,20 @@ const laudos = [
 		dataTeste: '02/02/2026',
 		categoria: 'Emagrecimento',
 		destaque: 'Gold Standard',
+		highPurity: true,
+		imagem: '/image/catalogo/tirzepatide.png',
+		glowColor: 'shadow-amber-500/50',
+		borderColor: 'group-hover:border-amber-500/50',
+		textColor: 'text-amber-400'
+	},
+	{
+		nome: 'AOD-9604 5mg',
+		variacao: '5mg',
+		lote: '#OR-2026-AOD5',
+		pureza: 99.0,
+		dataTeste: '18/03/2026',
+		categoria: 'Emagrecimento',
+		destaque: 'Lançamento',
 		highPurity: true,
 		imagem: '/image/catalogo/tirzepatide.png',
 		glowColor: 'shadow-amber-500/50',
@@ -158,8 +177,8 @@ const laudos = [
 		textColor: 'text-teal-400'
 	},
 	{
-		nome: 'KLOW Blend 80mg',
-		variacao: '80mg (Recovery Stack)',
+		nome: 'KLOW Blend 80mg (Recovery Stack)',
+		variacao: '',
 		lote: '#OR-2026-KL80',
 		pureza: 99.0,
 		dataTeste: '01/03/2026',
@@ -181,6 +200,20 @@ const laudos = [
 		glowColor: 'shadow-rose-500/50',
 		borderColor: 'group-hover:border-rose-500/50',
 		textColor: 'text-rose-400'
+	},
+	{
+		nome: 'Ipamorelin 10mg',
+		variacao: '10mg',
+		lote: '#OR-2026-IP10',
+		pureza: 99.2,
+		dataTeste: '18/03/2026',
+		categoria: 'Ganho Muscular',
+		destaque: 'Lançamento',
+		highPurity: true,
+		imagem: '/image/catalogo/tesamorelin.png',
+		glowColor: 'shadow-blue-500/50',
+		borderColor: 'group-hover:border-blue-500/50',
+		textColor: 'text-blue-400'
 	},
 	{
 		nome: 'Tesamorelin',
@@ -208,12 +241,40 @@ const laudos = [
 		textColor: 'text-cyan-400'
 	},
 	{
+		nome: 'SS-31 10mg (Elamipretide)',
+		variacao: '10mg',
+		lote: '#OR-2026-SS10',
+		pureza: 99.5,
+		dataTeste: '18/03/2026',
+		categoria: 'Cognitivo/Nootrópicos',
+		destaque: 'Lançamento',
+		highPurity: true,
+		imagem: '/image/catalogo/mots-c.png',
+		glowColor: 'shadow-teal-500/50',
+		borderColor: 'group-hover:border-teal-500/50',
+		textColor: 'text-teal-400'
+	},
+	{
 		nome: 'MOTS-C',
 		variacao: '40mg',
 		lote: '#OR-2026-017',
 		pureza: 99.6,
 		dataTeste: '17/01/2026',
 		categoria: 'Cognitivo/Nootrópicos',
+		imagem: '/image/catalogo/mots-c.png',
+		glowColor: 'shadow-cyan-500/50',
+		borderColor: 'group-hover:border-cyan-500/50',
+		textColor: 'text-cyan-400'
+	},
+	{
+		nome: 'SLU-PP-332 5mg',
+		variacao: '5mg',
+		lote: '#OR-2026-SLU5',
+		pureza: 99.0,
+		dataTeste: '18/03/2026',
+		categoria: 'Cognitivo/Nootrópicos',
+		destaque: 'Lançamento',
+		highPurity: true,
 		imagem: '/image/catalogo/mots-c.png',
 		glowColor: 'shadow-cyan-500/50',
 		borderColor: 'group-hover:border-cyan-500/50',
@@ -401,6 +462,9 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                     
                     // Título a exibir: evita repetir a variação se já estiver no nome
                     const displayTitle = laudo.variacao && !laudo.nome.includes(laudo.variacao) ? `${laudo.nome} ${laudo.variacao}` : laudo.nome;
+                    // Quebra em duas linhas quando o título termina com " (Recovery Stack)" (ex.: KLOW)
+                    const recoverySuffix = ' (Recovery Stack)';
+                    const titleLine1 = displayTitle.endsWith(recoverySuffix) ? displayTitle.slice(0, -recoverySuffix.length) : null;
 
                     return (
                         <div 
@@ -453,7 +517,12 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                             <!-- Nome do Produto e Variação -->
                             <div class="text-center mb-3">
                                 <h3 class={`text-xl font-bold mb-1 ${textColor} group-hover:scale-105 transition-all duration-300`}>
-                                    {displayTitle}
+                                    {titleLine1 !== null ? (
+                                        <>
+                                            <span class="block">{titleLine1}</span>
+                                            <span class="block text-base font-semibold opacity-90 mt-0.5">(Recovery Stack)</span>
+                                        </>
+                                    ) : displayTitle}
                                 </h3>
                                 {/*
                                     Mantemos a exibição da variação menor caso seja necessária em futuros estilos,

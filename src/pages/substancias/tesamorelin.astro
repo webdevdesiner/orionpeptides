@@ -44,24 +44,22 @@ import Accordion from '../../components/Accordion.astro';
                         </div>
                     </figure>
 
-                    <!-- Especificações Técnicas Rápidas -->
+                    <!-- Especificações Técnicas Rápidas (card igual ao KLOW) -->
                     <div class="flex flex-col gap-4">
-                        <!-- Card 1: Potência -->
+                        <!-- Card 1: Potência Total -->
                         <div class="bg-gray-900/50 backdrop-blur-md border border-red-500/20 rounded-xl p-4 hover:border-red-500/40 transition-all duration-300">
                             <div class="flex flex-col items-center text-center space-y-2">
-                                <!-- Ícone Frasco -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                                 </svg>
-                                <p class="text-xs text-gray-400 uppercase tracking-wider">Potência</p>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Potência Total</p>
                                 <p class="text-sm text-white font-semibold">10mg Liofilizado</p>
                             </div>
                         </div>
 
-                        <!-- Card 2: Diluente -->
+                        <!-- Card 2: Inclui -->
                         <div class="bg-gray-900/50 backdrop-blur-md border border-red-500/20 rounded-xl p-4 hover:border-red-500/40 transition-all duration-300">
                             <div class="flex flex-col items-center text-center space-y-2">
-                                <!-- Ícone Gota -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2.69c-3.5 0-6.31 2.81-6.31 6.31 0 3.5 6.31 10.31 6.31 10.31S18.31 12.5 18.31 9c0-3.5-2.81-6.31-6.31-6.31z"/>
                                 </svg>
@@ -70,15 +68,25 @@ import Accordion from '../../components/Accordion.astro';
                             </div>
                         </div>
 
-                        <!-- Card 3: Armazenamento -->
+                        <!-- Card 3: Temperatura -->
                         <div class="bg-gray-900/50 backdrop-blur-md border border-red-500/20 rounded-xl p-4 hover:border-red-500/40 transition-all duration-300">
                             <div class="flex flex-col items-center text-center space-y-2">
-                                <!-- Ícone Floco de Neve -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
                                 <p class="text-xs text-gray-400 uppercase tracking-wider">Temperatura</p>
                                 <p class="text-sm text-white font-semibold">2°C a 8°C (Geladeira)</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Diluição Recomendada -->
+                        <div class="bg-gray-900/50 backdrop-blur-md border border-red-500/20 rounded-xl p-4 hover:border-red-500/40 transition-all duration-300">
+                            <div class="flex flex-col items-center text-center space-y-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Diluição Recomendada</p>
+                                <p class="text-sm text-white font-semibold">Requer 3ml de Água Estéril</p>
                             </div>
                         </div>
                     </div>
@@ -175,7 +183,7 @@ import Accordion from '../../components/Accordion.astro';
                                             <div>
                                                 <p class="text-gray-400 mb-1">Dose Diária</p>
                                                 <p class="text-red-400 font-bold text-lg">1mg</p>
-                                                <p class="text-gray-500 text-xs mt-1">(20 unidades)</p>
+                                                <p class="text-gray-500 text-xs mt-1">(30 unidades)</p>
                                             </div>
                                             <div>
                                                 <p class="text-gray-400 mb-1">Frequência</p>
@@ -204,7 +212,7 @@ import Accordion from '../../components/Accordion.astro';
                                             <div>
                                                 <p class="text-gray-400 mb-1">Dose Diária</p>
                                                 <p class="text-red-400 font-bold text-lg">2mg</p>
-                                                <p class="text-gray-500 text-xs mt-1">(40 unidades)</p>
+                                                <p class="text-gray-500 text-xs mt-1">(60 unidades)</p>
                                             </div>
                                             <div>
                                                 <p class="text-gray-400 mb-1">Indicado para</p>
@@ -309,13 +317,16 @@ import Accordion from '../../components/Accordion.astro';
                         <div class="mb-8">
                             <h4 class="text-white font-bold mb-4">Guia de Mistura (Frasco 10mg)</h4>
                             <ol class="list-decimal list-inside space-y-3 text-gray-300">
-                                <li><strong class="text-white">Diluente:</strong> Utilize <strong>2ml</strong> (200 unidades) de Água Bacteriostática.</li>
+                                <li><strong class="text-white">Diluente:</strong> É obrigatório utilizar <strong>3ml (300 unidades)</strong> de água estéril.</li>
+                                <div class="bg-red-900/20 border border-red-500/30 text-red-200 p-4 rounded-lg mb-4">
+                                    <p class="text-sm leading-relaxed"><strong>⚠️ AVISO CRÍTICO DE RECONSTITUIÇÃO:</strong> O Tesamorelin possui uma estrutura molecular longa e densa. É OBRIGATÓRIO utilizar no mínimo 3ml de água estéril. O uso de volumes menores (como 1ml ou 2ml) causará a saturação imediata da solução, transformando o pó em um gel inutilizável e invalidando a garantia do produto. Além disso, NUNCA agite ou chacoalhe o frasco. Deixe a água escorrer suavemente pela parede do vidro e aguarde a dissolução natural para evitar a quebra das moléculas.</p>
+                                </div>
                                 <li><strong class="text-white">Processo:</strong> Injete a água suavemente. O Tesamorelin pode formar uma solução levemente turva no início, mas deve ficar transparente após alguns minutos. <strong>NÃO agite</strong>.</li>
                                 <li><strong class="text-white">Matemática da Dose:</strong>
                                     <ul class="list-disc list-inside ml-4 mt-2 space-y-1">
-                                        <li>10mg em 2ml = <strong>5mg por ml</strong></li>
+                                        <li>10mg em 3ml = <strong>≈3,33mg por ml</strong></li>
                                         <li>A dose padrão de eficácia é <strong>1mg</strong></li>
-                                        <li>Para obter <strong>1mg</strong>, você precisa de <strong>0.20ml</strong> (<strong>20 unidades</strong> na seringa)</li>
+                                        <li>Para obter <strong>1mg</strong>, você precisa de <strong>0,30ml</strong> (<strong>30 unidades</strong> na seringa)</li>
                                     </ul>
                                 </li>
                                 <li>Armazene em refrigeração (2-8°C) após reconstituído.</li>
@@ -507,7 +518,7 @@ import Accordion from '../../components/Accordion.astro';
 </Layout>
 
 <script>
-    // Calculadora Rápida para Tesamorelin (10mg em 2ml)
+    // Calculadora Rápida para Tesamorelin (10mg em 3ml)
     document.addEventListener('DOMContentLoaded', () => {
         const formTesamorelin = document.getElementById('calculadoraTesamorelin') as HTMLFormElement | null;
         const resultadoTesamorelin = document.getElementById('resultadoTesamorelin');
@@ -524,9 +535,9 @@ import Accordion from '../../components/Accordion.astro';
             const inputDose = document.getElementById('doseTesamorelin') as HTMLInputElement | null;
             if (!inputDose) return;
 
-            // Valores fixos para Tesamorelin Orion (10mg em 2ml)
+            // Valores fixos para Tesamorelin Orion (10mg em 3ml - obrigatório)
             const tamanhoFrasco = 10; // mg
-            const quantidadeAgua = 2; // ml
+            const quantidadeAgua = 3; // ml
             const doseDesejada = parseFloat(inputDose.value); // mg
 
             // Validação
@@ -535,12 +546,10 @@ import Accordion from '../../components/Accordion.astro';
                 return;
             }
 
-            // Cálculo: 10mg em 2ml = 5mg/ml
-            // Para obter 1mg, precisa de 0.20ml = 20 unidades
-            // Para calcular unidades: doseDesejada (mg) / 5mg por ml * 100 unidades por ml
-            // Simplificando: doseDesejada * 20 unidades por mg
-            const unidadesUI = doseDesejada * 20;
-            const volumeMl = doseDesejada / 5; // 1mg = 0.2ml (5mg/ml)
+            // Cálculo: 10mg em 3ml = 10/3 mg/ml; 1mg = 0,30ml = 30 unidades
+            const mgPorMl = tamanhoFrasco / quantidadeAgua;
+            const unidadesUI = (doseDesejada / mgPorMl) * 100;
+            const volumeMl = doseDesejada / mgPorMl;
 
             // Exibir resultados
             resultadoUITesamorelin.textContent = unidadesUI.toFixed(0);

@@ -55,10 +55,20 @@ const referenceMap: Record<string, { title: string; href?: string }[]> = {
 		{ title: "Teichman SL, et al. 'Prolonged Stimulation of Growth Hormone Release.' Journal of Clinical Endocrinology & Metabolism, 2006.", href: "https://pubmed.ncbi.nlm.nih.gov/16330454/" }
 	],
 	'Ipamorelin': [
-		{ title: "Raun K, et al. 'Ipamorelin, the first selective growth hormone secretagogue.' European Journal of Endocrinology, 1998.", href: "https://pubmed.ncbi.nlm.nih.gov/9859861/" }
+		{ title: "Raun K, et al. 'Ipamorelin, the first selective growth hormone secretagogue.' European Journal of Endocrinology, 1998.", href: "https://pubmed.ncbi.nlm.nih.gov/9859861/" },
+		{ title: "Effects of ipamorelin, a novel GH secretagogue, on GH release.", href: "https://pubmed.ncbi.nlm.nih.gov/11735244/" }
 	],
 	'AOD-9604': [
+		{ title: "Stolyarov V, et al. 'Safety and tolerability of the hexapeptide AOD9604 in humans.'", href: "https://pubmed.ncbi.nlm.nih.gov/15665799/" },
+		{ title: "Heffernan M, et al. 'Metabolic and bone effects of the hGH fragment AOD9604.'", href: "https://pubmed.ncbi.nlm.nih.gov/11713213/" },
 		{ title: "Heffernan M, et al. 'The Effects of Human GH and Its Lipolytic Fragment (AOD9604).' Journal of Endocrinology & Metabolism, 2001.", href: "https://pubmed.ncbi.nlm.nih.gov/11739037/" }
+	],
+	'SLU-PP-332': [
+		{ title: "Billon C, et al. 'A synthetic ERR agonist alleviates metabolic syndrome and enhances exercise capacity.' Journal of Pharmacology and Experimental Therapeutics, 2023.", href: "https://pubmed.ncbi.nlm.nih.gov/37785489/" }
+	],
+	'SS-31': [
+		{ title: "Zhao Y, et al. 'Elamipretide (SS-31) improves mitochondrial dysfunction, synaptic compromise, and memory impairment.' 2020.", href: "https://pubmed.ncbi.nlm.nih.gov/32668257/" },
+		{ title: "SS-31 protects mitochondria and reduces ROS production.", href: "https://pubmed.ncbi.nlm.nih.gov/16430706/" }
 	]
 };
 
@@ -84,7 +94,7 @@ if (title) {
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImageUrl} />
 		<meta property="og:locale" content="pt_BR" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/image/favicon.png" />
 		<title>{title}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -329,16 +339,20 @@ if (title) {
                         '/substancias/tirzepatide',
                         '/substancias/tirzepatide-40mg',
                         '/substancias/tirzepatide-60mg',
+                        '/substancias/aod9604-5mg',
                         '/substancias/retatrutide',
                         '/substancias/retatrutide-20mg',
                         '/substancias/bpc-157',
                         '/substancias/blend-bpc-tb',
                         '/substancias/tb-500',
                         '/substancias/blend-cjc-ipamorelin',
+                        '/substancias/ipamorelin-10mg',
                         '/substancias/ghk-cu',
                         '/substancias/tesamorelin',
                         '/substancias/nad-plus',
+                        '/substancias/ss-31-10mg',
                         '/substancias/mots-c',
+                        '/substancias/slu-pp-332-5mg',
                         '/substancias/agua-esteril'
                     ];
 
