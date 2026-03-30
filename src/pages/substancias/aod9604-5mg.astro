@@ -62,6 +62,14 @@ const layoutOgImage = '/image/produtos/AOD-9604-5mg.png';
 						</div>
 					</figure>
 
+					<!-- Mobile: subtítulo e descrição abaixo da imagem -->
+					<div class="md:hidden">
+						<p class="text-xl text-gray-400 font-medium mb-3">{subtitulo}</p>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6">{descricao}</p>
+					</div>
+
+
+
 					<div class="flex flex-col gap-4">
 						<div class="bg-gray-900/50 backdrop-blur-md border border-amber-500/20 rounded-xl p-4 hover:border-amber-500/40 transition-all duration-300">
 							<div class="flex flex-col items-center text-center space-y-2">
@@ -79,7 +87,7 @@ const layoutOgImage = '/image/produtos/AOD-9604-5mg.png';
 									<path d="M12 2.69c-3.5 0-6.31 2.81-6.31 6.31 0 3.5 6.31 10.31 6.31 10.31S18.31 12.5 18.31 9c0-3.5-2.81-6.31-6.31-6.31z" />
 								</svg>
 								<p class="text-xs text-gray-400 uppercase tracking-wider">Inclui</p>
-								<p class="text-sm text-white font-semibold">🎁 Inclui 10ml de Água Estéril</p>
+								<p class="text-sm text-white font-semibold">🎁 Inclui 10ml de Água Bacteriostática</p>
 							</div>
 						</div>
 
@@ -99,7 +107,7 @@ const layoutOgImage = '/image/produtos/AOD-9604-5mg.png';
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
 								</svg>
 								<p class="text-xs text-gray-400 uppercase tracking-wider">Diluição Recomendada</p>
-								<p class="text-sm text-white font-semibold">Requer {quantidadeAguaMl}ml de Água Estéril (10 UI = 250mcg)</p>
+								<p class="text-sm text-white font-semibold">Requer {quantidadeAguaMl}ml de Água Bacteriostática (10 UI = 250mcg)</p>
 							</div>
 						</div>
 					</div>

@@ -1,0 +1,261 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Accordion from '../../components/Accordion.astro';
+
+const produtoNome = 'PT-141 10mg (Libido Enhancer)';
+const concentracao = '10mg Liofilizado';
+const imagemCatalogo = '/image/catalogo/tesamorelin.png';
+const imagemProduto = '/image/produtos/TESAMORELIN.png';
+const imagemAlt = 'Frasco de PT-141 10mg Orion Peptides para pesquisa sobre disfunção e libido.';
+const subtitulo = 'O Peptídeo de Referência para Modulação do Desejo Sexual e Disfunção Erétil.';
+const descricao =
+	'O PT-141, ou Bremelanotide, é um peptídeo inovador derivado do Melanotan II que atua diretamente no sistema nervoso central através dos receptores de melanocortina. Ao contrário de medicamentos tradicionais que focam no sistema vascular, o PT-141 age no hipotálamo para aumentar o desejo sexual e a libido em homens e mulheres.';
+const diferencialOrion = 'Pureza laboratorial rigorosamente testada (>99%), garantindo segurança e previsibilidade nos protocolos de pesquisa.';
+
+const tamanhoFrascoMg = 10;
+const quantidadeAguaMl = 2;
+
+const layoutTitle = `${produtoNome} | Guia Técnico | Orion Peptides`;
+const layoutDescription = 'PT-141 10mg Orion: O peptídeo mais eficaz para pesquisa em saúde sexual, desejo e performance.';
+const layoutOgImage = '/image/produtos/TESAMORELIN.png';
+---
+
+<Layout title={layoutTitle} description={layoutDescription} ogImage={layoutOgImage}>
+	<Header />
+	<main class="container mx-auto px-4 py-12 md:py-16">
+		<section class="mb-16">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+				<div class="space-y-6">
+					<div class="md:hidden flex items-center justify-center gap-3 mb-3">
+						<div class="w-10 h-10 rounded-full bg-white/5 border border-rose-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_8px_rgba(244,63,94,0.15)]">
+							<img src={imagemCatalogo} alt={`Ícone ${produtoNome}`} class="w-8 h-8 object-contain" />
+						</div>
+						<h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-rose-200 to-rose-400">{produtoNome}</h1>
+					</div>
+
+					<figure class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl overflow-hidden">
+						<div class="px-4 py-2.5 border-b border-white/10 bg-black/20">
+							<figcaption class="text-xs text-gray-400 uppercase tracking-wider font-medium">{produtoNome} — Imagem do produto</figcaption>
+						</div>
+						<div class="relative p-6 flex items-center justify-center">
+							<a
+								href="/contato"
+								data-wa-product={produtoNome}
+								data-wa-phone="5511911387063"
+								class="absolute top-4 left-4 z-30 inline-flex flex-col items-center justify-center px-2.5 py-1.5 rounded bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-amber-950 text-[10px] font-bold uppercase tracking-wide shadow-md shadow-amber-500/30 hover:shadow-amber-400/50 border border-amber-300/50 hover:scale-105 active:scale-95 transition-all duration-300 leading-tight text-center"
+							>
+								<span>Encontrar</span><span>fornecedor</span>
+							</a>
+							<div class="w-full h-[300px] rounded-lg border border-dashed border-rose-500/40 bg-black/30 flex items-center justify-center text-center px-4">
+								<p class="text-sm text-rose-300 font-semibold">Imagem do produto pendente</p>
+							</div>
+						</div>
+					</figure>
+
+					<!-- Mobile: subtítulo e descrição abaixo da imagem -->
+					<div class="md:hidden">
+						<p class="text-xl text-gray-400 font-medium mb-3">{subtitulo}</p>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6">{descricao}</p>
+					</div>
+
+
+
+					<div class="flex flex-col gap-4">
+						<div class="bg-gray-900/50 backdrop-blur-md border border-rose-500/20 rounded-xl p-4 hover:border-rose-500/40 transition-all duration-300">
+							<div class="flex flex-col items-center text-center space-y-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+								<p class="text-xs text-gray-400 uppercase tracking-wider">Potência Total</p>
+								<p class="text-sm text-white font-semibold">{concentracao}</p>
+							</div>
+						</div>
+						<div class="bg-gray-900/50 backdrop-blur-md border border-rose-500/20 rounded-xl p-4 hover:border-rose-500/40 transition-all duration-300">
+							<div class="flex flex-col items-center text-center space-y-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-rose-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.69c-3.5 0-6.31 2.81-6.31 6.31 0 3.5 6.31 10.31 6.31 10.31S18.31 12.5 18.31 9c0-3.5-2.81-6.31-6.31-6.31z"/></svg>
+								<p class="text-xs text-gray-400 uppercase tracking-wider">Inclui</p>
+								<p class="text-sm text-white font-semibold">🎁 Kit Orion: Água Bacteriostática + 4 Seringas de Aplicação + 1 Seringa de Diluição + Frete Grátis.</p>
+							</div>
+						</div>
+						<div class="bg-gray-900/50 backdrop-blur-md border border-rose-500/20 rounded-xl p-4 hover:border-rose-500/40 transition-all duration-300">
+							<div class="flex flex-col items-center text-center space-y-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+								<p class="text-xs text-gray-400 uppercase tracking-wider">Temperatura</p>
+								<p class="text-sm text-white font-semibold">2°C a 8°C (Geladeira)</p>
+							</div>
+						</div>
+						<div class="bg-gray-900/50 backdrop-blur-md border border-rose-500/20 rounded-xl p-4 hover:border-rose-500/40 transition-all duration-300">
+							<div class="flex flex-col items-center text-center space-y-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+								<p class="text-xs text-gray-400 uppercase tracking-wider">Diluição Recomendada</p>
+								<p class="text-sm text-white font-semibold">Requer 2ml de Água Bacteriostática (Inclusa no Kit).</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="space-y-6">
+					<div>
+						<div class="hidden md:flex items-center gap-4 mb-2">
+							<div class="w-14 h-14 rounded-full bg-white/5 border border-rose-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(244,63,94,0.25)]">
+								<img src={imagemCatalogo} alt="" class="w-10 h-10 object-contain" />
+							</div>
+							<h1 class="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-rose-200 to-rose-400">{produtoNome}</h1>
+						</div>
+						<p class="text-xl text-gray-400 font-medium mb-3 hidden md:block">{subtitulo}</p>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6 hidden md:block">{descricao}</p>
+						<div class="bg-rose-900/20 border border-rose-500/30 rounded-lg p-3 mb-4">
+							<p class="text-sm text-rose-200"><strong class="text-rose-300">Diferencial Orion:</strong> {diferencialOrion}</p>
+						</div>
+					</div>
+
+					<div class="mb-8">
+						<h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">Benefícios Pesquisados</h3>
+						<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+							<div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-rose-400 drop-shadow-[0_0_8px_rgba(244,63,94,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+								<h4 class="text-white font-bold text-sm md:text-base">Aumento da Libido</h4>
+								<p class="text-gray-400 text-xs md:text-sm">Ativação direta dos caminhos neurais responsáveis pelo desejo sexual.</p>
+							</div>
+							<div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-rose-400 drop-shadow-[0_0_8px_rgba(244,63,94,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+								<h4 class="text-white font-bold text-sm md:text-base">Melhora da Função Erétil</h4>
+								<p class="text-gray-400 text-xs md:text-sm">Auxilia na indução de ereções vigorosas através de mecanismos neurológicos, não apenas vasculares.</p>
+							</div>
+							<div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-rose-400 drop-shadow-[0_0_8px_rgba(244,63,94,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-1.414 1.414M6.343 17.657l-1.414 1.414M12 8v4l2 2m0-10a9 9 0 100 18 9 9 0 000-18z" /></svg>
+								<h4 class="text-white font-bold text-sm md:text-base">Resposta Feminina</h4>
+								<p class="text-gray-400 text-xs md:text-sm">Pesquisado para o tratamento do transtorno do desejo sexual hipoativo em mulheres.</p>
+							</div>
+							<div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-rose-400 drop-shadow-[0_0_8px_rgba(244,63,94,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M12 3v18" /></svg>
+								<h4 class="text-white font-bold text-sm md:text-base">Ação Central (Não-Vascular)</h4>
+								<p class="text-gray-400 text-xs md:text-sm">Não sobrecarrega o sistema cardiovascular, agindo seletivamente nos receptores cerebrais.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="space-y-4">
+						<div class="mt-8 border-t border-white/10 pt-6">
+							<h4 class="text-white font-bold mb-4 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-rose-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" /></svg>
+								Protocolo de Pesquisa Sugerido
+							</h4>
+							<div class="overflow-hidden rounded-xl border border-white/10 shadow-lg">
+								<div class="overflow-x-auto">
+									<table class="w-full text-left text-sm">
+										<thead class="bg-rose-900/20 text-rose-200 uppercase text-xs font-bold tracking-wider">
+											<tr>
+												<th class="px-4 py-3">Protocolo</th>
+												<th class="px-4 py-3">Dose Diária</th>
+												<th class="px-4 py-3 text-white bg-rose-600/20 border-l border-rose-500/30">Volume na Seringa (Ref: {quantidadeAguaMl}ml água)</th>
+												<th class="px-4 py-3">Frequência</th>
+											</tr>
+										</thead>
+										<tbody class="divide-y divide-white/5 bg-gray-900/40">
+											<tr class="hover:bg-white/5 transition-colors">
+												<td class="px-4 py-3 font-medium text-white">Dose de Teste</td>
+												<td class="px-4 py-3 text-gray-300">0,5mg</td>
+												<td class="px-4 py-3 font-bold text-rose-400 border-l border-white/5">10 unidades (0,10 ml)</td>
+												<td class="px-4 py-3 text-gray-300">Administrar 2 a 4 horas antes da atividade de pesquisa</td>
+											</tr>
+											<tr class="hover:bg-white/5 transition-colors">
+												<td class="px-4 py-3 font-medium text-white">Dose Padrão</td>
+												<td class="px-4 py-3 text-gray-300">1mg a 1,5mg</td>
+												<td class="px-4 py-3 font-bold text-rose-400 border-l border-white/5">20 a 30 unidades (0,20 a 0,30 ml)</td>
+												<td class="px-4 py-3 text-gray-300">Dose única, respeitando o intervalo de 24h entre aplicações</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="bg-rose-900/10 p-3 text-xs text-rose-300 flex items-start gap-2 border-t border-white/5">
+										<span class="text-rose-500 font-bold">💡</span>
+										<p><strong>Nota:</strong> O PT-141 pode causar náuseas leves nas primeiras exposições. Recomenda-se iniciar com a dose de teste para avaliar a tolerância.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+							<p class="text-sm text-gray-400 mb-1">Pureza Certificada</p>
+							<p class="text-rose-400 font-bold text-2xl">&gt;99.0% (HPLC) - High Purity</p>
+						</div>
+						<div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+							<p class="text-sm text-gray-400 mb-1">Aplicação</p>
+							<p class="text-white">Pesquisa em desejo sexual, função erétil e resposta sexual feminina</p>
+						</div>
+					</div>
+
+					<a href="/contato" data-wa-product={produtoNome} data-wa-phone="5511911387063" class="block w-full md:w-auto px-8 py-4 bg-gradient-to-r from-rose-600 to-rose-500 text-white font-bold rounded-lg hover:from-rose-500 hover:to-rose-400 transition-all duration-300 text-center shadow-lg shadow-rose-500/30 hover:shadow-xl hover:shadow-rose-500/50 active:scale-[0.98] border border-rose-400/30 hover:border-rose-400/50">
+						Encontrar Fornecedor
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="max-w-4xl mx-auto">
+			<h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-rose-600">Informações Técnicas</h2>
+			<div class="space-y-4">
+				<Accordion title="O que é PT-141?">
+					<div class="prose prose-invert max-w-none">
+						<p class="text-gray-300 mb-4">O PT-141 (Bremelanotide) é um heptapeptídeo cíclico que foi aprovado pelo FDA (sob o nome Vyleesi) para o tratamento da disfunção sexual. É único por ser um agonista dos receptores de melanocortina MC3R e MC4R, que estão envolvidos na regulação do humor e do comportamento sexual.</p>
+						<div class="bg-rose-900/20 border border-rose-500/30 rounded-lg p-3 mb-4">
+							<p class="text-sm text-rose-200"><strong class="text-rose-300">Diferencial Orion:</strong> {diferencialOrion}</p>
+						</div>
+						<div class="bg-red-900/20 border border-red-500/30 p-4 rounded text-sm text-red-200">
+							<strong>Nota de Pesquisa:</strong> Este composto é destinado exclusivamente para fins de pesquisa científica e não deve ser utilizado para consumo humano ou veterinário sem aprovação regulatória adequada.
+						</div>
+					</div>
+				</Accordion>
+
+				<Accordion title="Mecanismo de Ação">
+					<div class="prose prose-invert max-w-none">
+						<ul class="space-y-4 list-none">
+							<li class="flex gap-3"><span class="text-rose-500 font-bold">Melanocortina:</span><span class="text-gray-400">Atua como um agonista não seletivo dos receptores de melanocortina.</span></li>
+							<li class="flex gap-3"><span class="text-rose-500 font-bold">Hipotálamo:</span><span class="text-gray-400">Ativa os neurônios dopaminérgicos no hipotálamo.</span></li>
+							<li class="flex gap-3"><span class="text-rose-500 font-bold">Sistema mesolímbico:</span><span class="text-gray-400">Modula os sinais de recompensa e desejo no sistema mesolímbico.</span></li>
+							<li class="flex gap-3"><span class="text-rose-500 font-bold">Resposta vascular indireta:</span><span class="text-gray-400">Promove a vasodilatação indireta através da ativação nervosa.</span></li>
+						</ul>
+					</div>
+				</Accordion>
+
+				<Accordion title="Reconstituição">
+					<div class="prose prose-invert max-w-none">
+						<div class="mb-8">
+							<h4 class="text-white font-bold mb-4">Guia de Mistura (Frasco 10mg)</h4>
+							<ol class="list-decimal list-inside space-y-3 text-gray-300">
+								<li>Limpe o septo do frasco com álcool 70%.</li>
+								<li>Adicione lentamente 2ml de Água Bacteriostática.</li>
+								<li>Gire o frasco suavemente até que o pó esteja completamente dissolvido.</li>
+								<li>Não agite. Evite a formação de espumas excessivas para proteger a estabilidade da solução.</li>
+							</ol>
+							<div class="bg-gray-800/50 border border-rose-500/20 rounded-lg p-4 mt-6 text-sm text-gray-300">
+								<strong class="text-white">Observação:</strong> Uma vez reconstituído, deve ser mantido refrigerado. Pode apresentar leve sensibilidade à luz intensa.
+							</div>
+						</div>
+						<div class="border-t border-white/10 pt-6 mt-6">
+							<h4 class="text-white font-bold mb-4">💉 Administração</h4>
+							<ul class="space-y-2 text-gray-300">
+								<li class="flex items-start gap-2"><span class="text-rose-400 font-bold">•</span><span><strong class="text-white">Via:</strong> Subcutânea (Abdominal).</span></li>
+							</ul>
+						</div>
+					</div>
+				</Accordion>
+
+				<Accordion title="Laudo Técnico (HPLC)">
+					<div class="prose prose-invert max-w-none">
+						<div class="grid grid-cols-2 gap-4 mb-6 text-center">
+							<div class="bg-gray-800 p-3 rounded"><p class="text-xs text-gray-500">Pureza Certificada</p><p class="text-xl font-bold text-rose-400">&gt;99.0%</p></div>
+							<div class="bg-gray-800 p-3 rounded"><p class="text-xs text-gray-500">Lote</p><p class="text-xl font-bold text-white">#OR-2026-PT141</p></div>
+						</div>
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+							<div class="bg-gray-800/50 p-3 rounded border border-white/5"><p class="text-xs text-gray-500 mb-1">Sequência</p><p class="text-sm text-white font-medium">Ac-Nle-asp-His-d-Phe-Arg-Trp-Lys-OH</p></div>
+							<div class="bg-gray-800/50 p-3 rounded border border-white/5"><p class="text-xs text-gray-500 mb-1">Fórmula Molecular</p><p class="text-sm text-white font-medium">C50H68N14O10</p></div>
+							<div class="bg-gray-800/50 p-3 rounded border border-white/5"><p class="text-xs text-gray-500 mb-1">Peso Molecular</p><p class="text-sm text-white font-medium">1025.16 g/mol</p></div>
+							<div class="bg-gray-800/50 p-3 rounded border border-white/5"><p class="text-xs text-gray-500 mb-1">CAS</p><p class="text-sm text-white font-medium">189691-06-3</p></div>
+						</div>
+					</div>
+				</Accordion>
+			</div>
+		</section>
+	</main>
+</Layout>
+

@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Accordion from '../../components/Accordion.astro';
 ---
 
-<Layout title="Tirzepatide 40mg (High Concentration) | Guia Técnico | Orion Peptides" description="Tirzepatide 40mg em alta concentração para pesquisa. Agonista dual GLP-1/GIP, pureza certificada. Guia técnico e protocolos Orion Peptides." ogImage="/image/produtos/TIRZEPATIDE40.png">
+<Layout title="Tirzepatide 40mg (Intermediate Dose) | Guia Tecnico | Orion Peptides" description="Tirzepatide 40mg em alta concentrao para pesquisa. Agonista dual GLP-1/GIP, pureza certificada. Guia tcnico e protocolos Orion Peptides." ogImage="/image/produtos/TIRZEPATIDE40.png">
     <Header />
     
     <main class="container mx-auto px-4 py-12 md:py-16">
@@ -13,23 +13,23 @@ import Accordion from '../../components/Accordion.astro';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
                 <!-- Coluna 1: Imagem do Produto -->
                 <div class="space-y-6">
-                    <!-- Mobile-only: título acima da imagem com ícone -->
+                    <!-- Mobile-only: ttulo acima da imagem com cone -->
                     <div class="md:hidden flex items-center justify-center gap-3 mb-3">
                         <div class="w-10 h-10 rounded-full bg-white/5 border border-amber-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_8px_rgba(245,158,11,0.15)]">
-                            <img src="/image/catalogo/tirzepatide.png" alt="Ícone Tirzepatide" class="w-8 h-8 object-contain" />
+                            <img src="/image/catalogo/tirzepatide.png" alt="cone Tirzepatide" class="w-8 h-8 object-contain" />
                         </div>
                         <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-amber-200 to-amber-400">
-                            Tirzepatide 40mg (High Concentration)
+                            Tirzepatide 40mg (Intermediate Dose)
                         </h1>
                     </div>
                     <figure class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl overflow-hidden">
                         <div class="px-4 py-2.5 border-b border-white/10 bg-black/20">
-                            <figcaption class="text-xs text-gray-400 uppercase tracking-wider font-medium">Tirzepatide 40mg (High Concentration) — Imagem do produto</figcaption>
+                            <figcaption class="text-xs text-gray-400 uppercase tracking-wider font-medium">Tirzepatide 40mg (Intermediate Dose) " Imagem do produto</figcaption>
                         </div>
                         <div class="relative p-6 flex items-center justify-center">
                             <a
                                 href="/contato"
-                                data-wa-product="Tirzepatide 40mg (High Concentration)"
+                                data-wa-product="Tirzepatide 40mg (Intermediate Dose)"
                                 data-wa-phone="5511911387063"
                                 class="absolute top-4 left-4 z-30 inline-flex flex-col items-center justify-center px-2.5 py-1.5 rounded bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-amber-950 text-[10px] font-bold uppercase tracking-wide shadow-md shadow-amber-500/30 hover:shadow-amber-400/50 border border-amber-300/50 hover:scale-105 active:scale-95 transition-all duration-300 leading-tight text-center"
                             >
@@ -43,17 +43,22 @@ import Accordion from '../../components/Accordion.astro';
                             />
                         </div>
                     </figure>
+					<!-- Mobile: subttulo e descrio abaixo da imagem -->
+					<div class="md:hidden">
+						<p class="text-xl text-gray-400 font-medium mb-3">Agente Duplo GLP-1/GIP Agonist</p>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6">O primeiro agonista duplo dos receptores de GLP-1 e GIP. Ao ativar esses dois receptores simultaneamente, promove controle glicmico superior e perda de peso significativamente maior que monoterapias convencionais.</p>
+					</div>
 
-                    <!-- Especificações Técnicas Rápidas -->
+                    <!-- Especificaes Tcnicas Rpidas -->
                     <div class="flex flex-col gap-4">
-                        <!-- Card 1: Potência -->
+                        <!-- Card 1: Potncia -->
                         <div class="bg-gray-900/50 backdrop-blur-md border border-amber-500/20 rounded-xl p-4 hover:border-amber-500/40 transition-all duration-300">
                             <div class="flex flex-col items-center text-center space-y-2">
-                                <!-- Ícone Frasco -->
+                                <!-- cone Frasco -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                                 </svg>
-                                <p class="text-xs text-gray-400 uppercase tracking-wider">Potência</p>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Potncia</p>
                                 <p class="text-sm text-white font-semibold">40mg Liofilizado</p>
                             </div>
                         </div>
@@ -61,30 +66,41 @@ import Accordion from '../../components/Accordion.astro';
                         <!-- Card 2: Diluente -->
                         <div class="bg-gray-900/50 backdrop-blur-md border border-amber-500/20 rounded-xl p-4 hover:border-amber-500/40 transition-all duration-300">
                             <div class="flex flex-col items-center text-center space-y-2">
-                                <!-- Ícone Gota -->
+                                <!-- cone Gota -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2.69c-3.5 0-6.31 2.81-6.31 6.31 0 3.5 6.31 10.31 6.31 10.31S18.31 12.5 18.31 9c0-3.5-2.81-6.31-6.31-6.31z"/>
                                 </svg>
                                 <p class="text-xs text-gray-400 uppercase tracking-wider">Inclui</p>
-                                <p class="text-sm text-white font-semibold">🎁 Água Estéril</p>
+                                <p class="text-sm text-white font-semibold">YZ gua Bacteriosttica</p>
                             </div>
                         </div>
 
                         <!-- Card 3: Armazenamento -->
                         <div class="bg-gray-900/50 backdrop-blur-md border border-amber-500/20 rounded-xl p-4 hover:border-amber-500/40 transition-all duration-300">
                             <div class="flex flex-col items-center text-center space-y-2">
-                                <!-- Ícone Floco de Neve -->
+                                <!-- cone Floco de Neve -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
                                 <p class="text-xs text-gray-400 uppercase tracking-wider">Temperatura</p>
-                                <p class="text-sm text-white font-semibold">2°C a 8°C (Geladeira)</p>
+                                <p class="text-sm text-white font-semibold">2C a 8C (Geladeira)</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Diluio Recomendada -->
+                        <div class="bg-gray-900/50 backdrop-blur-md border border-amber-500/20 rounded-xl p-4 hover:border-amber-500/40 transition-all duration-300">
+                            <div class="flex flex-col items-center text-center space-y-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Diluio Recomendada</p>
+                                <p class="text-sm text-white font-semibold">Requer 1,6ml de gua Bacteriosttica</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Coluna 2: Informações -->
+                <!-- Coluna 2: Informaes -->
                 <div class="space-y-6">
                     <div>
                         <div class="hidden md:flex items-center gap-4 mb-2">
@@ -92,24 +108,24 @@ import Accordion from '../../components/Accordion.astro';
                                 <img src="/image/catalogo/tirzepatide.png" alt="" class="w-10 h-10 object-contain" />
                             </div>
                             <h1 class="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-amber-200 to-amber-400">
-                                Tirzepatide 40mg (High Concentration)
+                                Tirzepatide 40mg (Intermediate Dose)
                             </h1>
                         </div>
                         <p class="text-xl text-gray-400 font-medium mb-3 hidden md:block">Agente Duplo GLP-1/GIP Agonist</p>
                         <p class="text-gray-500 text-sm leading-relaxed mb-6 hidden md:block">
-                            O primeiro agonista duplo dos receptores de GLP-1 e GIP. Ao ativar esses dois receptores simultaneamente, promove controle glicêmico superior e perda de peso significativamente maior que monoterapias convencionais.
+                            O primeiro agonista duplo dos receptores de GLP-1 e GIP. Ao ativar esses dois receptores simultaneamente, promove controle glicmico superior e perda de peso significativamente maior que monoterapias convencionais.
                         </p>
                         <div class="bg-amber-900/20 border border-amber-500/30 rounded-lg p-3 mb-4">
                             <p class="text-sm text-amber-200">
-                                <strong class="text-amber-300">Diferencial Orion:</strong> Frasco com <strong>40mg</strong> de alta concentração, ideal para usuários avançados ou doses de manutenção mais altas.
+                                <strong class="text-amber-300">Diferencial Orion:</strong> Frasco com <strong>40mg</strong> de alta concentrao, ideal para usurios avanados ou doses de manuteno mais altas.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Seção Benefícios Pesquisados -->
+                    <!-- Seo Beneficios Pesquisados -->
                     <div class="mb-8">
                         <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">
-                            Benefícios Pesquisados
+                            Beneficios Pesquisados
                         </h3>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                             <!-- (idem ao original - mantido) -->
@@ -117,29 +133,29 @@ import Accordion from '../../components/Accordion.astro';
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                 </svg>
-                                <h4 class="text-white font-bold text-sm md:text-base">Controle Glicêmico</h4>
-                                <p class="text-gray-400 text-xs md:text-sm">Regulação superior de açúcar no sangue</p>
+                                <h4 class="text-white font-bold text-sm md:text-base">Controle Glicmico</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Regulao superior de acar no sangue</p>
                             </div>
                             <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                                 </svg>
                                 <h4 class="text-white font-bold text-sm md:text-base">Perda de Peso</h4>
-                                <p class="text-gray-400 text-xs md:text-sm">Redução significativa de massa corporal</p>
+                                <p class="text-gray-400 text-xs md:text-sm">Reduo significativa de massa corporal</p>
                             </div>
                             <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4h8M8 4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2M8 4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2m0 0v10c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2V4m8 2H8m8 4H8m0 4h8" />
                                 </svg>
                                 <h4 class="text-white font-bold text-sm md:text-base">Saciedade</h4>
-                                <p class="text-gray-400 text-xs md:text-sm">Aumento da sensação de plenitude</p>
+                                <p class="text-gray-400 text-xs md:text-sm">Aumento da sensao de plenitude</p>
                             </div>
                             <div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                                 <h4 class="text-white font-bold text-sm md:text-base">Metabolismo</h4>
-                                <p class="text-gray-400 text-xs md:text-sm">Otimização do metabolismo energético</p>
+                                <p class="text-gray-400 text-xs md:text-sm">Otimizao do metabolismo energtico</p>
                             </div>
                         </div>
                     </div>
@@ -151,7 +167,7 @@ import Accordion from '../../components/Accordion.astro';
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                                 </svg>
-                                Protocolo de Pesquisa Sugerido (Titulação Semanal)
+                                Protocolo de Pesquisa Sugerido (Titulao Semanal)
                             </h4>
 
                             <div class="overflow-hidden rounded-xl border border-white/10 shadow-lg">
@@ -162,46 +178,46 @@ import Accordion from '../../components/Accordion.astro';
                                             <th class="px-4 py-3">Fase</th>
                                             <th class="px-4 py-3">Dose Semanal</th>
                                             <th class="px-4 py-3 text-white bg-amber-600/20 border-l border-amber-500/30">
-                                                Volume na Seringa (Ref: 2ml água)
+                                                Volume na Seringa (Ref: 1,6ml agua)
                                             </th>
-                                            <th class="px-4 py-3">Frequência</th>
+                                            <th class="px-4 py-3">Frequncia</th>
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-white/5 bg-gray-900/40">
                                         <tr class="hover:bg-white/5 transition-colors">
-                                            <td class="px-4 py-3 font-medium text-white">Mês 1</td>
+                                            <td class="px-4 py-3 font-medium text-white">Ms 1</td>
                                             <td class="px-4 py-3 text-gray-300">2.5 mg</td>
                                             <td class="px-4 py-3 font-bold text-amber-400 border-l border-white/5">
-                                                12-13 unidades (≈0.13 ml)
+                                                10 unidades (0.10 ml)
                                             </td>
                                             <td class="px-4 py-3 text-gray-300">1x Semana</td>
                                         </tr>
                                         <tr class="hover:bg-white/5 transition-colors">
-                                            <td class="px-4 py-3 font-medium text-white">Mês 2</td>
+                                            <td class="px-4 py-3 font-medium text-white">Ms 2</td>
                                             <td class="px-4 py-3 text-gray-300">5.0 mg</td>
                                             <td class="px-4 py-3 font-bold text-amber-400 border-l border-white/5">
-                                                25 unidades (≈0.25 ml)
+                                                20 unidades (0.20 ml)
                                             </td>
                                             <td class="px-4 py-3 text-gray-300">1x Semana</td>
                                         </tr>
                                         <tr class="hover:bg-white/5 transition-colors">
-                                            <td class="px-4 py-3 font-medium text-white">Mês 3</td>
+                                            <td class="px-4 py-3 font-medium text-white">Ms 3</td>
                                             <td class="px-4 py-3 text-gray-300">7.5 mg</td>
                                             <td class="px-4 py-3 font-bold text-amber-400 border-l border-white/5">
-                                                37-38 unidades (≈0.38 ml)
+                                                30 unidades (0.30 ml)
                                             </td>
                                             <td class="px-4 py-3 text-gray-300">1x Semana</td>
                                         </tr>
                                         <tr class="hover:bg-white/5 transition-colors">
-                                            <td class="px-4 py-3 font-medium text-white">Mês 4</td>
+                                            <td class="px-4 py-3 font-medium text-white">Ms 4</td>
                                             <td class="px-4 py-3 text-gray-300">10.0 mg</td>
                                             <td class="px-4 py-3 font-bold text-amber-400 border-l border-white/5">
-                                                50 unidades (≈0.50 ml)
+                                                40 unidades (0.40 ml)
                                             </td>
                                             <td class="px-4 py-3 text-gray-300">1x Semana</td>
                                         </tr>
                                         <tr class="hover:bg-white/5 transition-colors">
-                                            <td class="px-4 py-3 font-medium text-white">Mês 5+</td>
+                                            <td class="px-4 py-3 font-medium text-white">Ms 5+</td>
                                             <td class="px-4 py-3 text-gray-300">12.5 - 15 mg</td>
                                             <td class="px-4 py-3 font-bold text-amber-400 border-l border-white/5">
                                                 Consultar especialista
@@ -212,8 +228,8 @@ import Accordion from '../../components/Accordion.astro';
                                 </table>
                                 
                                 <div class="bg-amber-900/10 p-3 text-xs text-amber-300 flex items-start gap-2 border-t border-white/5">
-                                    <span class="text-amber-500 font-bold">💡</span>
-                                    <p><strong>Nota Econômica:</strong> Frasco Orion (40mg) oferece rendimento elevado para protocolos estendidos.</p>
+                                    <span class="text-amber-500 font-bold">Y'</span>
+                                    <p><strong>Nota Econmica:</strong> Frasco Orion (40mg) oferece rendimento elevado para protocolos estendidos.</p>
                                 </div>
                             </div>
                         </div>
@@ -224,14 +240,14 @@ import Accordion from '../../components/Accordion.astro';
                         </div>
 
                         <div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
-                            <p class="text-sm text-gray-400 mb-1">Aplicação</p>
-                            <p class="text-white">Pesquisa em controle glicêmico e perda de peso</p>
+                            <p class="text-sm text-gray-400 mb-1">Aplicao</p>
+                            <p class="text-white">Pesquisa em controle glicmico e perda de peso</p>
                         </div>
                     </div>
 
                     <a
                         href="/contato"
-                        data-wa-product="Tirzepatide 40mg (High Concentration)"
+                        data-wa-product="Tirzepatide 40mg (Intermediate Dose)"
                         data-wa-phone="5511911387063"
                         class="block w-full md:w-auto px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black font-bold rounded-lg hover:from-yellow-400 hover:to-amber-400 transition-all duration-300 text-center shadow-lg shadow-yellow-500/30 hover:shadow-xl hover:shadow-yellow-500/50 active:scale-[0.98] border border-yellow-400/30 hover:border-yellow-400/50"
                     >
@@ -241,84 +257,84 @@ import Accordion from '../../components/Accordion.astro';
             </div>
         </section>
 
-        <!-- Área Técnica - Accordions -->
+        <!-- rea Tcnica - Accordions -->
         <section class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-600">
-                Informações Técnicas
+                Informaes Tcnicas
             </h2>
 
             <div class="space-y-4">
-                <!-- Accordion 1: O que é Tirzepatide? -->
-                <Accordion title="O que é Tirzepatide?">
+                <!-- Accordion 1: O que e Tirzepatide -->
+                <Accordion title="O que e Tirzepatide">
                     <div class="prose prose-invert max-w-none">
                         <p class="text-gray-300 mb-4">
-                            O <strong class="text-white">Tirzepatide</strong> é o primeiro agonista duplo dos receptores de GLP-1 e GIP. Ao ativar esses dois receptores simultaneamente, promove controle glicêmico superior e perda de peso significativamente maior que monoterapias convencionais.
+                            O <strong class="text-white">Tirzepatide</strong>  o primeiro agonista duplo dos receptores de GLP-1 e GIP. Ao ativar esses dois receptores simultaneamente, promove controle glicmico superior e perda de peso significativamente maior que monoterapias convencionais.
                         </p>
                         <p class="text-gray-300 mb-4">
-                            Desenvolvido para pesquisa científica, o Tirzepatide demonstra potencial em estudos relacionados ao controle metabólico, regulação glicêmica e gestão de peso corporal. Sua ação dual permite interações sinérgicas com sistemas biológicos relacionados ao metabolismo energético.
+                            Desenvolvido para pesquisa cientfica, o Tirzepatide demonstra potencial em estudos relacionados ao controle metablico, regulao glicmica e gesto de peso corporal. Sua ao dual permite interaes sinrgicas com sistemas biolgicos relacionados ao metabolismo energtico.
                         </p>
                         <div class="bg-amber-900/20 border border-amber-500/30 rounded-lg p-3 mb-4">
                             <p class="text-sm text-amber-200">
-                                <strong class="text-amber-300">Diferencial Orion:</strong> Frasco com <strong>40mg</strong> de alta concentração, ideal para usuários avançados ou doses de manutenção mais altas.
+                                <strong class="text-amber-300">Diferencial Orion:</strong> Frasco com <strong>40mg</strong> de alta concentrao, ideal para usurios avanados ou doses de manuteno mais altas.
                             </p>
                         </div>
                         <div class="bg-red-900/20 border border-red-500/30 p-4 rounded text-sm text-red-200">
-                            <strong>Nota de Pesquisa:</strong> Este composto é destinado exclusivamente para fins de pesquisa científica e não deve ser utilizado para consumo humano ou veterinário sem aprovação regulatória adequada.
+                            <strong>Nota de Pesquisa:</strong> Este composto  destinado exclusivamente para fins de pesquisa cientfica e no deve ser utilizado para consumo humano ou veterinrio sem aprovao regulatria adequada.
                         </div>
                     </div>
                 </Accordion>
 
-                <!-- Accordion 2: Mecanismo de Ação -->
-                <Accordion title="Mecanismo de Ação (Ciência)">
+                <!-- Accordion 2: Mecanismo de Ao -->
+                <Accordion title="Mecanismo de Acao (Ciencia)">
                     <div class="prose prose-invert max-w-none">
-                        <p class="text-gray-300 mb-6">O mecanismo de ação demonstra uma atividade dual sinérgica em modelos de pesquisa:</p>
+                        <p class="text-gray-300 mb-6">O mecanismo de ao demonstra uma atividade dual sinrgica em modelos de pesquisa:</p>
                         
                         <ul class="space-y-4 list-none">
                             <li class="flex gap-3">
-                                <span class="text-amber-500 font-bold">Ativação GLP-1:</span>
-                                <span class="text-gray-400">Estimula a secreção de insulina dependente de glicose, reduz a secreção de glucagon e retarda o esvaziamento gástrico, promovendo saciedade.</span>
+                                <span class="text-amber-500 font-bold">Ativao GLP-1:</span>
+                                <span class="text-gray-400">Estimula a secreo de insulina dependente de glicose, reduz a secreo de glucagon e retarda o esvaziamento gstrico, promovendo saciedade.</span>
                             </li>
                             <li class="flex gap-3">
-                                <span class="text-amber-500 font-bold">Ativação GIP:</span>
-                                <span class="text-gray-400">Potencializa a ação da insulina, melhora a sensibilidade à insulina e promove efeitos metabólicos adicionais que complementam a ação do GLP-1.</span>
+                                <span class="text-amber-500 font-bold">Ativao GIP:</span>
+                                <span class="text-gray-400">Potencializa a ao da insulina, melhora a sensibilidade  insulina e promove efeitos metablicos adicionais que complementam a ao do GLP-1.</span>
                             </li>
                             <li class="flex gap-3">
                                 <span class="text-amber-500 font-bold">Sinergia Dual:</span>
-                                <span class="text-gray-400">A ativação simultânea de ambos os receptores resulta em efeitos superiores ao uso isolado de cada agonista, proporcionando controle glicêmico e perda de peso mais eficazes.</span>
+                                <span class="text-gray-400">A ativao simultnea de ambos os receptores resulta em efeitos superiores ao uso isolado de cada agonista, proporcionando controle glicmico e perda de peso mais eficazes.</span>
                             </li>
                         </ul>
 
-                        <p class="text-xs text-gray-600 mt-6 italic">Referência: Os mecanismos descritos são baseados em estudos pré-clínicos e clínicos (in vivo/in vitro).</p>
+                        <p class="text-xs text-gray-600 mt-6 italic">Referncia: Os mecanismos descritos so baseados em estudos pr-clnicos e clnicos (in vivo/in vitro).</p>
                     </div>
                 </Accordion>
 
-                <!-- Accordion 3: Protocolo de Reconstituição -->
-                <Accordion title="Protocolo de Reconstituição">
+                <!-- Accordion 3: Protocolo de Reconstituio -->
+                <Accordion title="Protocolo de Reconstituio">
                     <div class="prose prose-invert max-w-none">
                         <div class="mb-8">
                             <h4 class="text-white font-bold mb-4">Guia de Mistura (Para Frasco 40mg)</h4>
-                            <p class="text-gray-300 mb-4">Para precisão ideal com a alta concentração Orion:</p>
+                            <p class="text-gray-300 mb-4">Para preciso ideal com a alta concentrao Orion:</p>
                             <ol class="list-decimal list-inside space-y-3 text-gray-300">
-                                <li><strong class="text-white">Diluente:</strong> Utilize <strong>2ml</strong> (200 unidades) de Água Bacteriostática.</li>
-                                <li><strong class="text-white">Processo:</strong> Injete a água lentamente pela parede do frasco. <strong>NÃO agite;</strong> faça movimentos circulares suaves (swirl) até dissolver completamente.</li>
-                                <li><strong class="text-white">Matemática da Dose:</strong>
+                                <li><strong class="text-white">Diluente:</strong> Utilize <strong>1,6ml</strong> (160 unidades) de gua Bacteriosttica.</li>
+                                <li><strong class="text-white">Processo:</strong> Injete a gua lentamente pela parede do frasco. <strong>NfO agite;</strong> faa movimentos circulares suaves (swirl) at dissolver completamente.</li>
+                                <li><strong class="text-white">Matemtica da Dose:</strong>
                                     <ul class="list-disc list-inside ml-4 mt-2 space-y-1">
-                                        <li>40mg em 2ml = <strong>20mg por ml</strong></li>
-                                        <li>Cada <strong>5 unidades</strong> na seringa de insulina = <strong>1mg</strong> de produto</li>
+                                        <li>40mg em 1,6ml = <strong>25mg por ml</strong></li>
+                                        <li>Dose de referncia: <strong>0,40ml = 40 UI</strong> na seringa</li>
                                     </ul>
                                 </li>
-                                <li>Armazene em refrigeração (2-8°C) após reconstituído.</li>
-                                <li>Use dentro do prazo de validade após reconstituição.</li>
+                                <li>Armazene em refrigerao (2-8C) aps reconstitudo.</li>
+                                <li>Use dentro do prazo de validade aps reconstituio.</li>
                             </ol>
                         </div>
 
-                        <!-- Calculadora Rápida Inline (em primeiro) -->
+                        <!-- Calculadora Rpida Inline (em primeiro) -->
                         <div class="bg-gray-800/50 border border-amber-500/20 rounded-lg p-6 mt-4">
                             <h4 class="text-white font-bold mb-4 flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                                 </svg>
-                                Calculadora Rápida (Tirzepatide 40mg)
+                                Calculadora Rpida (Tirzepatide 40mg)
                             </h4>
                             <form id="calculadoraTirzepatide40" class="space-y-4">
                                 <div>
@@ -354,7 +370,7 @@ import Accordion from '../../components/Accordion.astro';
 
                         <div class="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4 mt-6">
                             <p class="text-sm text-amber-300 mb-3">
-                                <strong>Dica:</strong> Use a calculadora completa para outros frascos e diluições.
+                                <strong>Dica:</strong> Use a calculadora completa para outros frascos e diluies.
                             </p>
                             <a
                                 href="/calculadora"
@@ -368,27 +384,27 @@ import Accordion from '../../components/Accordion.astro';
                         </div>
 
                         <div class="border-t border-white/10 pt-6 mt-6">
-                            <h4 class="text-white font-bold mb-4">💉 Administração</h4>
+                            <h4 class="text-white font-bold mb-4">Y' Administrao</h4>
                             <ul class="space-y-2 text-gray-300">
                                 <li class="flex items-start gap-2">
-                                    <span class="text-amber-400 font-bold">•</span>
-                                    <span><strong class="text-white">Via:</strong> Subcutânea profunda.</span>
+                                    <span class="text-amber-400 font-bold"></span>
+                                    <span><strong class="text-white">Via:</strong> Subcutnea profunda.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <span class="text-amber-400 font-bold">•</span>
-                                    <span><strong class="text-white">Locais:</strong> Abdômen (5cm longe do umbigo), Coxa externa ou Braço posterior.</span>
+                                    <span class="text-amber-400 font-bold"></span>
+                                    <span><strong class="text-white">Locais:</strong> Abdmen (5cm longe do umbigo), Coxa externa ou Brao posterior.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
-                                    <span class="text-amber-400 font-bold">•</span>
-                                    <span><strong class="text-white">Armazenamento:</strong> Geladeira (2°C a 8°C) após reconstituído.</span>
+                                    <span class="text-amber-400 font-bold"></span>
+                                    <span><strong class="text-white">Armazenamento:</strong> Geladeira (2C a 8C) aps reconstitudo.</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </Accordion>
 
-                <!-- Accordion 4: Laudo Técnico -->
-                <Accordion title="Laudo Técnico (HPLC)">
+                <!-- Accordion 4: Laudo Tcnico -->
+                <Accordion title="Laudo Tcnico (HPLC)">
                     <div class="prose prose-invert max-w-none">
                         <div class="grid grid-cols-2 gap-4 mb-6 text-center">
                             <div class="bg-gray-800 p-3 rounded">
@@ -401,14 +417,14 @@ import Accordion from '../../components/Accordion.astro';
                             </div>
                         </div>
 
-                        <!-- Informações Técnicas Adicionais -->
+                        <!-- Informaes Tcnicas Adicionais -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                             <div class="bg-gray-800/50 p-3 rounded border border-white/5">
-                                <p class="text-xs text-gray-500 mb-1">Sequência</p>
-                                <p class="text-sm text-white font-medium">Sintética (Dual Agonist)</p>
+                                <p class="text-xs text-gray-500 mb-1">Sequncia</p>
+                                <p class="text-sm text-white font-medium">Sinttica (Dual Agonist)</p>
                             </div>
                             <div class="bg-gray-800/50 p-3 rounded border border-white/5">
-                                <p class="text-xs text-gray-500 mb-1">Fórmula Molecular</p>
+                                <p class="text-xs text-gray-500 mb-1">Frmula Molecular</p>
                                 <p class="text-sm text-white font-medium">C225H348N48O68</p>
                             </div>
                             <div class="bg-gray-800/50 p-3 rounded border border-white/5">
@@ -426,19 +442,19 @@ import Accordion from '../../components/Accordion.astro';
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>Análise de pureza por HPLC com detecção UV</span>
+                                <span>Anlise de pureza por HPLC com deteco UV</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>Identificação de impurezas e contaminantes</span>
+                                <span>Identificao de impurezas e contaminantes</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span>Verificação de estrutura molecular</span>
+                                <span>Verificao de estrutura molecular</span>
                             </li>
                         </ul>
 
@@ -457,12 +473,12 @@ import Accordion from '../../components/Accordion.astro';
             </div>
         </section>
 
-        <!-- Botão Voltar ao Catálogo -->
+        <!-- Botao Voltar ao Catalogo -->
         <section class="max-w-4xl mx-auto mt-12">
             <div class="bg-gradient-to-r from-gray-900/20 to-gray-800/20 border border-white/10 rounded-xl p-6 md:p-8 text-center">
-                <h3 class="text-xl font-bold text-white mb-4">Explore Nossos Peptídeos</h3>
+                <h3 class="text-xl font-bold text-white mb-4">Explore Nossos Peptdeos</h3>
                 <p class="text-gray-400 text-sm mb-6">
-                    Volte ao catálogo completo para conhecer todos os nossos produtos de pesquisa.
+                    Volte ao catlogo completo para conhecer todos os nossos produtos de pesquisa.
                 </p>
                 <a
                     href="/catalogo"
@@ -471,7 +487,7 @@ import Accordion from '../../components/Accordion.astro';
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
-                    Voltar para o Catálogo de Peptídeos
+                    Voltar para o Catalogo de Peptideos
                 </a>
             </div>
         </section>
@@ -482,7 +498,7 @@ import Accordion from '../../components/Accordion.astro';
         <div class="container mx-auto px-4">
             <div class="text-center">
                 <p class="text-gray-400 text-sm">
-                    © 2025 <span class="text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
+                     2025 <span class="text-white font-semibold">Orion Peptides</span>. Todos os direitos reservados.
                 </p>
             </div>
         </div>
@@ -490,7 +506,7 @@ import Accordion from '../../components/Accordion.astro';
 </Layout>
 
 <script>
-    // Calculadora Rápida para Tirzepatide 40mg (40mg em 2ml)
+    // Calculadora Rpida para Tirzepatide 40mg (40mg em 1,6ml)
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('calculadoraTirzepatide40') as HTMLFormElement | null;
         const resultado = document.getElementById('resultadoTirzepatide40');
@@ -507,30 +523,29 @@ import Accordion from '../../components/Accordion.astro';
             const inputDose = document.getElementById('doseTirzepatide40') as HTMLInputElement | null;
             if (!inputDose) return;
 
-            // Valores fixos para Tirzepatide Orion (40mg em 2ml)
+            // Valores fixos para Tirzepatide Orion (40mg em 1,6ml)
             const tamanhoFrasco = 40; // mg
-            const quantidadeAgua = 2; // ml
+            const quantidadeAgua = 1.6; // ml
             const doseDesejada = parseFloat(inputDose.value); // mg
 
-            // Validação
+            // Validao
             if (isNaN(doseDesejada) || doseDesejada <= 0 || doseDesejada > tamanhoFrasco) {
-                alert('Por favor, insira uma dose válida entre 0 e 40mg.');
+                alert('Por favor, insira uma dose vlida entre 0 e 40mg.');
                 return;
             }
 
-            // Cálculo: 40mg em 2ml = 20mg/ml
-            // Cada 5 unidades = 1mg
-            const unidadesPorMg = 5; // 100 unidades/ml ÷ 20 mg/ml = 5 unidades por mg
-            const unidadesUI = Math.round(doseDesejada * unidadesPorMg);
-            const volumeMl = doseDesejada / 20; // ml
+            const mgPorMl = tamanhoFrasco / quantidadeAgua;
+            const unidadesUI = (doseDesejada / mgPorMl) * 100;
+            const volumeMl = doseDesejada / mgPorMl;
 
             // Exibir resultados
             resultadoUI.textContent = unidadesUI.toFixed(0);
             resultadoVolume.textContent = `${volumeMl.toFixed(3)} ml`;
 
-            // Mostrar área de resultado
+            // Mostrar rea de resultado
             resultado.classList.remove('hidden');
         });
     });
 </script>
+
 

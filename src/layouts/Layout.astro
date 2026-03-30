@@ -48,7 +48,7 @@ const referenceMap: Record<string, { title: string; href?: string }[]> = {
 	'MOTS-C': [
 		{ title: "Lee C, et al. 'The Mitochondrial-Derived Peptide MOTS-c.' Cell Metabolism, 2015.", href: "https://pubmed.ncbi.nlm.nih.gov/25738459/" }
 	],
-	'Água Estéril': [
+	'Água Bacteriostática': [
 		{ title: "U.S. Pharmacopeia - Bacteriostatic Water for Injection Standards.", href: "https://www.usp.org/" }
 	],
 	'CJC-1295': [
@@ -57,6 +57,22 @@ const referenceMap: Record<string, { title: string; href?: string }[]> = {
 	'Ipamorelin': [
 		{ title: "Raun K, et al. 'Ipamorelin, the first selective growth hormone secretagogue.' European Journal of Endocrinology, 1998.", href: "https://pubmed.ncbi.nlm.nih.gov/9859861/" },
 		{ title: "Effects of ipamorelin, a novel GH secretagogue, on GH release.", href: "https://pubmed.ncbi.nlm.nih.gov/11735244/" }
+	],
+	'HGH FRAG': [
+		{ title: "Heffernan M., et al. 'Effects of the N-terminal peptide of hGH on lipid metabolism.' (2001).", href: "https://pubmed.ncbi.nlm.nih.gov/11713213/" },
+		{ title: "Ng F. M., et al. 'Metabolic studies of a synthetic lipolytic fragment (176-191) of hGH.' (2000).", href: "https://doi.org/10.1080/07435800009066506" }
+	],
+	'Selank': [
+		{ title: "Semenova, T. P., et al. 'Anxiolytic effects of Selank.' (2010).", href: "https://pubmed.ncbi.nlm.nih.gov/20436034/" },
+		{ title: "Kolomin, T., et al. 'Selank administration affects the expression of genes.' (2014).", href: "https://doi.org/10.1186/1471-2164-15-S1-S12" }
+	],
+	'Semax': [
+		{ title: "Kaplan, A. Y., et al. 'Semax effects on the human electroencephalogram.' (2007).", href: "https://pubmed.ncbi.nlm.nih.gov/17492837/" },
+		{ title: "Shabanov, P. D., et al. 'Semax as a nootropic drug.' (2001).", href: "https://doi.org/10.1023/A:1012937500582" }
+	],
+	'PT-141': [
+		{ title: "Diamond, L. E., et al. 'Bremelanotide for the treatment of erectile dysfunction.' (2006).", href: "https://pubmed.ncbi.nlm.nih.gov/16422844/" },
+		{ title: "Kingsberg, S. A., et al. 'Bremelanotide for hypoactive sexual desire disorder.' (2019).", href: "https://doi.org/10.1016/j.jsxm.2019.05.010" }
 	],
 	'AOD-9604': [
 		{ title: "Stolyarov V, et al. 'Safety and tolerability of the hexapeptide AOD9604 in humans.'", href: "https://pubmed.ncbi.nlm.nih.gov/15665799/" },
@@ -336,6 +352,12 @@ if (title) {
             document.addEventListener('DOMContentLoaded', () => {
                 try {
                     const productPaths = [
+                        '/substancias/ipamorelin-10mg',
+                        '/substancias/hgh-frag-15mg',
+                        '/substancias/selank-11mg',
+                        '/substancias/semax-11mg',
+                        '/substancias/pt-141-10mg',
+                        '/substancias/tirzepatide-120mg',
                         '/substancias/tirzepatide',
                         '/substancias/tirzepatide-40mg',
                         '/substancias/tirzepatide-60mg',
@@ -346,7 +368,6 @@ if (title) {
                         '/substancias/blend-bpc-tb',
                         '/substancias/tb-500',
                         '/substancias/blend-cjc-ipamorelin',
-                        '/substancias/ipamorelin-10mg',
                         '/substancias/ghk-cu',
                         '/substancias/tesamorelin',
                         '/substancias/nad-plus',
@@ -402,6 +423,48 @@ if (title) {
                             }
                         }
                     });
+
+                    // Mobile swipe navigation: left/right swipe on product pages
+                    let touchStartX = 0;
+                    let touchStartY = 0;
+                    let touchEndX = 0;
+                    let touchEndY = 0;
+                    const SWIPE_THRESHOLD_X = 60; // px
+                    const SWIPE_MAX_Y_DELTA = 80; // px
+
+                    document.addEventListener('touchstart', (e) => {
+                        if (!e.changedTouches || e.changedTouches.length === 0) return;
+                        touchStartX = e.changedTouches[0].clientX;
+                        touchStartY = e.changedTouches[0].clientY;
+                    }, { passive: true });
+
+                    document.addEventListener('touchend', (e) => {
+                        if (!e.changedTouches || e.changedTouches.length === 0) return;
+                        touchEndX = e.changedTouches[0].clientX;
+                        touchEndY = e.changedTouches[0].clientY;
+
+                        const deltaX = touchEndX - touchStartX;
+                        const deltaY = Math.abs(touchEndY - touchStartY);
+
+                        // Ignore mostly vertical gestures (page scrolling)
+                        if (deltaY > SWIPE_MAX_Y_DELTA) return;
+
+                        if (deltaX <= -SWIPE_THRESHOLD_X) {
+                            // swipe left -> next product
+                            const next = productPaths[currentIndex + 1];
+                            if (next) {
+                                showHint();
+                                window.location.href = next;
+                            }
+                        } else if (deltaX >= SWIPE_THRESHOLD_X) {
+                            // swipe right -> previous product
+                            const prev = productPaths[currentIndex - 1];
+                            if (prev) {
+                                showHint();
+                                window.location.href = prev;
+                            }
+                        }
+                    }, { passive: true });
                 } catch (err) {
                     // silent
                 }

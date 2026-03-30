@@ -345,10 +345,10 @@ Cada produto deve seguir esta estrutura com os seguintes tópicos:
 
 ---
 
-## 9. ÁGUA ESTÉRIL
+## 9. ÁGUA BACTERIOSTÁTICA
 
 ### Informações Básicas
-- **Nome do Produto:** Água Estéril
+- **Nome do Produto:** Água Bacteriostática
 - **Título da Página:** [Preencher]
 - **Subtítulo:** [Preencher - ex: "Água bacteriostática estéril"]
 - **Descrição:** [Preencher - mencionar uso para reconstituição]
@@ -372,7 +372,7 @@ Cada produto deve seguir esta estrutura com os seguintes tópicos:
 - **Aplicação:** [Preencher - ex: "Reconstituição de peptídeos"]
 
 ### Accordions
-- **O que é Água Estéril?** [Conteúdo sobre água bacteriostática]
+- **O que é Água Bacteriostática?** [Conteúdo sobre água bacteriostática]
 - **Mecanismo de Ação** [Como funciona na reconstituição]
 - **Protocolo de Uso** [Como usar para reconstituir peptídeos]
 - **Laudo Técnico** [Pureza: 100% | Lote: #OR-2026-014]
@@ -413,7 +413,7 @@ Para cada produto, verificar:
    - **Emerald:** BPC-157, TB-500, GHK-Cu (Reparação)
    - **Red:** CJC-1295 + TB-500, Tesamorelin (Ganho Muscular)
    - **Cyan:** NAD+, MOTS-C (Cognitivo/Longevidade)
-   - **Blue:** Água Estéril (Suprimento)
+   - **Blue:** Água Bacteriostática (Suprimento)
 
 2. **Ícones SVG:** Os ícones nos cards de benefícios devem ser escolhidos conforme o benefício específico de cada produto.
 

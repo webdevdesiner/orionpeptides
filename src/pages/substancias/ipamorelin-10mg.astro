@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Accordion from '../../components/Accordion.astro';
 
-const produtoNome = 'Ipamorelin 10mg';
+const produtoNome = 'Ipamorelin 10mg (Standard Dose)';
 const concentracao = '10mg Liofilizado';
 const imagemCatalogo = '/image/catalogo/tesamorelin.png';
 const imagemProduto = '/image/produtos/ipamorelin.png';
@@ -59,6 +59,14 @@ const layoutOgImage = '/image/produtos/ipamorelin.png';
 						</div>
 					</figure>
 
+					<!-- Mobile: subtítulo e descrição abaixo da imagem -->
+					<div class="md:hidden">
+						<p class="text-xl text-gray-400 font-medium mb-3">{subtitulo}</p>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6">{descricao}</p>
+					</div>
+
+
+
 					<div class="flex flex-col gap-4">
 						<div
 							class="bg-gray-900/50 backdrop-blur-md border border-blue-500/20 rounded-xl p-4 hover:border-blue-500/40 transition-all duration-300"
@@ -91,7 +99,7 @@ const layoutOgImage = '/image/produtos/ipamorelin.png';
 									<path d="M12 2.69c-3.5 0-6.31 2.81-6.31 6.31 0 3.5 6.31 10.31 6.31 10.31S18.31 12.5 18.31 9c0-3.5-2.81-6.31-6.31-6.31z" />
 								</svg>
 								<p class="text-xs text-gray-400 uppercase tracking-wider">Inclui</p>
-								<p class="text-sm text-white font-semibold">🎁 Inclui 10ml de Água Estéril</p>
+								<p class="text-sm text-white font-semibold">🎁 Inclui 10ml de Água Bacteriostática</p>
 							</div>
 						</div>
 
@@ -138,7 +146,7 @@ const layoutOgImage = '/image/produtos/ipamorelin.png';
 								</svg>
 								<p class="text-xs text-gray-400 uppercase tracking-wider">Diluição Recomendada</p>
 								<p class="text-sm text-white font-semibold">
-									Requer {quantidadeAguaMl}ml de Água Estéril (10 UI = 500mcg)
+									Requer {quantidadeAguaMl}ml de Água Bacteriostática (10 UI = 500mcg)
 								</p>
 							</div>
 						</div>

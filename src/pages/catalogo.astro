@@ -8,6 +8,7 @@ function getProductUrl(nome: string): string {
 		'Tirzepatide': '/substancias/tirzepatide',
 		'Tirzepatide 40mg': '/substancias/tirzepatide-40mg',
 		'Tirzepatide 60mg': '/substancias/tirzepatide-60mg',
+		'Tirzepatide 120mg': '/substancias/tirzepatide-120mg',
 		'Retatrutide 20mg': '/substancias/retatrutide-20mg',
 		'Retatrutide': '/substancias/retatrutide',
 		'BPC-157': '/substancias/bpc-157',
@@ -15,6 +16,10 @@ function getProductUrl(nome: string): string {
 		'TB-500': '/substancias/tb-500',
 		'CJC-1295 + Ipamorelin': '/substancias/blend-cjc-ipamorelin',
 		'Ipamorelin 10mg': '/substancias/ipamorelin-10mg',
+		'HGH FRAG 176-191 15mg': '/substancias/hgh-frag-15mg',
+		'Selank 11mg': '/substancias/selank-11mg',
+		'Semax 11mg': '/substancias/semax-11mg',
+		'PT-141 10mg': '/substancias/pt-141-10mg',
 		'AOD-9604 5mg': '/substancias/aod9604-5mg',
 		'SLU-PP-332 5mg': '/substancias/slu-pp-332-5mg',
 		'SS-31 10mg (Elamipretide)': '/substancias/ss-31-10mg',
@@ -22,9 +27,8 @@ function getProductUrl(nome: string): string {
 		'MOTS-C': '/substancias/mots-c',
 		'GHK-Cu': '/substancias/ghk-cu',
 		'KLOW Blend 80mg': '/substancias/klow-80mg',
-		'KLOW Blend 80mg (Recovery Stack)': '/substancias/klow-80mg',
 		'Tesamorelin': '/substancias/tesamorelin',
-		'Água Estéril': '/substancias/agua-esteril'
+		'Água Bacteriostática': '/substancias/agua-esteril'
 	};
 	return urlMap[nome] || '#';
 }
@@ -77,6 +81,20 @@ const laudos = [
 		lote: '#OR-2026-060',
 		pureza: 99.8,
 		dataTeste: '02/02/2026',
+		categoria: 'Emagrecimento',
+		destaque: 'Gold Standard',
+		highPurity: true,
+		imagem: '/image/catalogo/tirzepatide.png',
+		glowColor: 'shadow-amber-500/50',
+		borderColor: 'group-hover:border-amber-500/50',
+		textColor: 'text-amber-400'
+	},
+	{
+		nome: 'Tirzepatide 120mg',
+		variacao: '120mg',
+		lote: '#OR-2026-120',
+		pureza: 99.8,
+		dataTeste: '30/03/2026',
 		categoria: 'Emagrecimento',
 		destaque: 'Gold Standard',
 		highPurity: true,
@@ -177,7 +195,7 @@ const laudos = [
 		textColor: 'text-teal-400'
 	},
 	{
-		nome: 'KLOW Blend 80mg (Recovery Stack)',
+		nome: 'KLOW Blend 80mg',
 		variacao: '',
 		lote: '#OR-2026-KL80',
 		pureza: 99.0,
@@ -214,6 +232,62 @@ const laudos = [
 		glowColor: 'shadow-blue-500/50',
 		borderColor: 'group-hover:border-blue-500/50',
 		textColor: 'text-blue-400'
+	},
+	{
+		nome: 'HGH FRAG 176-191 15mg',
+		variacao: '',
+		lote: '#OR-2026-FRAG15',
+		pureza: 99.0,
+		dataTeste: '20/03/2026',
+		categoria: 'Emagrecimento',
+		destaque: 'Lançamento',
+		highPurity: true,
+		imagem: '/image/catalogo/tirzepatide.png',
+		glowColor: 'shadow-amber-500/50',
+		borderColor: 'group-hover:border-amber-500/50',
+		textColor: 'text-amber-400'
+	},
+	{
+		nome: 'Selank 11mg',
+		variacao: '',
+		lote: '#OR-2026-SLK11',
+		pureza: 99.2,
+		dataTeste: '22/03/2026',
+		categoria: 'Cognitivo/Nootrópicos',
+		destaque: 'Lançamento',
+		highPurity: true,
+		imagem: '/image/catalogo/mots-c.png',
+		glowColor: 'shadow-cyan-500/50',
+		borderColor: 'group-hover:border-cyan-500/50',
+		textColor: 'text-cyan-400'
+	},
+	{
+		nome: 'Semax 11mg',
+		variacao: '',
+		lote: '#OR-2026-SMX11',
+		pureza: 99.4,
+		dataTeste: '22/03/2026',
+		categoria: 'Cognitivo/Nootrópicos',
+		destaque: 'Lançamento',
+		highPurity: true,
+		imagem: '/image/catalogo/mots-c.png',
+		glowColor: 'shadow-cyan-500/50',
+		borderColor: 'group-hover:border-cyan-500/50',
+		textColor: 'text-cyan-400'
+	},
+	{
+		nome: 'PT-141 10mg',
+		variacao: '',
+		lote: '#OR-2026-PT141',
+		pureza: 99.0,
+		dataTeste: '24/03/2026',
+		categoria: 'Saúde Sexual',
+		destaque: 'Lançamento',
+		highPurity: true,
+		imagem: '/image/catalogo/tesamorelin.png',
+		glowColor: 'shadow-rose-500/50',
+		borderColor: 'group-hover:border-rose-500/50',
+		textColor: 'text-rose-400'
 	},
 	{
 		nome: 'Tesamorelin',
@@ -282,7 +356,7 @@ const laudos = [
 	},
 	// --- Suprimento (Blue/White Glow) ---
 	{
-		nome: 'Água Estéril',
+		nome: 'Água Bacteriostática',
 		variacao: '10ml',
 		lote: '#OR-2026-014',
 		pureza: 100.0,
@@ -296,7 +370,7 @@ const laudos = [
 	}
 ];
 
-const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootrópicos', 'Ganho Muscular'];
+const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootrópicos', 'Ganho Muscular', 'Saúde Sexual'];
 ---
 
 <Layout title="Acervo de Moléculas | Orion Peptides" description="Acervo de moléculas Orion Peptides: Tirzepatide, Retatrutide, BPC-157, TB-500 e mais. Peptídeos para pesquisa, pureza HPLC. Catálogo completo." ogImage="/image/backgroundimageCatalogo.png">
@@ -462,9 +536,6 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                     
                     // Título a exibir: evita repetir a variação se já estiver no nome
                     const displayTitle = laudo.variacao && !laudo.nome.includes(laudo.variacao) ? `${laudo.nome} ${laudo.variacao}` : laudo.nome;
-                    // Quebra em duas linhas quando o título termina com " (Recovery Stack)" (ex.: KLOW)
-                    const recoverySuffix = ' (Recovery Stack)';
-                    const titleLine1 = displayTitle.endsWith(recoverySuffix) ? displayTitle.slice(0, -recoverySuffix.length) : null;
 
                     return (
                         <div 
@@ -517,12 +588,7 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
                             <!-- Nome do Produto e Variação -->
                             <div class="text-center mb-3">
                                 <h3 class={`text-xl font-bold mb-1 ${textColor} group-hover:scale-105 transition-all duration-300`}>
-                                    {titleLine1 !== null ? (
-                                        <>
-                                            <span class="block">{titleLine1}</span>
-                                            <span class="block text-base font-semibold opacity-90 mt-0.5">(Recovery Stack)</span>
-                                        </>
-                                    ) : displayTitle}
+                                    {displayTitle}
                                 </h3>
                                 {/*
                                     Mantemos a exibição da variação menor caso seja necessária em futuros estilos,
@@ -668,6 +734,8 @@ const categorias = ['Todos', 'Emagrecimento', 'Reparação', 'Cognitivo/Nootróp
         'Reparação': ['bg-emerald-600', 'border-emerald-500', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.5)]'],
         'Cognitivo/Nootrópicos': ['bg-cyan-600', 'border-cyan-500', 'text-white', 'shadow-[0_0_15px_rgba(6,182,212,0.5)]'],
         'Ganho Muscular': ['bg-red-600', 'border-red-500', 'text-white', 'shadow-[0_0_15px_rgba(239,68,68,0.5)]']
+        ,
+        'Saúde Sexual': ['bg-rose-600', 'border-rose-500', 'text-white', 'shadow-[0_0_15px_rgba(244,63,94,0.5)]']
     };
     const classesInativas = ['bg-white/5', 'border-white/10', 'text-gray-300', 'hover:bg-white/10', 'hover:border-white/20', 'hover:text-white'];
     const todasClassesAtivas = [...new Set(Object.values(categoriaCores).flat())];

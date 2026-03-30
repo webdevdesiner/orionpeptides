@@ -1,0 +1,404 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Accordion from '../../components/Accordion.astro';
+
+const produtoNome = 'Selank 11mg (Anxiolytic Peptide)';
+const concentracao = '11mg Liofilizado';
+const imagemCatalogo = '/image/catalogo/mots-c.png';
+const imagemProduto = '/image/produtos/TESAMORELIN.png';
+const imagemAlt = 'Frasco de Selank 11mg Orion Peptides para pesquisa em neurociência.';
+const subtitulo = 'Peptídeo Nootrópico para Modulação da Ansiedade e Melhora da Performance Cognitiva.';
+const descricao =
+	'O Selank é um análogo sintético da tuftsina, um peptídeo imunomodulador natural. Ele atua no sistema nervoso central como um ansiolítico seletivo, ajudando no controle do estresse e da ansiedade sem causar sedação ou dependência, além de apresentar fortes propriedades nootrópicas que auxiliam na memória e no foco.';
+const diferencialOrion = 'Pureza certificada acima de 99% e estabilidade molecular garantida para pesquisas neurocognitivas precisas.';
+
+const tamanhoFrascoMg = 11;
+const quantidadeAguaMl = 2;
+
+const layoutTitle = `${produtoNome} | Guia Técnico | Orion Peptides`;
+const layoutDescription = 'Selank 11mg Orion: Neuroproteção avançada e controle de ansiedade para alta performance cognitiva.';
+const layoutOgImage = '/image/produtos/TESAMORELIN.png';
+---
+
+<Layout title={layoutTitle} description={layoutDescription} ogImage={layoutOgImage}>
+	<Header />
+	<main class="container mx-auto px-4 py-12 md:py-16">
+		<section class="mb-16">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+				<div class="space-y-6">
+					<div class="md:hidden flex items-center justify-center gap-3 mb-3">
+						<div class="w-10 h-10 rounded-full bg-white/5 border border-cyan-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.15)]">
+							<img src={imagemCatalogo} alt={`Ícone ${produtoNome}`} class="w-8 h-8 object-contain" />
+						</div>
+						<h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
+							{produtoNome}
+						</h1>
+					</div>
+
+					<figure class="w-full max-w-md bg-gray-900/50 border border-white/10 rounded-2xl overflow-hidden">
+						<div class="px-4 py-2.5 border-b border-white/10 bg-black/20">
+							<figcaption class="text-xs text-gray-400 uppercase tracking-wider font-medium">{produtoNome} — Imagem do produto</figcaption>
+						</div>
+						<div class="relative p-6 flex items-center justify-center">
+							<a
+								href="/contato"
+								data-wa-product={produtoNome}
+								data-wa-phone="5511911387063"
+								class="absolute top-4 left-4 z-30 inline-flex flex-col items-center justify-center px-2.5 py-1.5 rounded bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 hover:from-amber-300 hover:via-yellow-400 hover:to-amber-500 text-amber-950 text-[10px] font-bold uppercase tracking-wide shadow-md shadow-amber-500/30 hover:shadow-amber-400/50 border border-amber-300/50 hover:scale-105 active:scale-95 transition-all duration-300 leading-tight text-center"
+							>
+								<span>Encontrar</span><span>fornecedor</span>
+							</a>
+							<div class="w-full h-[300px] rounded-lg border border-dashed border-cyan-500/40 bg-black/30 flex items-center justify-center text-center px-4">
+								<p class="text-sm text-cyan-300 font-semibold">Imagem do produto pendente</p>
+							</div>
+						</div>
+					</figure>
+
+					<!-- Mobile: subtítulo e descrição abaixo da imagem -->
+					<div class="md:hidden">
+						<p class="text-xl text-gray-400 font-medium mb-3">{subtitulo}</p>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6">{descricao}</p>
+					</div>
+
+
+
+					<div class="flex flex-col gap-4">
+						<div class="bg-gray-900/50 backdrop-blur-md border border-cyan-500/20 rounded-xl p-4 hover:border-cyan-500/40 transition-all duration-300">
+							<div class="flex flex-col items-center text-center space-y-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+								</svg>
+								<p class="text-xs text-gray-400 uppercase tracking-wider">Potência Total</p>
+								<p class="text-sm text-white font-semibold">{concentracao}</p>
+							</div>
+						</div>
+
+						<div class="bg-gray-900/50 backdrop-blur-md border border-cyan-500/20 rounded-xl p-4 hover:border-cyan-500/40 transition-all duration-300">
+							<div class="flex flex-col items-center text-center space-y-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M12 2.69c-3.5 0-6.31 2.81-6.31 6.31 0 3.5 6.31 10.31 6.31 10.31S18.31 12.5 18.31 9c0-3.5-2.81-6.31-6.31-6.31z"/>
+								</svg>
+								<p class="text-xs text-gray-400 uppercase tracking-wider">Inclui</p>
+								<p class="text-sm text-white font-semibold">🎁 Kit Orion: Água Bacteriostática + 4 Seringas de Aplicação + 1 Seringa de Diluição + Frete Grátis.</p>
+							</div>
+						</div>
+
+						<div class="bg-gray-900/50 backdrop-blur-md border border-cyan-500/20 rounded-xl p-4 hover:border-cyan-500/40 transition-all duration-300">
+							<div class="flex flex-col items-center text-center space-y-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+								</svg>
+								<p class="text-xs text-gray-400 uppercase tracking-wider">Temperatura</p>
+								<p class="text-sm text-white font-semibold">2°C a 8°C (Geladeira)</p>
+							</div>
+						</div>
+
+						<div class="bg-gray-900/50 backdrop-blur-md border border-cyan-500/20 rounded-xl p-4 hover:border-cyan-500/40 transition-all duration-300">
+							<div class="flex flex-col items-center text-center space-y-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+								</svg>
+								<p class="text-xs text-gray-400 uppercase tracking-wider">Diluição Recomendada</p>
+								<p class="text-sm text-white font-semibold">Requer 2ml de Água Bacteriostática (Inclusa no Kit).</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="space-y-6">
+					<div>
+						<div class="hidden md:flex items-center gap-4 mb-2">
+							<div class="w-14 h-14 rounded-full bg-white/5 border border-cyan-500/20 flex items-center justify-center flex-shrink-0 shadow-[0_0_12px_rgba(6,182,212,0.25)]">
+								<img src={imagemCatalogo} alt="" class="w-10 h-10 object-contain" />
+							</div>
+							<h1 class="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-200 to-cyan-400">
+								{produtoNome}
+							</h1>
+						</div>
+						<p class="text-xl text-gray-400 font-medium mb-3 hidden md:block">{subtitulo}</p>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6 hidden md:block">{descricao}</p>
+						<div class="bg-cyan-900/20 border border-cyan-500/30 rounded-lg p-3 mb-4">
+							<p class="text-sm text-cyan-200"><strong class="text-cyan-300">Diferencial Orion:</strong> {diferencialOrion}</p>
+						</div>
+					</div>
+
+					<div class="mb-8">
+						<h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">Benefícios Pesquisados</h3>
+						<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+							<div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+								</svg>
+								<h4 class="text-white font-bold text-sm md:text-base">Redução da Ansiedade</h4>
+								<p class="text-gray-400 text-xs md:text-sm">Modula a atividade do GABA, promovendo calma e estabilidade emocional sem efeito sedativo.</p>
+							</div>
+
+							<div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+								</svg>
+								<h4 class="text-white font-bold text-sm md:text-base">Melhora Cognitiva</h4>
+								<p class="text-gray-400 text-xs md:text-sm">Potencializa o aprendizado, a memória e a clareza mental sob condições de estresse.</p>
+							</div>
+
+							<div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7m-7 0a5 5 0 005-5V7m-7 11v-2a2 2 0 012-2h3m-6 4H8m0 0a2 2 0 01-2-2v-3m2 5a2 2 0 002-2v-3" />
+								</svg>
+								<h4 class="text-white font-bold text-sm md:text-base">Suporte Imunológico</h4>
+								<p class="text-gray-400 text-xs md:text-sm">Atua no sistema imunológico através de sua herança da tuftsina, auxiliando na resposta inflamatória.</p>
+							</div>
+
+							<div class="flex flex-col items-center text-center space-y-3 p-4 hover:-translate-y-2 transition-all duration-300 cursor-default">
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+								</svg>
+								<h4 class="text-white font-bold text-sm md:text-base">Neuroproteção</h4>
+								<p class="text-gray-400 text-xs md:text-sm">Ajuda na proteção de neurônios contra danos oxidativos e fadiga mental crônica.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="space-y-4">
+						<div class="mt-8 border-t border-white/10 pt-6">
+							<h4 class="text-white font-bold mb-4 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" viewBox="0 0 20 20" fill="currentColor">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+								</svg>
+								Protocolo de Pesquisa Sugerido
+							</h4>
+
+							<div class="overflow-hidden rounded-xl border border-white/10 shadow-lg">
+								<div class="overflow-x-auto">
+									<table class="w-full text-left text-sm">
+										<thead class="bg-cyan-900/20 text-cyan-200 uppercase text-xs font-bold tracking-wider">
+											<tr>
+												<th class="px-4 py-3">Fase</th>
+												<th class="px-4 py-3">Dose Diária</th>
+												<th class="px-4 py-3 text-white bg-cyan-600/20 border-l border-cyan-500/30">Volume na Seringa (Ref: {quantidadeAguaMl}ml água)</th>
+												<th class="px-4 py-3">Frequência</th>
+											</tr>
+										</thead>
+										<tbody class="divide-y divide-white/5 bg-gray-900/40">
+											<tr class="hover:bg-white/5 transition-colors">
+												<td class="px-4 py-3 font-medium text-white">Fase Inicial</td>
+												<td class="px-4 py-3 text-gray-300">0,25mg</td>
+												<td class="px-4 py-3 font-bold text-cyan-400 border-l border-white/5">4,5 unidades (0,05 ml)</td>
+												<td class="px-4 py-3 text-gray-300">1x ao dia (preferencialmente pela manhã)</td>
+											</tr>
+											<tr class="hover:bg-white/5 transition-colors">
+												<td class="px-4 py-3 font-medium text-white">Fase Avançada</td>
+												<td class="px-4 py-3 text-gray-300">0,5mg</td>
+												<td class="px-4 py-3 font-bold text-cyan-400 border-l border-white/5">9 unidades (0,09 ml)</td>
+												<td class="px-4 py-3 text-gray-300">2x ao dia (Manhã e tarde)</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="bg-cyan-900/10 p-3 text-xs text-cyan-300 flex items-start gap-2 border-t border-white/5">
+										<span class="text-cyan-500 font-bold">💡</span>
+										<p>
+											<strong>Nota:</strong> O Selank possui uma meia-vida longa. Resultados cognitivos costumam ser observados após 5 a 7 dias de
+											pesquisa contínua.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+							<p class="text-sm text-gray-400 mb-1">Pureza Certificada</p>
+							<p class="text-cyan-400 font-bold text-2xl">&gt;99.2% (HPLC) - High Purity</p>
+						</div>
+						<div class="bg-gray-900/50 border border-white/10 rounded-lg p-4">
+							<p class="text-sm text-gray-400 mb-1">Aplicação</p>
+							<p class="text-white">Pesquisa em ansiedade, neuroproteção, foco e performance cognitiva</p>
+						</div>
+					</div>
+
+					<a
+						href="/contato"
+						data-wa-product={produtoNome}
+						data-wa-phone="5511911387063"
+						class="block w-full md:w-auto px-8 py-4 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white font-bold rounded-lg hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 text-center shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/50 active:scale-[0.98] border border-cyan-400/30 hover:border-cyan-400/50"
+					>
+						Encontrar Fornecedor
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="max-w-4xl mx-auto">
+			<h2 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-cyan-600">
+				Informações Técnicas
+			</h2>
+
+			<div class="space-y-4">
+				<Accordion title="O que é Selank?">
+					<div class="prose prose-invert max-w-none">
+						<p class="text-gray-300 mb-4">
+							É um peptídeo nootrópico desenvolvido pelo Instituto de Genética Molecular da Academia Russa de Ciências. Diferente de ansiolíticos comuns,
+							o Selank não causa relaxamento muscular excessivo ou perda de coordenação motora, agindo como um regulador do humor e um impulsionador da
+							função executiva do cérebro.
+						</p>
+						<div class="bg-cyan-900/20 border border-cyan-500/30 rounded-lg p-3 mb-4">
+							<p class="text-sm text-cyan-200"><strong class="text-cyan-300">Diferencial Orion:</strong> {diferencialOrion}</p>
+						</div>
+						<div class="bg-red-900/20 border border-red-500/30 p-4 rounded text-sm text-red-200">
+							<strong>Nota de Pesquisa:</strong> Este composto é destinado exclusivamente para fins de pesquisa científica e não deve ser utilizado para
+							consumo humano ou veterinário sem aprovação regulatória adequada.
+						</div>
+					</div>
+				</Accordion>
+
+				<Accordion title="Mecanismo de Ação">
+					<div class="prose prose-invert max-w-none">
+						<ul class="space-y-4 list-none">
+							<li class="flex gap-3">
+								<span class="text-cyan-500 font-bold">Encefalinas:</span>
+								<span class="text-gray-400">Estabiliza os níveis de encefalinas no sangue, prolongando seus efeitos naturais de bem-estar.</span>
+							</li>
+							<li class="flex gap-3">
+								<span class="text-cyan-500 font-bold">BDNF:</span>
+								<span class="text-gray-400">Modula a expressão do BDNF (Fator Neurotrófico Derivado do Cérebro).</span>
+							</li>
+							<li class="flex gap-3">
+								<span class="text-cyan-500 font-bold">Neurotransmissores:</span>
+								<span class="text-gray-400">Interage com o sistema de neurotransmissores de dopamina e serotonina.</span>
+							</li>
+							<li class="flex gap-3">
+								<span class="text-cyan-500 font-bold">Resposta imune:</span>
+								<span class="text-gray-400">Atua na expressão de genes envolvidos no sistema imunológico e inflamação.</span>
+							</li>
+						</ul>
+					</div>
+				</Accordion>
+
+				<Accordion title="Reconstituição">
+					<div class="prose prose-invert max-w-none">
+						<div class="mb-8">
+							<h4 class="text-white font-bold mb-4">Guia de Mistura (Frasco 11mg)</h4>
+							<ol class="list-decimal list-inside space-y-3 text-gray-300">
+								<li>Higienize as mãos e o frasco.</li>
+								<li>Introduza 2ml de Água Bacteriostática suavemente pela lateral do vidro.</li>
+								<li>Aguarde a completa dissolução; a mistura deve ser clara e sem partículas.</li>
+								<li>Importante: Não agitar. Manter refrigerado para preservar a integridade das cadeias de aminoácidos.</li>
+							</ol>
+							<div class="bg-gray-800/50 border border-cyan-500/20 rounded-lg p-4 mt-6 text-sm text-gray-300">
+								<strong class="text-white">Observação:</strong> O produto liofilizado é altamente sensível a vibrações mecânicas intensas.
+							</div>
+						</div>
+
+						<div class="bg-gray-800/50 border border-cyan-500/20 rounded-lg p-6 mt-4">
+							<h4 class="text-white font-bold mb-4 flex items-center gap-2">
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+								</svg>
+								Calculadora Rápida ({produtoNome})
+							</h4>
+							<form id="calculadoraProduto" class="space-y-4">
+								<div>
+									<label for="doseProduto" class="block text-sm font-medium text-gray-300 mb-2">Dose Desejada (mg)</label>
+									<input
+										type="number"
+										id="doseProduto"
+										step="0.05"
+										min="0"
+										value="0.25"
+										placeholder="Ex: 0.25"
+										required
+										class="w-full px-4 py-2 bg-black/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500/50 transition-all duration-300"
+									/>
+								</div>
+								<button type="submit" class="w-full md:w-auto py-3 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white font-bold rounded-lg hover:from-cyan-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/50 active:scale-[0.98]">
+									CALCULAR UNIDADES
+								</button>
+							</form>
+							<div id="resultadoProduto" class="hidden mt-4 pt-4 border-t border-white/10">
+								<div class="bg-cyan-500/20 border border-cyan-500/30 rounded-lg p-4 text-center">
+									<p class="text-gray-400 text-xs mb-1">Unidades da Seringa (UI)</p>
+									<p id="resultadoUIProduto" class="text-3xl font-bold text-cyan-400">0</p>
+									<p class="text-gray-400 text-xs mt-1">Volume: <span id="resultadoVolumeProduto" class="text-cyan-300">0 ml</span></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-4 mt-6">
+							<p class="text-sm text-cyan-300 mb-3"><strong>Dica:</strong> Use a calculadora completa para outros frascos e diluições.</p>
+							<a href="/calculadora" class="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/50 text-cyan-300 rounded-lg transition-colors text-sm font-semibold">
+								Acessar Calculadora Completa
+								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
+							</a>
+						</div>
+
+						<div class="border-t border-white/10 pt-6 mt-6">
+							<h4 class="text-white font-bold mb-4">💉 Administração</h4>
+							<ul class="space-y-2 text-gray-300">
+								<li class="flex items-start gap-2">
+									<span class="text-cyan-400 font-bold">•</span>
+									<span><strong class="text-white">Via:</strong> Subcutânea (comumente abdominal) ou Intranasal (quando utilizado frasco spray específico).</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</Accordion>
+
+				<Accordion title="Laudo Técnico (HPLC)">
+					<div class="prose prose-invert max-w-none">
+						<div class="grid grid-cols-2 gap-4 mb-6 text-center">
+							<div class="bg-gray-800 p-3 rounded"><p class="text-xs text-gray-500">Pureza Certificada</p><p class="text-xl font-bold text-cyan-400">&gt;99.2%</p></div>
+							<div class="bg-gray-800 p-3 rounded"><p class="text-xs text-gray-500">Lote</p><p class="text-xl font-bold text-white">#OR-2026-SLK11</p></div>
+						</div>
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+							<div class="bg-gray-800/50 p-3 rounded border border-white/5"><p class="text-xs text-gray-500 mb-1">Sequência</p><p class="text-sm text-white font-medium">Thr-Lys-Pro-Arg-Pro-Gly-Pro</p></div>
+							<div class="bg-gray-800/50 p-3 rounded border border-white/5"><p class="text-xs text-gray-500 mb-1">Fórmula Molecular</p><p class="text-sm text-white font-medium">C33H57N11O9</p></div>
+							<div class="bg-gray-800/50 p-3 rounded border border-white/5"><p class="text-xs text-gray-500 mb-1">Peso Molecular</p><p class="text-sm text-white font-medium">751.9 g/mol</p></div>
+							<div class="bg-gray-800/50 p-3 rounded border border-white/5"><p class="text-xs text-gray-500 mb-1">CAS</p><p class="text-sm text-white font-medium">129954-34-3</p></div>
+						</div>
+						<ul class="text-sm text-gray-400 space-y-2 mb-6 list-none">
+							<li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span>Análise de pureza por HPLC com detecção UV</span></li>
+							<li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span>Identificação de impurezas e contaminantes</span></li>
+							<li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg><span>Verificação de estrutura molecular</span></li>
+						</ul>
+					</div>
+				</Accordion>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const form = document.getElementById('calculadoraProduto') as HTMLFormElement | null;
+		const resultado = document.getElementById('resultadoProduto');
+		const resultadoUI = document.getElementById('resultadoUIProduto');
+		const resultadoVolume = document.getElementById('resultadoVolumeProduto');
+		if (!form || !resultado || !resultadoUI || !resultadoVolume) return;
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const inputDose = document.getElementById('doseProduto') as HTMLInputElement | null;
+			if (!inputDose) return;
+
+			const tamanhoFrasco = 11;
+			const quantidadeAgua = 2;
+			const doseDesejada = parseFloat(inputDose.value);
+
+			if (isNaN(doseDesejada) || doseDesejada <= 0 || doseDesejada > tamanhoFrasco) {
+				alert(`Por favor, insira uma dose válida entre 0 e ${tamanhoFrasco}mg.`);
+				return;
+			}
+
+			const mgPorMl = tamanhoFrasco / quantidadeAgua;
+			const unidadesUI = (doseDesejada / mgPorMl) * 100;
+			const volumeMl = doseDesejada / mgPorMl;
+
+			resultadoUI.textContent = unidadesUI.toFixed(1);
+			resultadoVolume.textContent = `${volumeMl.toFixed(2)} ml`;
+			resultado.classList.remove('hidden');
+		});
+	});
+</script>
+

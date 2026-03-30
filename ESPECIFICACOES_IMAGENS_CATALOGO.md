@@ -46,7 +46,7 @@ As imagens devem ser salvas no diretório:
 | MOTS-C | `mots-c.png` |
 | GHK-Cu | `ghk-cu.png` |
 | Tesamorelin | `tesamorelin.png` |
-| Água Estéril | `agua-esteril.png` |
+| Água Bacteriostática | `agua-esteril.png` |
 
 ---
 
@@ -82,7 +82,7 @@ As imagens devem ser salvas no diretório:
 - **Cor sugerida:** Tons de ciano/azul claro
 
 #### **Suprimento (Blue Glow)**
-- Água Estéril
+- Água Bacteriostática
 - **Sugestão:** Tubo de ensaio, gota de água estilizada, ou símbolo de pureza
 - **Cor sugerida:** Tons de azul
 

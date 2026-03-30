@@ -40,6 +40,11 @@ const layoutOgImage = '/image/produtos/KLOW80.png';
                             <img src={imagemProduto} alt={imagemAlt} class="w-full h-auto object-contain rounded-lg" />
                         </div>
                     </figure>
+					<!-- Mobile: subtítulo e descrição abaixo da imagem -->
+					<div class="md:hidden">
+						<p class="text-xl text-gray-400 font-medium mb-3">{subtitulo}</p>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6">{descricao}</p>
+					</div>
                     <div class="flex flex-col gap-4">
                         <div class="bg-gray-900/50 backdrop-blur-md border border-blue-500/20 rounded-xl p-4 hover:border-blue-500/40 transition-all duration-300">
                             <div class="flex flex-col items-center text-center space-y-2">
@@ -52,7 +57,7 @@ const layoutOgImage = '/image/produtos/KLOW80.png';
                             <div class="flex flex-col items-center text-center space-y-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.69c-3.5 0-6.31 2.81-6.31 6.31 0 3.5 6.31 10.31 6.31 10.31S18.31 12.5 18.31 9c0-3.5-2.81-6.31-6.31-6.31z"/></svg>
                                 <p class="text-xs text-gray-400 uppercase tracking-wider">Inclui</p>
-                                <p class="text-sm text-white font-semibold">🎁 Água Estéril</p>
+                                <p class="text-sm text-white font-semibold">🎁 Água Bacteriostática</p>
                             </div>
                         </div>
                         <div class="bg-gray-900/50 backdrop-blur-md border border-blue-500/20 rounded-xl p-4 hover:border-blue-500/40 transition-all duration-300">
@@ -66,7 +71,7 @@ const layoutOgImage = '/image/produtos/KLOW80.png';
                             <div class="flex flex-col items-center text-center space-y-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                                 <p class="text-xs text-gray-400 uppercase tracking-wider">Diluição Recomendada</p>
-                                <p class="text-sm text-white font-semibold">Requer 4ml de Água Estéril</p>
+                                <p class="text-sm text-white font-semibold">Requer 4ml de Água Bacteriostática</p>
                             </div>
                         </div>
                     </div>

@@ -66,7 +66,7 @@ import Accordion from '../../components/Accordion.astro';
                                     <path d="M12 2.69c-3.5 0-6.31 2.81-6.31 6.31 0 3.5 6.31 10.31 6.31 10.31S18.31 12.5 18.31 9c0-3.5-2.81-6.31-6.31-6.31z"/>
                                 </svg>
                                 <p class="text-xs text-gray-400 uppercase tracking-wider">Inclui</p>
-                                <p class="text-sm text-white font-semibold">🎁 Água Estéril</p>
+                                <p class="text-sm text-white font-semibold">🎁 Água Bacteriostática</p>
                             </div>
                         </div>
 
@@ -79,6 +79,17 @@ import Accordion from '../../components/Accordion.astro';
                                 </svg>
                                 <p class="text-xs text-gray-400 uppercase tracking-wider">Temperatura</p>
                                 <p class="text-sm text-white font-semibold">2°C a 8°C (Geladeira)</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Diluição Recomendada -->
+                        <div class="bg-gray-900/50 backdrop-blur-md border border-amber-500/20 rounded-xl p-4 hover:border-amber-500/40 transition-all duration-300">
+                            <div class="flex flex-col items-center text-center space-y-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Diluição Recomendada</p>
+                                <p class="text-sm text-white font-semibold">Requer 0,8ml de Água Bacteriostática</p>
                             </div>
                         </div>
                     </div>
@@ -172,7 +183,7 @@ import Accordion from '../../components/Accordion.astro';
                                             <th class="px-4 py-3">Fase</th>
                                             <th class="px-4 py-3">Dose Semanal</th>
                                             <th class="px-4 py-3 text-white bg-amber-600/20 border-l border-amber-500/30">
-                                                Volume na Seringa (Ref: 2ml água)
+                                                Volume na Seringa (Ref: 0,8ml água)
                                             </th>
                                             <th class="px-4 py-3">Frequência</th>
                                         </tr>
@@ -182,7 +193,7 @@ import Accordion from '../../components/Accordion.astro';
                                             <td class="px-4 py-3 font-medium text-white">Mês 1</td>
                                             <td class="px-4 py-3 text-gray-300">2.5 mg</td>
                                             <td class="px-4 py-3 font-bold text-amber-400 border-l border-white/5">
-                                                25 unidades (0.25 ml)
+                                                10 unidades (0.10 ml)
                                             </td>
                                             <td class="px-4 py-3 text-gray-300">1x Semana</td>
                                         </tr>
@@ -190,7 +201,7 @@ import Accordion from '../../components/Accordion.astro';
                                             <td class="px-4 py-3 font-medium text-white">Mês 2</td>
                                             <td class="px-4 py-3 text-gray-300">5.0 mg</td>
                                             <td class="px-4 py-3 font-bold text-amber-400 border-l border-white/5">
-                                                50 unidades (0.50 ml)
+                                                20 unidades (0.20 ml)
                                             </td>
                                             <td class="px-4 py-3 text-gray-300">1x Semana</td>
                                         </tr>
@@ -198,7 +209,7 @@ import Accordion from '../../components/Accordion.astro';
                                             <td class="px-4 py-3 font-medium text-white">Mês 3</td>
                                             <td class="px-4 py-3 text-gray-300">7.5 mg</td>
                                             <td class="px-4 py-3 font-bold text-amber-400 border-l border-white/5">
-                                                75 unidades (0.75 ml)
+                                                30 unidades (0.30 ml)
                                             </td>
                                             <td class="px-4 py-3 text-gray-300">1x Semana</td>
                                         </tr>
@@ -206,7 +217,7 @@ import Accordion from '../../components/Accordion.astro';
                                             <td class="px-4 py-3 font-medium text-white">Mês 4</td>
                                             <td class="px-4 py-3 text-gray-300">10.0 mg</td>
                                             <td class="px-4 py-3 font-bold text-amber-400 border-l border-white/5">
-                                                100 unidades (1.0 ml)
+                                                40 unidades (0.40 ml)
                                             </td>
                                             <td class="px-4 py-3 text-gray-300">1x Semana</td>
                                         </tr>
@@ -309,12 +320,12 @@ import Accordion from '../../components/Accordion.astro';
                             <h4 class="text-white font-bold mb-4">Guia de Mistura (Para Frasco 20mg)</h4>
                             <p class="text-gray-300 mb-4">Para precisão ideal com a alta concentração Orion:</p>
                             <ol class="list-decimal list-inside space-y-3 text-gray-300">
-                                <li><strong class="text-white">Diluente:</strong> Utilize <strong>2ml</strong> (200 unidades) de Água Bacteriostática.</li>
+                                <li><strong class="text-white">Diluente:</strong> Utilize <strong>0,8ml</strong> (80 unidades) de Água Bacteriostática.</li>
                                 <li><strong class="text-white">Processo:</strong> Injete a água lentamente pela parede do frasco. <strong>NÃO agite;</strong> faça movimentos circulares suaves (swirl) até dissolver completamente.</li>
                                 <li><strong class="text-white">Matemática da Dose:</strong>
                                     <ul class="list-disc list-inside ml-4 mt-2 space-y-1">
-                                        <li>20mg em 2ml = <strong>10mg por ml</strong></li>
-                                        <li>Cada <strong>10 unidades</strong> na seringa de insulina = <strong>1mg</strong> de produto</li>
+                                        <li>20mg em 0,8ml = <strong>25mg por ml</strong></li>
+                                        <li>Dose de referência: <strong>0,20ml = 20 UI</strong> na seringa</li>
                                     </ul>
                                 </li>
                                 <li>Armazene em refrigeração (2-8°C) após reconstituído.</li>
@@ -500,7 +511,7 @@ import Accordion from '../../components/Accordion.astro';
 </Layout>
 
 <script>
-    // Calculadora Rápida para Tirzepatide (20mg em 2ml)
+    // Calculadora Rápida para Tirzepatide (20mg em 0,8ml)
     document.addEventListener('DOMContentLoaded', () => {
         const formTirzepatide = document.getElementById('calculadoraTirzepatide') as HTMLFormElement | null;
         const resultadoTirzepatide = document.getElementById('resultadoTirzepatide');
@@ -517,9 +528,9 @@ import Accordion from '../../components/Accordion.astro';
             const inputDose = document.getElementById('doseTirzepatide') as HTMLInputElement | null;
             if (!inputDose) return;
 
-            // Valores fixos para Tirzepatide Orion (20mg em 2ml)
+            // Valores fixos para Tirzepatide Orion (20mg em 0,8ml)
             const tamanhoFrasco = 20; // mg
-            const quantidadeAgua = 2; // ml
+            const quantidadeAgua = 0.8; // ml
             const doseDesejada = parseFloat(inputDose.value); // mg
 
             // Validação
@@ -528,10 +539,9 @@ import Accordion from '../../components/Accordion.astro';
                 return;
             }
 
-            // Cálculo: 20mg em 2ml = 10mg/ml
-            // Cada 10 unidades = 1mg
-            const unidadesUI = doseDesejada * 10;
-            const volumeMl = doseDesejada / 10; // 1mg = 0.1ml
+            const mgPorMl = tamanhoFrasco / quantidadeAgua;
+            const unidadesUI = (doseDesejada / mgPorMl) * 100;
+            const volumeMl = doseDesejada / mgPorMl;
 
             // Exibir resultados
             resultadoUITirzepatide.textContent = unidadesUI.toFixed(0);
