@@ -1,7 +1,8 @@
 ---
+import { buildWhatsAppUrl } from '../config/whatsapp';
 // Redirecionamento para WhatsApp - indicação da página Emagreça Já (código EMAGRECAJA)
 const mensagem = 'Olá! Tenho interesse em obter mais informações sobre os peptídeos Orion. Minha indicação veio da página Emagreça Já.';
-const waUrl = `https://wa.me/5511911387063?text=${encodeURIComponent(mensagem)}`;
+const waUrl = buildWhatsAppUrl(mensagem);
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">

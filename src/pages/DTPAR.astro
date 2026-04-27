@@ -1,7 +1,8 @@
 ---
+import { buildWhatsAppUrl } from '../config/whatsapp';
 // Redirecionamento para WhatsApp com mensagem de indicação DTPAR (Dutra Táxi)
 const mensagem = 'Olá! Tenho interesse em obter mais informações sobre os peptídeos Orion. Meu código de indicação é DTPAR de Dutra Táxi.';
-const waUrl = `https://wa.me/5511911387063?text=${encodeURIComponent(mensagem)}`;
+const waUrl = buildWhatsAppUrl(mensagem);
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">

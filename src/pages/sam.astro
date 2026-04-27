@@ -1,3 +1,9 @@
+---
+import { buildWhatsAppUrl } from '../config/whatsapp';
+
+const mensagem = 'Olá! Vi a indicação da Sam e gostaria de saber mais sobre os peptídeos Orion.';
+const waUrl = buildWhatsAppUrl(mensagem);
+---
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,7 +12,7 @@
 	<title>Redirecionando — Orion Peptides</title>
 	<meta name="description" content="Redirecionamento para o WhatsApp Orion Peptides (indicação Sam).">
 	<link rel="canonical" href="https://orionpeptideos.com/sam/">
-	<meta http-equiv="refresh" content="0;url=https://wa.me/5511911387063?text=Ol%C3%A1%21%20Vi%20a%20indica%C3%A7%C3%A3o%20da%20Sam%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20pept%C3%ADdeos%20Orion.">
+	<meta http-equiv="refresh" content={`0;url=${waUrl}`}>
 	<style>
 		body { font-family: system-ui, sans-serif; margin: 2rem; text-align: center; color: #333; }
 		a { color: #25d366; }
@@ -14,6 +20,6 @@
 </head>
 <body>
 	<p>Redirecionando para o WhatsApp…</p>
-	<p>Se não abrir automaticamente, <a href="https://wa.me/5511911387063?text=Ol%C3%A1%21%20Vi%20a%20indica%C3%A7%C3%A3o%20da%20Sam%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20pept%C3%ADdeos%20Orion.">clique aqui</a>.</p>
+	<p>Se não abrir automaticamente, <a href={waUrl}>clique aqui</a>.</p>
 </body>
 </html>

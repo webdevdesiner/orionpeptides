@@ -1,7 +1,7 @@
 ---
 import { buildWhatsAppUrl } from '../config/whatsapp';
-// Redirecionamento para WhatsApp com mensagem de indicação BSPAR (Betania Sena)
-const mensagem = 'Olá! Tenho interesse em obter mais informações sobre os peptídeos Orion. Meu código de indicação é BSPAR de Betania Sena.';
+
+const mensagem = 'Oi, equipe Orion! Cheguei pela indicação da Marcinha e gostaria de um atendimento.';
 const waUrl = buildWhatsAppUrl(mensagem);
 ---
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ const waUrl = buildWhatsAppUrl(mensagem);
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="refresh" content={`0;url=${waUrl}`} />
-		<title>Redirecionando para WhatsApp...</title>
+		<title>Redirecionando para Marcinha</title>
 		<link rel="canonical" href={waUrl} />
 	</head>
 	<body>
