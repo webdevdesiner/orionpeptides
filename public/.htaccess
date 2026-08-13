@@ -1,0 +1,17 @@
+AddDefaultCharset UTF-8
+
+<IfModule mod_mime.c>
+	AddCharset UTF-8 .html .htm .css .js .xml .json
+</IfModule>
+
+<IfModule LiteSpeed>
+	RewriteEngine On
+	RewriteRule \.(html|htm)$ - [E=Cache-Control:no-cache]
+</IfModule>
+
+<IfModule mod_headers.c>
+	<FilesMatch "\.(html|htm)$">
+		Header set Cache-Control "no-cache, no-store, must-revalidate"
+		Header set Pragma "no-cache"
+	</FilesMatch>
+</IfModule>
