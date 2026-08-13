@@ -34,7 +34,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           local-dir: dist/
-          server-dir: /home/u640514558/domains/orionpeptideos.com/public_html/
+          # FTP da Hostinger já abre dentro de public_html. Caminho absoluto
+          # criava uma pasta aninhada e a public_html real ficava vazia.
+          server-dir: ./
           dangerous-clean-slate: true
           exclude: |
             **/.well-known/**
