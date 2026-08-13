@@ -35,7 +35,4 @@ jobs:
           protocol: ftp
           local-dir: dist/
           server-dir: /home/u640514558/domains/orionpeptideos.com/public_html/
-          dangerous-clean-slate: true
-          exclude: |
-            **/.well-known/**
-            **/.well-known/**/*
+          dangerous-clean-slate: false
