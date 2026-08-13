@@ -1,14 +1,2 @@
-AddDefaultCharset Off
-
-<IfModule mod_headers.c>
-	<FilesMatch "\.(html|htm)$">
-		Header set Content-Type "text/html; charset=UTF-8"
-		Header set Cache-Control "no-cache, no-store, must-revalidate"
-		Header set Pragma "no-cache"
-	</FilesMatch>
-</IfModule>
-
-<IfModule LiteSpeed>
-	RewriteEngine On
-	RewriteRule \.(html|htm)$ - [E=Cache-Control:no-cache]
-</IfModule>
+# Charset vem do <meta charset="UTF-8"> em cada HTML.
+# Nao forcar charset no Apache/LiteSpeed — isso recodifica o arquivo e quebra acentos.
