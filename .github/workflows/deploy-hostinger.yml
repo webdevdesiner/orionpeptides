@@ -26,18 +26,42 @@ jobs:
       - name: Build Astro
         run: npm run build
 
-      - name: Deploy dist/ to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          local-dir: dist/
-          # FTP da Hostinger já abre dentro de public_html. Caminho absoluto
-          # criava uma pasta aninhada e a public_html real ficava vazia.
-          server-dir: ./
-          dangerous-clean-slate: true
-          exclude: |
-            **/.well-known/**
-            **/.well-known/**/*
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y lftp
+
+      - name: Force upload dist/ into public_html
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          test -f dist/index.html
+
+          lftp_cmd() {
+            lftp -e "set ssl:verify-certificate no; set ftp:ssl-allow yes; set ftp:passive-mode yes; set net:timeout 30; set net:max-retries 5; set cmd:fail-exit yes; open -u ${FTP_USER},${FTP_PASSWORD} ${FTP_HOST}; $1; bye"
+          }
+
+          echo "=== FTP root ==="
+          lftp_cmd "pwd; ls" || true
+
+          DEST=""
+          for candidate in \
+            "domains/orionpeptideos.com/public_html" \
+            "public_html" \
+            "."
+          do
+            echo "=== trying ${candidate} ==="
+            if lftp_cmd "cd ${candidate}; pwd"; then
+              DEST="$candidate"
+              break
+            fi
+          done
+
+          if [ -z "$DEST" ]; then
+            echo "Nao achei public_html no FTP"
+            exit 1
+          fi
+
+          echo "=== uploading into ${DEST} ==="
+          lftp_cmd "cd ${DEST}; pwd; ls; lcd dist; mirror -R --verbose --overwrite --parallel=4 --exclude-glob .well-known --exclude-glob .well-known/**; echo '--- after ---'; ls; ls index.html"
